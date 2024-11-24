@@ -1,4 +1,4 @@
-package robinx51.calculator;
+package MS_calculator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

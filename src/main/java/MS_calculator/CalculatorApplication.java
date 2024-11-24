@@ -1,4 +1,4 @@
-package robinx51.calculator;
+package MS_calculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ public class CalculatorApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CalculatorApplication.class, args);
-		System.out.println("Hello, World!");
+		System.out.println("App started!");
 	}
 
 }
