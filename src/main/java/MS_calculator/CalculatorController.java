@@ -1,7 +1,8 @@
 package MS_calculator;
 
-
 import MS_calculator.DTO.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,15 +17,28 @@ import java.util.regex.Pattern;
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorController {
-    private static final String SUCCESS_STATUS = "success";
-    private static final String ERROR_STATUS = "error";
-    private static final int CODE_SUCCESS = 100;
-    private static final int AUTH_FAILURE = 102;
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(CalculatorController.class);
+    @Value("${calculator.baseRate}")
+    private Integer baseRate;
+
     @PostMapping("/offers")
+    @Tag(   name = "Расчёт возможных условий кредита",
+            description = "На основании LoanStatementRequestDto происходит" +
+            " прескоринг, создаётся 4 кредитных предложения LoanOfferDto на основании всех возможных комбинаций булевских полей " +
+            "isInsuranceEnabled и isSalaryClient")
     public List<LoanOfferDto> Offers (@RequestBody LoanStatementRequestDto request) {
-        return PreScoring(request);
+        logger.info("Received request for offers: {}", request);
+
+        List<LoanOfferDto> offers = PreScoring(request);
+        logger.info("Generated offers: {}", offers);
+
+        return offers;
     }
     @PostMapping("/calc")
+    @Tag(   name = "Валидация присланных данных + полный расчет параметров кредита",
+            description = "Происходит скоринг данных," +
+            " высчитывание итоговой ставки(rate), полной стоимости кредита(psk), размер ежемесячного платежа(monthlyPayment), " +
+            "график ежемесячных платежей (List<PaymentScheduleElementDto>)")
     public CreditDto Calc (@RequestBody ScoringDataDto scoringDataDto) {
 
         return null;
@@ -36,11 +50,11 @@ public class CalculatorController {
                 && request.getTerm() >= 6
                 && Period.between(request.getBirthdate().plusDays(1), LocalDate.now()).getYears() >= 18
                 && Pattern.matches("^[a-z0-9A-Z_!#$%&'*+/=?`{|}~^.-]+@[a-z0-9A-Z.-]+$", request.getEmail())
-                && request.getPassportNumber().length() == 4
-                && request.getPassportSeries().length() == 6 ) {
+                && request.getPassportSeries().length() == 4
+                && request.getPassportNumber().length() == 6 ) {
             return GenerateOffers(request);
         } else
-            return new ArrayList<LoanOfferDto>();
+            throw new NullPointerException("Прескоринг не пройден");
     }
     private boolean CheckNames(String firstName, String lastName, String middleName) {
         List<String> names = new ArrayList<>(Arrays.asList(firstName, lastName, middleName));
@@ -57,15 +71,13 @@ public class CalculatorController {
         }
         return true;
     }
-
     private List<LoanOfferDto> GenerateOffers(LoanStatementRequestDto request) {
         List<LoanOfferDto> offers = new ArrayList<>();
-        //boolean isInsurance = true, isSalary = true;
         int counter;
 
         for (int insurance = 0; insurance < 2; insurance++){
             for (int salary = 0; salary < 2; salary++) {
-                double insuranceAmount = 0L, rate = 0L;
+                double insuranceAmount = 0L, rate = baseRate;
                 boolean isInsurance = false, isSalary = false;
                 if (insurance == 1) {
                     isInsurance = true;
@@ -77,12 +89,23 @@ public class CalculatorController {
                     rate -= 1;
                 }
                 BigDecimal totalAmount = request.getAmount().add(new BigDecimal(insuranceAmount));
-                /*offers.add( new LoanOfferDto(UUID.randomUUID(), request.getAmount(),
-                        totalAmount, request.getTerm(), ,
-                        rate, isInsurance, isSalary));*/
+                offers.add( new LoanOfferDto(UUID.randomUUID(), request.getAmount(),
+                        totalAmount, request.getTerm(), GetMonthlyPayment(totalAmount, rate, request.getTerm()),
+                        new BigDecimal(rate), isInsurance, isSalary));
             }
         }
         Collections.sort(offers);
         return offers;
+    }
+    private BigDecimal GetMonthlyPayment(final BigDecimal totalAmount, final double rate, final int term) {
+        double ratioPayment = 0D;
+        double monthlyRate = (rate / 100) / 12;
+
+        // К = (М * (1 + М) ^ S) / ((1 + М) ^ S — 1)
+        // где М — месячная процентная ставка по кредиту, S — срок кредита в месяцах.
+        ratioPayment = (monthlyRate * Math.pow((1 + monthlyRate), term)) / (Math.pow((1 + monthlyRate), term) - 1);
+        // Х = С * К
+        // где X — аннуитетный платеж, С — сумма кредита, К — коэффициент аннуитета.
+        return new BigDecimal(totalAmount.doubleValue() * ratioPayment);
     }
 }

@@ -1,6 +1,7 @@
 package MS_calculator.DTO;
 
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -15,6 +16,7 @@ public class LoanOfferDto implements Comparable<LoanOfferDto> {
     private BigDecimal rate;
     private boolean isInsuranceEnabled;
     private boolean isSalaryClient;
+
     public LoanOfferDto() {}
     public LoanOfferDto(UUID statementId, BigDecimal requestedAmount, BigDecimal totalAmount, Integer term, BigDecimal monthlyPayment, BigDecimal rate, Boolean isInsuranceEnabled, Boolean isSalaryClient) {
         this.statementId = statementId;
