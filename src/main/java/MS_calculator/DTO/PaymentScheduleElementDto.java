@@ -1,8 +1,11 @@
 package MS_calculator.DTO;
 
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Getter
 public class PaymentScheduleElementDto {
     private Integer number;
     private LocalDate date;
@@ -11,51 +14,33 @@ public class PaymentScheduleElementDto {
     private BigDecimal debtPayment;
     private BigDecimal remainingDebt;
 
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
+    public PaymentScheduleElementDto setNumber(Integer number) {
         this.number = number;
+        return this;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
+    public PaymentScheduleElementDto setDate(LocalDate date) {
         this.date = date;
+        return this;
     }
 
-    public BigDecimal getTotalPayment() {
-        return totalPayment;
-    }
-
-    public void setTotalPayment(BigDecimal totalPayment) {
+    public PaymentScheduleElementDto setTotalPayment(BigDecimal totalPayment) {
         this.totalPayment = totalPayment;
+        return this;
     }
 
-    public BigDecimal getInterestPayment() {
-        return interestPayment;
-    }
-
-    public void setInterestPayment(BigDecimal interestPayment) {
+    public PaymentScheduleElementDto setInterestPayment(BigDecimal interestPayment) {
         this.interestPayment = interestPayment;
+        return this;
     }
 
-    public BigDecimal getDebtPayment() {
-        return debtPayment;
-    }
-
-    public void setDebtPayment(BigDecimal debtPayment) {
+    public PaymentScheduleElementDto setDebtPayment(BigDecimal debtPayment) {
         this.debtPayment = debtPayment;
+        return this;
     }
 
-    public BigDecimal getRemainingDebt() {
-        return remainingDebt;
-    }
-
-    public void setRemainingDebt(BigDecimal remainingDebt) {
+    public PaymentScheduleElementDto setRemainingDebt(BigDecimal remainingDebt) {
         this.remainingDebt = remainingDebt;
+        return this;
     }
 }

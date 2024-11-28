@@ -100,9 +100,9 @@ jakarta.validation.UnexpectedTypeException: HV000030: No validator could be foun
 2024-11-26T17:29:36.694+03:00 ERROR 20036 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "this.baseRate" is null] with root cause
 
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "this.baseRate" is null
-	at MS_calculator.ScoringService.calculateRate(ScoringService.java:24) ~[classes/:na]
-	at MS_calculator.OfferService.createOffer(OfferService.java:37) ~[classes/:na]
-	at MS_calculator.OfferService.generateOffers(OfferService.java:21) ~[classes/:na]
+	at MS_calculator.Services.ScoringService.calculateRate(ScoringService.java:24) ~[classes/:na]
+	at MS_calculator.Services.OfferService.createOffer(OfferService.java:37) ~[classes/:na]
+	at MS_calculator.Services.OfferService.generateOffers(OfferService.java:21) ~[classes/:na]
 	at MS_calculator.CalculatorController.Offers(CalculatorController.java:26) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
@@ -172,9 +172,9 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 2024-11-26T17:35:08.895+03:00 ERROR 20520 --- [calculator] [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "this.baseRate" is null] with root cause
 
 java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because "this.baseRate" is null
-	at MS_calculator.ScoringService.calculateRate(ScoringService.java:24) ~[classes/:na]
-	at MS_calculator.OfferService.createOffer(OfferService.java:37) ~[classes/:na]
-	at MS_calculator.OfferService.generateOffers(OfferService.java:21) ~[classes/:na]
+	at MS_calculator.Services.ScoringService.calculateRate(ScoringService.java:24) ~[classes/:na]
+	at MS_calculator.Services.OfferService.createOffer(OfferService.java:37) ~[classes/:na]
+	at MS_calculator.Services.OfferService.generateOffers(OfferService.java:21) ~[classes/:na]
 	at MS_calculator.CalculatorController.Offers(CalculatorController.java:26) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
@@ -776,9 +776,9 @@ jakarta.validation.UnexpectedTypeException: HV000030: No validator could be foun
 2024-11-26T18:53:15.684+03:00  INFO 24640 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-11-26T18:53:15.684+03:00  INFO 24640 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-11-26T18:53:15.685+03:00  INFO 24640 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-11-26T18:53:15.798+03:00 ERROR 24640 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: jakarta.validation.ConstraintDefinitionException: HV000074: MS_calculator.DTO.Adult contains Constraint annotation, but does not contain a groups parameter.] with root cause
+2024-11-26T18:53:15.798+03:00 ERROR 24640 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: jakarta.validation.ConstraintDefinitionException: HV000074: MS_calculator.Annotations.Adult contains Constraint annotation, but does not contain a groups parameter.] with root cause
 
-jakarta.validation.ConstraintDefinitionException: HV000074: MS_calculator.DTO.Adult contains Constraint annotation, but does not contain a groups parameter.
+jakarta.validation.ConstraintDefinitionException: HV000074: MS_calculator.Annotations.Adult contains Constraint annotation, but does not contain a groups parameter.
 	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.assertGroupsParameterExists(ConstraintHelper.java:1049) ~[hibernate-validator-8.0.1.Final.jar:8.0.1.Final]
 	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.lambda$isConstraintAnnotation$3(ConstraintHelper.java:1011) ~[hibernate-validator-8.0.1.Final.jar:8.0.1.Final]
 	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708) ~[na:na]
@@ -954,3 +954,388 @@ jakarta.validation.ConstraintDefinitionException: HV000074: MS_calculator.DTO.Ad
 2024-11-26T19:47:13.489+03:00  WARN 24008 --- [calculator] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public java.util.List<MS_calculator.DTO.LoanOfferDto> MS_calculator.CalculatorController.Offers(MS_calculator.DTO.LoanStatementRequestDto) with 5 errors: [Field error in object 'loanStatementRequestDto' on field 'birthdate': rejected value [2007-01-01]; codes [Adult.loanStatementRequestDto.birthdate,Adult.birthdate,Adult.java.time.LocalDate,Adult]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.birthdate,birthdate]; arguments []; default message [birthdate]]; default message [Должно быть достигнуто 18 лет]] [Field error in object 'loanStatementRequestDto' on field 'firstName': rejected value [Y]; codes [Pattern.loanStatementRequestDto.firstName,Pattern.firstName,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.firstName,firstName]; arguments []; default message [firstName],[Ljakarta.validation.constraints.Pattern$Flag;@4f65bb84,^[a-zA-Z]{2,30}$]; default message [Имя - от 2 до 30 латинских букв]] [Field error in object 'loanStatementRequestDto' on field 'email': rejected value [Stringmail.ru]; codes [Email.loanStatementRequestDto.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.email,email]; arguments []; default message [email],[Ljakarta.validation.constraints.Pattern$Flag;@43e8a106,.*]; default message [должно иметь формат адреса электронной почты]] [Field error in object 'loanStatementRequestDto' on field 'amount': rejected value [2000]; codes [Min.loanStatementRequestDto.amount,Min.amount,Min.java.math.BigDecimal,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.amount,amount]; arguments []; default message [amount],20000]; default message [Сумма кредита - действительно число, большее или равное 20000]] [Field error in object 'loanStatementRequestDto' on field 'term': rejected value [4]; codes [Min.loanStatementRequestDto.term,Min.term,Min.int,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.term,term]; arguments []; default message [term],6]; default message [Срок кредита - целое число, большее или равное 6]] ]
 2024-11-26T19:47:24.581+03:00  WARN 24008 --- [calculator] [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public java.util.List<MS_calculator.DTO.LoanOfferDto> MS_calculator.CalculatorController.Offers(MS_calculator.DTO.LoanStatementRequestDto) with 7 errors: [Field error in object 'loanStatementRequestDto' on field 'passportNumber': rejected value [1234567]; codes [Pattern.loanStatementRequestDto.passportNumber,Pattern.passportNumber,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.passportNumber,passportNumber]; arguments []; default message [passportNumber],[Ljakarta.validation.constraints.Pattern$Flag;@4f65bb84,^\d{6}$]; default message [Номер паспорта - 6 цифр]] [Field error in object 'loanStatementRequestDto' on field 'birthdate': rejected value [2007-01-01]; codes [Adult.loanStatementRequestDto.birthdate,Adult.birthdate,Adult.java.time.LocalDate,Adult]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.birthdate,birthdate]; arguments []; default message [birthdate]]; default message [Должно быть достигнуто 18 лет]] [Field error in object 'loanStatementRequestDto' on field 'firstName': rejected value [Y]; codes [Pattern.loanStatementRequestDto.firstName,Pattern.firstName,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.firstName,firstName]; arguments []; default message [firstName],[Ljakarta.validation.constraints.Pattern$Flag;@4f65bb84,^[a-zA-Z]{2,30}$]; default message [Имя - от 2 до 30 латинских букв]] [Field error in object 'loanStatementRequestDto' on field 'term': rejected value [4]; codes [Min.loanStatementRequestDto.term,Min.term,Min.int,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.term,term]; arguments []; default message [term],6]; default message [Срок кредита - целое число, большее или равное 6]] [Field error in object 'loanStatementRequestDto' on field 'amount': rejected value [2000]; codes [Min.loanStatementRequestDto.amount,Min.amount,Min.java.math.BigDecimal,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.amount,amount]; arguments []; default message [amount],20000]; default message [Сумма кредита - действительно число, большее или равное 20000]] [Field error in object 'loanStatementRequestDto' on field 'email': rejected value [Stringmail.ru]; codes [Email.loanStatementRequestDto.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.email,email]; arguments []; default message [email],[Ljakarta.validation.constraints.Pattern$Flag;@43e8a106,.*]; default message [должно иметь формат адреса электронной почты]] [Field error in object 'loanStatementRequestDto' on field 'passportSeries': rejected value [12345]; codes [Pattern.loanStatementRequestDto.passportSeries,Pattern.passportSeries,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loanStatementRequestDto.passportSeries,passportSeries]; arguments []; default message [passportSeries],[Ljakarta.validation.constraints.Pattern$Flag;@4f65bb84,^\d{4}$]; default message [Серия паспорта - 4 цифры]] ]
 2024-11-26T19:47:41.704+03:00  INFO 24008 --- [calculator] [http-nio-8080-exec-6] MS_calculator.CalculatorController       : Received request for offers: LoanStatementRequestDto(amount=20000, term=6, firstName=Ya, lastName=Si, middleName=String, email=String@mail.ru, birthdate=2004-01-01, passportSeries=1234, passportNumber=123456)
+2024-11-28T15:38:44.376+03:00  INFO 7116 --- [calculator] [main] MS_calculator.OfferServiceTest           : Starting OfferServiceTest using Java 21.0.2 with PID 7116 (started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T15:38:44.378+03:00  INFO 7116 --- [calculator] [main] MS_calculator.OfferServiceTest           : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T15:38:45.860+03:00  INFO 7116 --- [calculator] [main] MS_calculator.OfferServiceTest           : Started OfferServiceTest in 1.807 seconds (process running for 3.07)
+2024-11-28T16:19:26.769+03:00  INFO 17212 --- [calculator] [main] M.CalculatorApplicationTests             : Starting CalculatorApplicationTests using Java 21.0.2 with PID 17212 (started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T16:19:26.771+03:00  INFO 17212 --- [calculator] [main] M.CalculatorApplicationTests             : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T16:19:28.074+03:00  INFO 17212 --- [calculator] [main] M.CalculatorApplicationTests             : Started CalculatorApplicationTests in 1.575 seconds (process running for 3.938)
+2024-11-28T17:39:17.584+03:00  INFO 22388 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 22388 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T17:39:17.586+03:00  INFO 22388 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:39:17.619+03:00  INFO 22388 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:39:17.620+03:00  INFO 22388 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:39:18.536+03:00  INFO 22388 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T17:39:18.552+03:00  INFO 22388 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T17:39:18.552+03:00  INFO 22388 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T17:39:18.625+03:00  INFO 22388 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T17:39:18.625+03:00  INFO 22388 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1005 ms
+2024-11-28T17:39:19.045+03:00  INFO 22388 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T17:39:19.075+03:00  INFO 22388 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T17:39:19.081+03:00  INFO 22388 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.842 seconds (process running for 2.434)
+2024-11-28T17:39:28.327+03:00  INFO 22388 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T17:39:28.327+03:00  INFO 22388 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T17:39:28.328+03:00  INFO 22388 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T17:39:28.483+03:00  INFO 22388 --- [calculator] [http-nio-8080-exec-1] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@566ebb05
+2024-11-28T17:44:19.197+03:00  INFO 21584 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 21584 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T17:44:19.199+03:00  INFO 21584 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:44:19.263+03:00  INFO 21584 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:44:19.263+03:00  INFO 21584 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:44:20.276+03:00  INFO 21584 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T17:44:20.289+03:00  INFO 21584 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T17:44:20.290+03:00  INFO 21584 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T17:44:20.345+03:00  INFO 21584 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T17:44:20.346+03:00  INFO 21584 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1082 ms
+2024-11-28T17:44:20.830+03:00  INFO 21584 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T17:44:20.859+03:00  INFO 21584 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T17:44:20.866+03:00  INFO 21584 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 2.048 seconds (process running for 2.619)
+2024-11-28T17:44:30.033+03:00  INFO 21584 --- [calculator] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T17:44:30.033+03:00  INFO 21584 --- [calculator] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T17:44:30.034+03:00  INFO 21584 --- [calculator] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T17:44:30.179+03:00  INFO 21584 --- [calculator] [http-nio-8080-exec-3] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@71099c8
+2024-11-28T17:45:07.343+03:00  INFO 22020 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 22020 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T17:45:07.345+03:00  INFO 22020 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:45:07.391+03:00  INFO 22020 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:45:07.391+03:00  INFO 22020 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:45:08.318+03:00  INFO 22020 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T17:45:08.330+03:00  INFO 22020 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T17:45:08.330+03:00  INFO 22020 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T17:45:08.379+03:00  INFO 22020 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T17:45:08.380+03:00  INFO 22020 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 987 ms
+2024-11-28T17:45:08.849+03:00  INFO 22020 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T17:45:08.875+03:00  INFO 22020 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T17:45:08.882+03:00  INFO 22020 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.953 seconds (process running for 2.916)
+2024-11-28T17:45:22.857+03:00  INFO 22020 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T17:45:22.857+03:00  INFO 22020 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T17:45:22.858+03:00  INFO 22020 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T17:45:23.014+03:00  INFO 22020 --- [calculator] [http-nio-8080-exec-1] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@43b9ec3f
+2024-11-28T17:46:34.231+03:00  INFO 22020 --- [calculator] [http-nio-8080-exec-3] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@2c5647f
+2024-11-28T17:46:42.907+03:00  INFO 22020 --- [calculator] [http-nio-8080-exec-5] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@1394112a
+2024-11-28T17:47:27.507+03:00  INFO 22020 --- [calculator] [http-nio-8080-exec-6] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@1fbfb4b9
+2024-11-28T17:48:45.450+03:00  INFO 21892 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 21892 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T17:48:45.452+03:00  INFO 21892 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:48:45.491+03:00  INFO 21892 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:48:45.491+03:00  INFO 21892 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:48:46.419+03:00  INFO 21892 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T17:48:46.431+03:00  INFO 21892 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T17:48:46.432+03:00  INFO 21892 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T17:48:46.483+03:00  INFO 21892 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T17:48:46.484+03:00  INFO 21892 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 993 ms
+2024-11-28T17:48:46.917+03:00  INFO 21892 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T17:48:46.943+03:00  INFO 21892 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T17:48:46.949+03:00  INFO 21892 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.885 seconds (process running for 2.631)
+2024-11-28T17:48:48.834+03:00  INFO 21892 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T17:48:48.834+03:00  INFO 21892 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T17:48:48.835+03:00  INFO 21892 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T17:48:49.009+03:00  INFO 21892 --- [calculator] [http-nio-8080-exec-1] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@6d84d353
+2024-11-28T17:50:08.533+03:00  INFO 7988 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 7988 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T17:50:08.535+03:00  INFO 7988 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:50:08.580+03:00  INFO 7988 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:50:08.580+03:00  INFO 7988 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:50:09.544+03:00  INFO 7988 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T17:50:09.557+03:00  INFO 7988 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T17:50:09.558+03:00  INFO 7988 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T17:50:09.608+03:00  INFO 7988 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T17:50:09.608+03:00  INFO 7988 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1027 ms
+2024-11-28T17:50:10.060+03:00  INFO 7988 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T17:50:10.086+03:00  INFO 7988 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T17:50:10.092+03:00  INFO 7988 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.986 seconds (process running for 2.625)
+2024-11-28T17:50:57.819+03:00  INFO 7988 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T17:50:57.820+03:00  INFO 7988 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T17:50:57.821+03:00  INFO 7988 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-28T17:50:57.959+03:00  INFO 7988 --- [calculator] [http-nio-8080-exec-1] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@6f2a859a
+2024-11-28T17:51:45.786+03:00  INFO 20456 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 20456 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T17:51:45.788+03:00  INFO 20456 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:51:45.861+03:00  INFO 20456 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:51:45.861+03:00  INFO 20456 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:51:46.740+03:00  INFO 20456 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T17:51:46.752+03:00  INFO 20456 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T17:51:46.752+03:00  INFO 20456 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T17:51:46.794+03:00  INFO 20456 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T17:51:46.794+03:00  INFO 20456 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 932 ms
+2024-11-28T17:51:47.219+03:00  INFO 20456 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T17:51:47.246+03:00  INFO 20456 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T17:51:47.252+03:00  INFO 20456 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.808 seconds (process running for 2.346)
+2024-11-28T17:51:48.106+03:00  INFO 20456 --- [calculator] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T17:51:48.107+03:00  INFO 20456 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T17:51:48.107+03:00  INFO 20456 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-28T17:51:48.244+03:00  INFO 20456 --- [calculator] [http-nio-8080-exec-2] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@311ca96
+2024-11-28T17:52:56.599+03:00  INFO 18584 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 18584 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T17:52:56.601+03:00  INFO 18584 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:52:56.648+03:00  INFO 18584 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:52:56.648+03:00  INFO 18584 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:52:57.681+03:00  INFO 18584 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T17:52:57.694+03:00  INFO 18584 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T17:52:57.694+03:00  INFO 18584 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T17:52:57.744+03:00  INFO 18584 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T17:52:57.745+03:00  INFO 18584 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1096 ms
+2024-11-28T17:52:58.253+03:00  INFO 18584 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T17:52:58.286+03:00  INFO 18584 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T17:52:58.294+03:00  INFO 18584 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 2.12 seconds (process running for 2.914)
+2024-11-28T17:53:02.633+03:00  INFO 18584 --- [calculator] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T17:53:02.633+03:00  INFO 18584 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T17:53:02.634+03:00  INFO 18584 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T17:53:02.790+03:00  INFO 18584 --- [calculator] [http-nio-8080-exec-2] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@76257f33
+2024-11-28T17:56:08.405+03:00  INFO 23040 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 23040 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T17:56:08.407+03:00  INFO 23040 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T17:56:08.480+03:00  INFO 23040 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T17:56:08.480+03:00  INFO 23040 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T17:56:09.484+03:00  INFO 23040 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T17:56:09.496+03:00  INFO 23040 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T17:56:09.497+03:00  INFO 23040 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T17:56:09.548+03:00  INFO 23040 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T17:56:09.548+03:00  INFO 23040 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1068 ms
+2024-11-28T17:56:09.991+03:00  INFO 23040 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T17:56:10.016+03:00  INFO 23040 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T17:56:10.022+03:00  INFO 23040 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 2.057 seconds (process running for 2.66)
+2024-11-28T17:56:16.868+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T17:56:16.869+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T17:56:16.869+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-28T17:56:17.008+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-2] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@629ace6c
+2024-11-28T17:56:25.846+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-3] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@3365d232
+2024-11-28T17:56:31.244+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-4] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@3dc170cf
+2024-11-28T17:56:35.695+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-5] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@26add88f
+2024-11-28T17:56:58.555+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-7] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@24850c86
+2024-11-28T17:58:02.200+03:00  INFO 23040 --- [calculator] [http-nio-8080-exec-9] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@978baf1
+2024-11-28T21:51:57.031+03:00  INFO 24932 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 24932 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T21:51:57.034+03:00  INFO 24932 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T21:51:57.077+03:00  INFO 24932 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T21:51:57.077+03:00  INFO 24932 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T21:51:57.980+03:00  INFO 24932 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T21:51:57.991+03:00  INFO 24932 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T21:51:57.992+03:00  INFO 24932 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T21:51:58.041+03:00  INFO 24932 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T21:51:58.042+03:00  INFO 24932 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 964 ms
+2024-11-28T21:51:58.457+03:00  INFO 24932 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T21:51:58.486+03:00  INFO 24932 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T21:51:58.492+03:00  INFO 24932 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.843 seconds (process running for 2.668)
+2024-11-28T21:52:06.808+03:00  INFO 24932 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T21:52:06.809+03:00  INFO 24932 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T21:52:06.810+03:00  INFO 24932 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T21:52:06.900+03:00  WARN 24932 --- [calculator] [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String "204-01-01": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text '204-01-01' could not be parsed at index 0]
+2024-11-28T21:52:19.526+03:00  INFO 24932 --- [calculator] [http-nio-8080-exec-4] MS_calculator.CalculatorController       : Received request for offers: MS_calculator.DTO.LoanStatementRequestDto@af28684
+2024-11-28T22:30:58.471+03:00  INFO 26116 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 26116 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T22:30:58.473+03:00  INFO 26116 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T22:30:58.507+03:00  INFO 26116 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T22:30:58.507+03:00  INFO 26116 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T22:30:59.488+03:00  INFO 26116 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T22:30:59.501+03:00  INFO 26116 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T22:30:59.501+03:00  INFO 26116 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T22:30:59.548+03:00  INFO 26116 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T22:30:59.549+03:00  INFO 26116 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1042 ms
+2024-11-28T22:30:59.966+03:00  INFO 26116 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T22:30:59.993+03:00  INFO 26116 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T22:30:59.998+03:00  INFO 26116 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.873 seconds (process running for 2.484)
+2024-11-28T22:31:02.247+03:00  INFO 26116 --- [calculator] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T22:31:02.247+03:00  INFO 26116 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T22:31:02.248+03:00  INFO 26116 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T22:31:02.403+03:00  WARN 26116 --- [calculator] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Failure in @ExceptionHandler MS_calculator.CalculatorExceptionHandler#handleValidationErrors(MethodArgumentNotValidException)
+
+java.lang.ClassCastException: class org.springframework.validation.beanvalidation.SpringValidatorAdapter$ViolationObjectError cannot be cast to class org.springframework.validation.FieldError (org.springframework.validation.beanvalidation.SpringValidatorAdapter$ViolationObjectError and org.springframework.validation.FieldError are in unnamed module of loader 'app')
+	at MS_calculator.CalculatorExceptionHandler.lambda$handleValidationErrors$0(CalculatorExceptionHandler.java:20) ~[classes/:na]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1116) ~[na:na]
+	at MS_calculator.CalculatorExceptionHandler.handleValidationErrors(CalculatorExceptionHandler.java:19) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:432) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:74) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:175) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1358) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1161) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-11-28T22:31:02.410+03:00  WARN 26116 --- [calculator] [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public MS_calculator.DTO.CreditDto MS_calculator.CalculatorController.Calc(MS_calculator.DTO.ScoringDataDto): [Error in object 'scoringDataDto': codes [LoanAmountMoreThanSalaries.scoringDataDto,LoanAmountMoreThanSalaries]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [scoringDataDto]; arguments []; default message []]; default message [Сумма займа должна быть больше, чем 24 зарплат]] ]
+2024-11-28T22:40:55.983+03:00  INFO 28596 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 28596 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T22:40:55.986+03:00  INFO 28596 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T22:40:56.021+03:00  INFO 28596 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T22:40:56.021+03:00  INFO 28596 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T22:40:56.858+03:00  INFO 28596 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T22:40:56.869+03:00  INFO 28596 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T22:40:56.869+03:00  INFO 28596 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T22:40:56.910+03:00  INFO 28596 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T22:40:56.911+03:00  INFO 28596 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 890 ms
+2024-11-28T22:40:57.294+03:00  INFO 28596 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T22:40:57.316+03:00  INFO 28596 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T22:40:57.322+03:00  INFO 28596 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.68 seconds (process running for 2.248)
+2024-11-28T22:41:00.769+03:00  INFO 28596 --- [calculator] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T22:41:00.770+03:00  INFO 28596 --- [calculator] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T22:41:00.770+03:00  INFO 28596 --- [calculator] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-28T22:41:00.931+03:00  WARN 28596 --- [calculator] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Failure in @ExceptionHandler MS_calculator.CalculatorExceptionHandler#handleValidationErrors(MethodArgumentNotValidException)
+
+java.lang.ClassCastException: class org.springframework.validation.beanvalidation.SpringValidatorAdapter$ViolationObjectError cannot be cast to class org.springframework.validation.FieldError (org.springframework.validation.beanvalidation.SpringValidatorAdapter$ViolationObjectError and org.springframework.validation.FieldError are in unnamed module of loader 'app')
+	at MS_calculator.CalculatorExceptionHandler.lambda$handleValidationErrors$0(CalculatorExceptionHandler.java:20) ~[classes/:na]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596) ~[na:na]
+	at java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1116) ~[na:na]
+	at MS_calculator.CalculatorExceptionHandler.handleValidationErrors(CalculatorExceptionHandler.java:19) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:432) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:74) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:175) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1358) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1161) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-11-28T22:41:00.939+03:00  WARN 28596 --- [calculator] [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public MS_calculator.DTO.CreditDto MS_calculator.CalculatorController.Calc(MS_calculator.DTO.ScoringDataDto): [Error in object 'scoringDataDto': codes [LoanAmountMoreThanSalaries.scoringDataDto,LoanAmountMoreThanSalaries]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [scoringDataDto]; arguments []; default message []]; default message [Сумма займа должна быть больше, чем 24 зарплат]] ]
+2024-11-28T22:41:19.075+03:00  INFO 27920 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 27920 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T22:41:19.077+03:00  INFO 27920 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T22:41:19.114+03:00  INFO 27920 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T22:41:19.114+03:00  INFO 27920 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T22:41:19.973+03:00  INFO 27920 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T22:41:19.984+03:00  INFO 27920 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T22:41:19.984+03:00  INFO 27920 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T22:41:20.030+03:00  INFO 27920 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T22:41:20.031+03:00  INFO 27920 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 916 ms
+2024-11-28T22:41:20.419+03:00  INFO 27920 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T22:41:20.445+03:00  INFO 27920 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T22:41:20.451+03:00  INFO 27920 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.751 seconds (process running for 2.302)
+2024-11-28T22:41:23.393+03:00  INFO 27920 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T22:41:23.394+03:00  INFO 27920 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T22:41:23.394+03:00  INFO 27920 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-28T22:41:23.539+03:00  INFO 27920 --- [calculator] [http-nio-8080-exec-1] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@7a7a90a6
+2024-11-28T22:41:38.505+03:00  INFO 27920 --- [calculator] [http-nio-8080-exec-3] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@58468c2a
+2024-11-28T22:41:43.095+03:00  INFO 27920 --- [calculator] [http-nio-8080-exec-4] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@25aa8ed4
+2024-11-28T22:42:03.785+03:00  INFO 24476 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 24476 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T22:42:03.787+03:00  INFO 24476 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T22:42:03.825+03:00  INFO 24476 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T22:42:03.825+03:00  INFO 24476 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T22:42:04.750+03:00  INFO 24476 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T22:42:04.761+03:00  INFO 24476 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T22:42:04.761+03:00  INFO 24476 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T22:42:04.812+03:00  INFO 24476 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T22:42:04.812+03:00  INFO 24476 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 987 ms
+2024-11-28T22:42:05.713+03:00  INFO 24476 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T22:42:05.763+03:00  INFO 24476 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T22:42:05.773+03:00  INFO 24476 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 2.372 seconds (process running for 3.052)
+2024-11-28T22:42:08.609+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T22:42:08.609+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T22:42:08.610+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T22:42:08.932+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-1] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@18a474d7
+2024-11-28T22:43:28.276+03:00  WARN 24476 --- [calculator] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public MS_calculator.DTO.CreditDto MS_calculator.CalculatorController.Calc(MS_calculator.DTO.ScoringDataDto): [Field error in object 'scoringDataDto' on field 'passportIssueDate': rejected value [2025-01-01]; codes [DateBeforeToday.scoringDataDto.passportIssueDate,DateBeforeToday.passportIssueDate,DateBeforeToday.java.time.LocalDate,DateBeforeToday]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [scoringDataDto.passportIssueDate,passportIssueDate]; arguments []; default message [passportIssueDate]]; default message [Дата должна быть до сегодняшнего дня]] ]
+2024-11-28T22:43:54.163+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-6] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@5d5c1077
+2024-11-28T22:45:01.002+03:00  WARN 24476 --- [calculator] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public MS_calculator.DTO.CreditDto MS_calculator.CalculatorController.Calc(MS_calculator.DTO.ScoringDataDto): [Field error in object 'scoringDataDto' on field 'amount': rejected value [2000]; codes [Min.scoringDataDto.amount,Min.amount,Min.java.math.BigDecimal,Min]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [scoringDataDto.amount,amount]; arguments []; default message [amount],20000]; default message [Сумма кредита - действительно число, большее или равное 20000]] ]
+2024-11-28T22:45:08.194+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-1] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@292baf3f
+2024-11-28T22:45:38.350+03:00  WARN 24476 --- [calculator] [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public MS_calculator.DTO.CreditDto MS_calculator.CalculatorController.Calc(MS_calculator.DTO.ScoringDataDto): [Field error in object 'scoringDataDto' on field 'birthdate': rejected value [2005-01-01]; codes [Adult.scoringDataDto.birthdate,Adult.birthdate,Adult.java.time.LocalDate,Adult]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [scoringDataDto.birthdate,birthdate]; arguments []; default message [birthdate],20,65]; default message [Возраст должен быть более 20 и менее 65 лет]] ]
+2024-11-28T22:45:50.431+03:00  WARN 24476 --- [calculator] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public MS_calculator.DTO.CreditDto MS_calculator.CalculatorController.Calc(MS_calculator.DTO.ScoringDataDto): [Field error in object 'scoringDataDto' on field 'birthdate': rejected value [1923-01-01]; codes [Adult.scoringDataDto.birthdate,Adult.birthdate,Adult.java.time.LocalDate,Adult]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [scoringDataDto.birthdate,birthdate]; arguments []; default message [birthdate],20,65]; default message [Возраст должен быть более 20 и менее 65 лет]] ]
+2024-11-28T22:45:55.239+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-7] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@6796d993
+2024-11-28T22:46:25.388+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-9] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@25ed1309
+2024-11-28T22:46:52.693+03:00  INFO 24476 --- [calculator] [http-nio-8080-exec-8] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@3fecf61e
+2024-11-28T22:46:59.098+03:00  INFO 31500 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 31500 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T22:46:59.100+03:00  INFO 31500 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T22:46:59.146+03:00  INFO 31500 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T22:46:59.147+03:00  INFO 31500 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T22:47:00.083+03:00  INFO 31500 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T22:47:00.095+03:00  INFO 31500 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T22:47:00.096+03:00  INFO 31500 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T22:47:00.143+03:00  INFO 31500 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T22:47:00.143+03:00  INFO 31500 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 995 ms
+2024-11-28T22:47:00.604+03:00  INFO 31500 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T22:47:00.631+03:00  INFO 31500 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T22:47:00.638+03:00  INFO 31500 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.978 seconds (process running for 2.754)
+2024-11-28T22:47:06.627+03:00  INFO 31500 --- [calculator] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T22:47:06.628+03:00  INFO 31500 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T22:47:06.628+03:00  INFO 31500 --- [calculator] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-11-28T22:47:06.804+03:00  INFO 31500 --- [calculator] [http-nio-8080-exec-2] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@5df9f8a0
+2024-11-28T22:55:55.374+03:00  INFO 33088 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 33088 (D:\Проекты\NeoFlex\Calculator_Neoflex\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2024-11-28T22:55:55.376+03:00  INFO 33088 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-11-28T22:55:55.410+03:00  INFO 33088 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-11-28T22:55:55.411+03:00  INFO 33088 --- [calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-11-28T22:55:56.238+03:00  INFO 33088 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-11-28T22:55:56.248+03:00  INFO 33088 --- [calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-28T22:55:56.248+03:00  INFO 33088 --- [calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-28T22:55:56.296+03:00  INFO 33088 --- [calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-28T22:55:56.296+03:00  INFO 33088 --- [calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 885 ms
+2024-11-28T22:55:56.697+03:00  INFO 33088 --- [calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-11-28T22:55:56.721+03:00  INFO 33088 --- [calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-11-28T22:55:56.726+03:00  INFO 33088 --- [calculator] [restartedMain] MS_calculator.CalculatorApplication      : Started CalculatorApplication in 1.682 seconds (process running for 2.22)
+2024-11-28T22:56:00.657+03:00  INFO 33088 --- [calculator] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-28T22:56:00.657+03:00  INFO 33088 --- [calculator] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-11-28T22:56:00.658+03:00  INFO 33088 --- [calculator] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-11-28T22:56:00.803+03:00  INFO 33088 --- [calculator] [http-nio-8080-exec-3] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@55355d3d
+2024-11-28T22:56:04.803+03:00  INFO 33088 --- [calculator] [http-nio-8080-exec-5] MS_calculator.CalculatorController       : Received request for calc: MS_calculator.DTO.ScoringDataDto@715c39e5

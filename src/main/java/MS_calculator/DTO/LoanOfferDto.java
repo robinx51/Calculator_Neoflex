@@ -1,11 +1,10 @@
 package MS_calculator.DTO;
 
-import lombok.Data;
 import lombok.Getter;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Getter @Data
+@Getter
 public class LoanOfferDto implements Comparable<LoanOfferDto> {
     private UUID statementId;
     private BigDecimal requestedAmount;

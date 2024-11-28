@@ -1,6 +1,9 @@
 package MS_calculator;
 
 import MS_calculator.DTO.*;
+import MS_calculator.Services.CalcService;
+import MS_calculator.Services.OfferService;
+import MS_calculator.Services.ScoringService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -16,10 +19,12 @@ public class CalculatorController {
     private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(CalculatorController.class);
 
     private final OfferService offerService;
+    private final CalcService calcService;
 
     @Autowired
     public CalculatorController(ScoringService scoringService) {
         this.offerService = new OfferService(scoringService);
+        this.calcService = new CalcService(scoringService);
     }
 
     @PostMapping("/offers")
@@ -36,8 +41,8 @@ public class CalculatorController {
             description = "Происходит скоринг данных," +
             " высчитывание итоговой ставки(rate), полной стоимости кредита(psk), размер ежемесячного платежа(monthlyPayment), " +
             "график ежемесячных платежей (List<PaymentScheduleElementDto>)")
-    public CreditDto Calc(@RequestBody ScoringDataDto scoringDataDto) {
-
-        return null;
+    public CreditDto Calc(@RequestBody @Validated ScoringDataDto request) {
+        logger.info("Received request for calc: {}", request);
+        return calcService.generateCredit(request);
     }
 }

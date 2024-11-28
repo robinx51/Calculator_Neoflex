@@ -1,166 +1,167 @@
 package MS_calculator.DTO;
 
+import MS_calculator.Annotations.Adult;
+import MS_calculator.Annotations.LoanAmountMoreThanSalaries;
+import MS_calculator.Annotations.DateBeforeToday;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Getter
+//@LoanAmountMoreThanSalaries
 public class ScoringDataDto {
     public enum Gender {
-        MALE, FEMALE
+        MALE, FEMALE, NON_BINARY
     }
     public enum MaritalStatus {
         MARRIED, DIVORCED
     }
+
+    @NotNull
+    @Min(value = 20000, message = "Сумма кредита - действительно число, большее или равное 20000")
     private BigDecimal amount;
+
+    @NotNull
+    @Min(value = 6, message = "Срок кредита - целое число, большее или равное 6")
     private Integer term;
+
+    @NotNull(message = "Имя - от 2 до 30 латинских букв")
+    @Pattern(regexp = "^[a-zA-Z]{2,30}$", message = "Имя - от 2 до 30 латинских букв")
     private String firstName;
+
+    @NotNull(message = "Фамилия - от 2 до 30 латинских букв")
+    @Pattern(regexp = "^[a-zA-Z]{2,30}$", message = "Фамилия - от 2 до 30 латинских букв")
     private String lastName;
+
+    @Pattern(regexp = "^[a-zA-Z]{2,30}$", message = "Отчество, при наличии - от 2 до 30 латинских букв")
     private String middleName;
+
+    @NotNull
     private Gender gender;
+
+    @DateBeforeToday @Adult(over = 20)
+    @NotNull(message = "Дата рождения - число в формате гггг-мм-дд, не позднее 18 лет с текущего дня.")
     private LocalDate birthdate;
+
+    @NotNull
+    @Pattern(regexp = "^\\d{4}$", message = "Серия паспорта - 4 цифры")
     private String passportSeries;
+
+    @NotNull
+    @Pattern(regexp = "^\\d{6}$", message = "Номер паспорта - 6 цифр")
     private String passportNumber;
+
+    @NotNull
+    @DateBeforeToday
     private LocalDate passportIssueDate;
+
+    @NotNull
     private String passportIssueBranch;
+
+    @NotNull
     private MaritalStatus maritalStatus;
+
+    @NotNull
     private Integer dependentAmount;
+
+    @NotNull
     private EmploymentDto employment;
+
+    @NotNull
     private String accountNumber;
+
+    @NotNull
     private Boolean isInsuranceEnabled;
+
+    @NotNull
     private Boolean isSalaryClient;
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
+    public ScoringDataDto setAmount(BigDecimal amount) {
         this.amount = amount;
+        return this;
     }
 
-    public Integer getTerm() {
-        return term;
-    }
-
-    public void setTerm(Integer term) {
+    public ScoringDataDto setTerm(Integer term) {
         this.term = term;
+        return this;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
+    public ScoringDataDto setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
+    public ScoringDataDto setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
     }
 
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    public void setMiddleName(String middleName) {
+    public ScoringDataDto setMiddleName(String middleName) {
         this.middleName = middleName;
+        return this;
     }
 
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
+    public ScoringDataDto setGender(Gender gender) {
         this.gender = gender;
+        return this;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(LocalDate birthdate) {
+    public ScoringDataDto setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
+        return this;
     }
 
-    public String getPassportSeries() {
-        return passportSeries;
-    }
-
-    public void setPassportSeries(String passportSeries) {
+    public ScoringDataDto setPassportSeries(String passportSeries) {
         this.passportSeries = passportSeries;
+        return this;
     }
 
-    public String getPassportNumber() {
-        return passportNumber;
-    }
-
-    public void setPassportNumber(String passportNumber) {
+    public ScoringDataDto setPassportNumber(String passportNumber) {
         this.passportNumber = passportNumber;
+        return this;
     }
 
-    public LocalDate getPassportIssueDate() {
-        return passportIssueDate;
-    }
-
-    public void setPassportIssueDate(LocalDate passportIssueDate) {
+    public ScoringDataDto setPassportIssueDate(LocalDate passportIssueDate) {
         this.passportIssueDate = passportIssueDate;
+        return this;
     }
 
-    public String getPassportIssueBranch() {
-        return passportIssueBranch;
-    }
-
-    public void setPassportIssueBranch(String passportIssueBranch) {
+    public ScoringDataDto setPassportIssueBranch(String passportIssueBranch) {
         this.passportIssueBranch = passportIssueBranch;
+        return this;
     }
 
-    public MaritalStatus getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    public void setMaritalStatus(MaritalStatus maritalStatus) {
+    public ScoringDataDto setMaritalStatus(MaritalStatus maritalStatus) {
         this.maritalStatus = maritalStatus;
+        return this;
     }
 
-    public Integer getDependentAmount() {
-        return dependentAmount;
-    }
-
-    public void setDependentAmount(Integer dependentAmount) {
+    public ScoringDataDto setDependentAmount(Integer dependentAmount) {
         this.dependentAmount = dependentAmount;
+        return this;
     }
 
-    public EmploymentDto getEmployment() {
-        return employment;
-    }
-
-    public void setEmployment(EmploymentDto employment) {
+    public ScoringDataDto setEmployment(EmploymentDto employment) {
         this.employment = employment;
+        return this;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
+    public ScoringDataDto setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
+        return this;
     }
 
-    public Boolean getInsuranceEnabled() {
-        return isInsuranceEnabled;
-    }
-
-    public void setInsuranceEnabled(Boolean insuranceEnabled) {
+    public ScoringDataDto setInsuranceEnabled(Boolean insuranceEnabled) {
         isInsuranceEnabled = insuranceEnabled;
+        return this;
     }
 
-    public Boolean getSalaryClient() {
-        return isSalaryClient;
-    }
-
-    public void setSalaryClient(Boolean salaryClient) {
+    public ScoringDataDto setSalaryClient(Boolean salaryClient) {
         isSalaryClient = salaryClient;
+        return this;
     }
 }

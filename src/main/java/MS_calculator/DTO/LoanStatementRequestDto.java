@@ -1,16 +1,16 @@
 package MS_calculator.DTO;
 
+import MS_calculator.Annotations.Adult;
+import MS_calculator.Annotations.DateBeforeToday;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Data
 public class LoanStatementRequestDto {
     @NotNull
     @Min(value = 20000, message = "Сумма кредита - действительно число, большее или равное 20000")
@@ -34,7 +34,7 @@ public class LoanStatementRequestDto {
     @NotNull @Email
     private String email;
 
-    @NotNull @Adult
+    @Adult @DateBeforeToday
     @NotNull(message = "Дата рождения - число в формате гггг-мм-дд, не позднее 18 лет с текущего дня.")
     private LocalDate birthdate;
 

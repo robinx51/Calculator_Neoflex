@@ -1,4 +1,4 @@
-package MS_calculator;
+package MS_calculator.Services;
 
 import MS_calculator.DTO.LoanOfferDto;
 import MS_calculator.DTO.LoanStatementRequestDto;
