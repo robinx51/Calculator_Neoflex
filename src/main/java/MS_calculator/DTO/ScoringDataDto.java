@@ -3,6 +3,7 @@ package MS_calculator.DTO;
 import MS_calculator.Annotations.Adult;
 import MS_calculator.Annotations.LoanAmountMoreThanSalaries;
 import MS_calculator.Annotations.DateBeforeToday;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
-//@LoanAmountMoreThanSalaries
+@LoanAmountMoreThanSalaries
 public class ScoringDataDto {
     public enum Gender {
         MALE, FEMALE, NON_BINARY
@@ -44,7 +45,7 @@ public class ScoringDataDto {
     private Gender gender;
 
     @DateBeforeToday @Adult(over = 20)
-    @NotNull(message = "Дата рождения - число в формате гггг-мм-дд, не позднее 18 лет с текущего дня.")
+    @NotNull(message = "Дата рождения - число в формате гггг-мм-дд, не позднее 20 лет с текущего дня.")
     private LocalDate birthdate;
 
     @NotNull
@@ -68,7 +69,7 @@ public class ScoringDataDto {
     @NotNull
     private Integer dependentAmount;
 
-    @NotNull
+    @NotNull @Valid
     private EmploymentDto employment;
 
     @NotNull

@@ -12,8 +12,20 @@ public class LoanAmountValidator implements ConstraintValidator<LoanAmountMoreTh
         BigDecimal loanAmount = loanRequestDto.getAmount();
         BigDecimal salary = loanRequestDto.getEmployment().getSalary();
 
+        if (loanAmount == null || salary == null) {
+            return true;
+        }
+
         BigDecimal requiredAmount = salary.multiply(new BigDecimal(24));
 
-        return loanAmount.compareTo(requiredAmount) > 0;
+        if (loanAmount.compareTo(requiredAmount) >= 0) {
+            context.disableDefaultConstraintViolation();
+            context.buildConstraintViolationWithTemplate("Сумма займа должна быть меньше 24 зарплат")
+                    .addPropertyNode("amount")
+                    .addConstraintViolation();
+            return false;
+        }
+
+        return true;
     }
 }

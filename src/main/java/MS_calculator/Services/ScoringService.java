@@ -15,6 +15,7 @@ import java.util.List;
 
 @Service @Setter @Getter
 public class ScoringService {
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(ScoringService.class);
     @Value("${calculator.baseRate}")
     private int baseRate;
 
@@ -43,6 +44,7 @@ public class ScoringService {
         // К = (М * (1 + М) ^ S) / ((1 + М) ^ S — 1)
         // где М — месячная процентная ставка по кредиту, S — срок кредита в месяцах.
         ratioPayment = (monthlyRate * Math.pow((1 + monthlyRate), term)) / (Math.pow((1 + monthlyRate), term) - 1);
+        logger.debug("Коэффициент аннуитета: {}", ratioPayment);
         // Х = С * К
         // где X — аннуитетный платеж, С — сумма кредита, К — коэффициент аннуитета.
         return new BigDecimal(totalAmount.doubleValue() * ratioPayment);
@@ -68,30 +70,41 @@ public class ScoringService {
                     rate -= 3;
             } case NON_BINARY -> rate += 7;
         }
-        if (request.getGender() == ScoringDataDto.Gender.MALE) {
-            if (Period.between(request.getBirthdate(), LocalDate.now()).getYears() >= 32
-                && Period.between(request.getBirthdate(), LocalDate.now()).getYears() <= 60 )
-                rate -= 3;
-        }
         return new BigDecimal(rate);
     }
 
-    public List<PaymentScheduleElementDto> calculatePaymentSchedule (ScoringDataDto request) {
+    public List<PaymentScheduleElementDto> calculatePaymentSchedule (BigDecimal totalAmount, int term, BigDecimal rate, BigDecimal monthlyPayment) {
+        LocalDate date;
+        BigDecimal interestPayment; // Выплата процентов
+        BigDecimal debtPayment;    // Выплата долга
+        BigDecimal remainingDebt = totalAmount;     // Оставшийся долг
+
+        double monthlyRate = (rate.doubleValue() / 100) / 12;
+
         List<PaymentScheduleElementDto> list = new ArrayList<>();
         LocalDate today = LocalDate.now();
-        for (int i = 1; i <= request.getTerm(); i++) {
-            LocalDate date = today.plusMonths(i);
+        for (int i = 1; i <= term; i++) {
+            date = today.plusMonths(i);
+            interestPayment = remainingDebt.multiply(BigDecimal.valueOf(monthlyRate)) ;
+            debtPayment = monthlyPayment.subtract(interestPayment);
+            remainingDebt = remainingDebt.subtract(debtPayment);
+
             list.add(new PaymentScheduleElementDto()
                     .setNumber(i)
-                    .setDate(date));
+                    .setDate(date)
+                    .setTotalPayment(monthlyPayment)
+                    .setInterestPayment(interestPayment)
+                    .setDebtPayment(debtPayment)
+                    .setRemainingDebt(remainingDebt));
         }
-        return null;
+        list.getLast().setRemainingDebt(new BigDecimal(0));
+        return list;
     }
 
-    public BigDecimal calculatePsk(BigDecimal totalAmount, BigDecimal rate, Integer term) {
-
-        return null;
+    public BigDecimal calculatePsk(BigDecimal monthlyPayment, Integer term) {
+        return monthlyPayment.multiply(BigDecimal.valueOf(term));
     }
+
     private int getYears(LocalDate birthdate) {
         return Period.between(birthdate, LocalDate.now()).getYears();
     }

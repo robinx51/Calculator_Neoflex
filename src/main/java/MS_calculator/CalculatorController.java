@@ -33,16 +33,39 @@ public class CalculatorController {
             " прескоринг, создаётся 4 кредитных предложения LoanOfferDto на основании всех возможных комбинаций булевских полей " +
             "isInsuranceEnabled и isSalaryClient")
     public List<LoanOfferDto> Offers(@RequestBody @Validated LoanStatementRequestDto request) {
-        logger.info("Received request for offers: {}", request);
-        return offerService.generateOffers(request);
+        logger.info("Обработка запроса на рассчёт кредита: сумма = {}, срок = {}, фамилия = {}, имя = {}",
+                request.getAmount(),
+                request.getTerm(),
+                request.getLastName(),
+                request.getFirstName());
+        List<LoanOfferDto> offers = offerService.generateOffers(request);
+        logger.info("Обработан запрос на рассчёт кредита(лучшее предложение): срок = {}, запрошенная сумма = {}, ставка = {}, общая сумма = {}, ежемесячный платёж = {}",
+                offers.getFirst().getTerm(),
+                offers.getFirst().getRequestedAmount(),
+                offers.getFirst().getRate(),
+                offers.getFirst().getTotalAmount(),
+                offers.getFirst().getMonthlyPayment());
+        return offers;
     }
+
     @PostMapping("/calc")
     @Tag(   name = "Валидация присланных данных + полный расчет параметров кредита",
-            description = "Происходит скоринг данных," +
-            " высчитывание итоговой ставки(rate), полной стоимости кредита(psk), размер ежемесячного платежа(monthlyPayment), " +
-            "график ежемесячных платежей (List<PaymentScheduleElementDto>)")
+            description = "Происходит скоринг данных, высчитывание итоговой ставки(rate), полной стоимости кредита(psk), размер ежемесячного платежа(monthlyPayment), график ежемесячных платежей (List<PaymentScheduleElementDto>)")
     public CreditDto Calc(@RequestBody @Validated ScoringDataDto request) {
-        logger.info("Received request for calc: {}", request);
-        return calcService.generateCredit(request);
+        logger.info("Получен запрос на кредит: сумма = {}, срок = {}, фамилия = {}, имя = {}, статус занятости = {}, необходимость страховки = {}.",
+                request.getAmount(),
+                request.getTerm(),
+                request.getLastName(),
+                request.getFirstName(),
+                request.getEmployment().getEmploymentStatus(),
+                request.getIsInsuranceEnabled());
+        CreditDto creditDto = calcService.generateCredit(request);
+        logger.info("Обработана заявка на кредит: сумма = {}, срок = {}, ставка = {}, ежемесячный платёж = {}, ПСК = {}",
+                creditDto.getAmount(),
+                creditDto.getTerm(),
+                creditDto.getRate(),
+                creditDto.getMonthlyPayment(),
+                creditDto.getPsk());
+        return creditDto;
     }
 }

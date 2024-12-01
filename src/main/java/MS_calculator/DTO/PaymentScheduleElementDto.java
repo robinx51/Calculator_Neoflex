@@ -15,6 +15,7 @@ public class PaymentScheduleElementDto {
     private BigDecimal interestPayment;
     // Выплата долга
     private BigDecimal debtPayment;
+    // Оставшийся долг
     private BigDecimal remainingDebt;
 
     public PaymentScheduleElementDto setNumber(Integer number) {

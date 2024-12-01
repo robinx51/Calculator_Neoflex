@@ -1,7 +1,6 @@
 package MS_calculator.DTO;
 
 import MS_calculator.Annotations.Adult;
-import MS_calculator.Annotations.DateBeforeToday;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
@@ -20,11 +19,11 @@ public class LoanStatementRequestDto {
     @Min(value = 6, message = "Срок кредита - целое число, большее или равное 6")
     private int term;
 
-    @NotNull(message = "Имя - от 2 до 30 латинских букв")
+    @NotNull
     @Pattern(regexp = "^[a-zA-Z]{2,30}$", message = "Имя - от 2 до 30 латинских букв")
     private String firstName;
 
-    @NotNull(message = "Фамилия - от 2 до 30 латинских букв")
+    @NotNull
     @Pattern(regexp = "^[a-zA-Z]{2,30}$", message = "Фамилия - от 2 до 30 латинских букв")
     private String lastName;
 
@@ -34,8 +33,7 @@ public class LoanStatementRequestDto {
     @NotNull @Email
     private String email;
 
-    @Adult @DateBeforeToday
-    @NotNull(message = "Дата рождения - число в формате гггг-мм-дд, не позднее 18 лет с текущего дня.")
+    @Adult
     private LocalDate birthdate;
 
     @NotNull
@@ -87,7 +85,7 @@ public class LoanStatementRequestDto {
         return this;
     }
 
-    @Schema(name = "middleName", example = "Andreevich", required = false, nullable = true, pattern = "^[a-zA-Z]{2,30}$")
+    @Schema(name = "middleName", example = "Andreevich", nullable = true, pattern = "^[a-zA-Z]{2,30}$")
     public String getMiddleName() {
         return middleName;
     }

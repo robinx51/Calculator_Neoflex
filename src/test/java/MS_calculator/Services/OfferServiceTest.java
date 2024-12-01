@@ -1,6 +1,5 @@
 package MS_calculator.Services;
 
-import org.springframework.test.context.TestPropertySource;
 import MS_calculator.DTO.LoanOfferDto;
 import MS_calculator.DTO.LoanStatementRequestDto;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,9 +34,6 @@ class OfferServiceTest {
         LoanStatementRequestDto request = new LoanStatementRequestDto();
         BigDecimal amount = new BigDecimal("100000");
         request.setAmount(amount);
-
-        BigDecimal totalAmountInsFalse = new BigDecimal("105000");
-        BigDecimal totalAmountInsTrue = new BigDecimal("102000");
 
         List<LoanOfferDto> loanOffers = offerService.generateOffers(request);
 
