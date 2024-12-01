@@ -1,11 +1,17 @@
 package MS_calculator.Services;
 
+import MS_calculator.DTO.PaymentScheduleElementDto;
 import MS_calculator.DTO.ScoringDataDto;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service @Setter @Getter
 public class ScoringService {
@@ -43,11 +49,51 @@ public class ScoringService {
     }
 
     public BigDecimal calculateFinalRate(ScoringDataDto request) {
-
-        return new BigDecimal("20");
+        int rate = baseRate;
+        switch (request.getEmployment().getEmploymentStatus()) {
+            case SELF_EMPLOYED -> rate += 2;
+            case BUSINESS_OWNER -> rate += 1;
+        } switch (request.getEmployment().getPosition()) {
+            case MIDDLE_MANAGER -> rate -= 2;
+            case TOP_MANAGER -> rate -= 3;
+        } switch (request.getMaritalStatus()) {
+            case MARRIED -> rate -= 3;
+            case DIVORCED -> rate += 1;
+        } switch (request.getGender()) {
+            case MALE -> {
+                if (getYears(request.getBirthdate())>= 30 && getYears(request.getBirthdate()) <= 50)
+                    rate -= 3;
+            } case FEMALE -> {
+                if (getYears(request.getBirthdate())>= 32 && getYears(request.getBirthdate()) <= 60)
+                    rate -= 3;
+            } case NON_BINARY -> rate += 7;
+        }
+        if (request.getGender() == ScoringDataDto.Gender.MALE) {
+            if (Period.between(request.getBirthdate(), LocalDate.now()).getYears() >= 32
+                && Period.between(request.getBirthdate(), LocalDate.now()).getYears() <= 60 )
+                rate -= 3;
+        }
+        return new BigDecimal(rate);
     }
-    // Рабочий статус: Самозанятый → ставка увеличивается на 2; Владелец бизнеса → ставка увеличивается на 1
-    // Позиция на работе: Менеджер среднего звена → ставка уменьшается на 2; Топ-менеджер → ставка уменьшается на 3
-    // Семейное положение: Замужем/женат → ставка уменьшается на 3; Разведен → ставка увеличивается на 1
-    // Пол: Женщина, возраст от 32 до 60 лет → ставка уменьшается на 3; Мужчина, возраст от 30 до 55 лет → ставка уменьшается на 3; Не бинарный → ставка увеличивается на 7
+
+    public List<PaymentScheduleElementDto> calculatePaymentSchedule (ScoringDataDto request) {
+        List<PaymentScheduleElementDto> list = new ArrayList<>();
+        LocalDate today = LocalDate.now();
+        for (int i = 1; i <= request.getTerm(); i++) {
+            LocalDate date = today.plusMonths(i);
+            list.add(new PaymentScheduleElementDto()
+                    .setNumber(i)
+                    .setDate(date));
+        }
+        return null;
+    }
+
+    public BigDecimal calculatePsk(BigDecimal totalAmount, BigDecimal rate, Integer term) {
+
+        return null;
+    }
+    private int getYears(LocalDate birthdate) {
+        return Period.between(birthdate, LocalDate.now()).getYears();
+    }
+
 }

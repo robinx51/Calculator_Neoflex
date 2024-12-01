@@ -9,8 +9,11 @@ import java.time.LocalDate;
 public class PaymentScheduleElementDto {
     private Integer number;
     private LocalDate date;
+    // Общая сумма платежа
     private BigDecimal totalPayment;
+    // Выплата процентов
     private BigDecimal interestPayment;
+    // Выплата долга
     private BigDecimal debtPayment;
     private BigDecimal remainingDebt;
 
