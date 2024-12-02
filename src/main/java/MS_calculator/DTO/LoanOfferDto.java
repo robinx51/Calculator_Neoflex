@@ -1,10 +1,11 @@
 package MS_calculator.DTO;
 
-import lombok.Getter;
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Getter
+@Component
 public class LoanOfferDto implements Comparable<LoanOfferDto> {
     private UUID statementId;
     private BigDecimal requestedAmount;
@@ -14,50 +15,84 @@ public class LoanOfferDto implements Comparable<LoanOfferDto> {
     private BigDecimal rate;
     private boolean isInsuranceEnabled;
     private boolean isSalaryClient;
-
-    public LoanOfferDto setStatementId(UUID statementId) {
+    public LoanOfferDto() {}
+    public LoanOfferDto(UUID statementId, BigDecimal requestedAmount, BigDecimal totalAmount, Integer term, BigDecimal monthlyPayment, BigDecimal rate, Boolean isInsuranceEnabled, Boolean isSalaryClient) {
         this.statementId = statementId;
-        return this;
-    }
-
-    public LoanOfferDto setRequestedAmount(BigDecimal requestedAmount) {
         this.requestedAmount = requestedAmount;
-        return this;
-    }
-
-    public LoanOfferDto setTotalAmount(BigDecimal totalAmount) {
         this.totalAmount = totalAmount;
-        return this;
-    }
-
-    public LoanOfferDto setTerm(Integer term) {
         this.term = term;
-        return this;
-    }
-
-    public LoanOfferDto setMonthlyPayment(BigDecimal monthlyPayment) {
         this.monthlyPayment = monthlyPayment;
-        return this;
-    }
-
-    public LoanOfferDto setRate(BigDecimal rate) {
         this.rate = rate;
-        return this;
+        this.isInsuranceEnabled = isInsuranceEnabled;
+        this.isSalaryClient = isSalaryClient;
     }
 
-    public LoanOfferDto setInsuranceEnabled(boolean insuranceEnabled) {
+    public UUID getStatementId() {
+        return statementId;
+    }
+
+    public void setStatementId(UUID statementId) {
+        this.statementId = statementId;
+    }
+
+    public BigDecimal getRequestedAmount() {
+        return requestedAmount;
+    }
+
+    public void setRequestedAmount(BigDecimal requestedAmount) {
+        this.requestedAmount = requestedAmount;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public Integer getTerm() {
+        return term;
+    }
+
+    public void setTerm(Integer term) {
+        this.term = term;
+    }
+
+    public BigDecimal getMonthlyPayment() {
+        return monthlyPayment;
+    }
+
+    public void setMonthlyPayment(BigDecimal monthlyPayment) {
+        this.monthlyPayment = monthlyPayment;
+    }
+
+    public BigDecimal getRate() {
+        return rate;
+    }
+
+    public void setRate(BigDecimal rate) {
+        this.rate = rate;
+    }
+
+    public Boolean getInsuranceEnabled() {
+        return isInsuranceEnabled;
+    }
+
+    public void setInsuranceEnabled(boolean insuranceEnabled) {
         isInsuranceEnabled = insuranceEnabled;
-        return this;
     }
 
-    public LoanOfferDto setSalaryClient(boolean salaryClient) {
+    public boolean getSalaryClient() {
+        return isSalaryClient;
+    }
+
+    public void setSalaryClient(Boolean salaryClient) {
         isSalaryClient = salaryClient;
-        return this;
     }
 
     @Override
     public int compareTo(LoanOfferDto other) {
         return this.rate.compareTo(other.rate);
     }
-
 }
