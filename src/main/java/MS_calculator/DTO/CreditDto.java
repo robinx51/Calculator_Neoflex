@@ -1,8 +1,11 @@
 package MS_calculator.DTO;
 
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.util.List;
 
+@Getter
 public class CreditDto {
     private BigDecimal amount;
     private Integer term;
@@ -13,67 +16,43 @@ public class CreditDto {
     private Boolean isSalaryClient;
     private List<PaymentScheduleElementDto> paymentSchedule;
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
+    public CreditDto setAmount(BigDecimal amount) {
         this.amount = amount;
+        return this;
     }
 
-    public Integer getTerm() {
-        return term;
-    }
-
-    public void setTerm(Integer term) {
+    public CreditDto setTerm(Integer term) {
         this.term = term;
+        return this;
     }
 
-    public BigDecimal getMonthlyPayment() {
-        return monthlyPayment;
-    }
-
-    public void setMonthlyPayment(BigDecimal monthlyPayment) {
+    public CreditDto setMonthlyPayment(BigDecimal monthlyPayment) {
         this.monthlyPayment = monthlyPayment;
+        return this;
     }
 
-    public BigDecimal getRate() {
-        return rate;
-    }
-
-    public void setRate(BigDecimal rate) {
+    public CreditDto setRate(BigDecimal rate) {
         this.rate = rate;
+        return this;
     }
 
-    public BigDecimal getPsk() {
-        return psk;
-    }
-
-    public void setPsk(BigDecimal psk) {
+    public CreditDto setPsk(BigDecimal psk) {
         this.psk = psk;
+        return this;
     }
 
-    public Boolean getInsuranceEnabled() {
-        return isInsuranceEnabled;
-    }
-
-    public void setInsuranceEnabled(Boolean insuranceEnabled) {
+    public CreditDto setInsuranceEnabled(Boolean insuranceEnabled) {
         isInsuranceEnabled = insuranceEnabled;
+        return this;
     }
 
-    public Boolean getSalaryClient() {
-        return isSalaryClient;
-    }
-
-    public void setSalaryClient(Boolean salaryClient) {
+    public CreditDto setSalaryClient(Boolean salaryClient) {
         isSalaryClient = salaryClient;
+        return this;
     }
 
-    public List<PaymentScheduleElementDto> getPaymentSchedule() {
-        return paymentSchedule;
-    }
-
-    public void setPaymentSchedule(List<PaymentScheduleElementDto> paymentSchedule) {
+    public CreditDto setPaymentSchedule(List<PaymentScheduleElementDto> paymentSchedule) {
         this.paymentSchedule = paymentSchedule;
+        return this;
     }
 }
