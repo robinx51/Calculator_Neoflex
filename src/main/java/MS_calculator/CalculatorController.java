@@ -1,71 +1,88 @@
 package MS_calculator;
 
+
 import MS_calculator.DTO.*;
-import MS_calculator.Services.CalcService;
-import MS_calculator.Services.OfferService;
-import MS_calculator.Services.ScoringService;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
+import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorController {
-    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(CalculatorController.class);
-
-    private final OfferService offerService;
-    private final CalcService calcService;
-
-    @Autowired
-    public CalculatorController(ScoringService scoringService) {
-        this.offerService = new OfferService(scoringService);
-        this.calcService = new CalcService(scoringService);
-    }
-
+    private static final String SUCCESS_STATUS = "success";
+    private static final String ERROR_STATUS = "error";
+    private static final int CODE_SUCCESS = 100;
+    private static final int AUTH_FAILURE = 102;
     @PostMapping("/offers")
-    @Tag(   name = "Расчёт возможных условий кредита",
-            description = "На основании LoanStatementRequestDto происходит" +
-            " прескоринг, создаётся 4 кредитных предложения LoanOfferDto на основании всех возможных комбинаций булевских полей " +
-            "isInsuranceEnabled и isSalaryClient")
-    public List<LoanOfferDto> Offers(@RequestBody @Validated LoanStatementRequestDto request) {
-        logger.info("Обработка запроса на рассчёт кредита: сумма = {}, срок = {}, фамилия = {}, имя = {}",
-                request.getAmount(),
-                request.getTerm(),
-                request.getLastName(),
-                request.getFirstName());
-        List<LoanOfferDto> offers = offerService.generateOffers(request);
-        logger.info("Обработан запрос на рассчёт кредита(лучшее предложение): срок = {}, запрошенная сумма = {}, ставка = {}, общая сумма = {}, ежемесячный платёж = {}",
-                offers.getFirst().getTerm(),
-                offers.getFirst().getRequestedAmount(),
-                offers.getFirst().getRate(),
-                offers.getFirst().getTotalAmount(),
-                offers.getFirst().getMonthlyPayment());
-        return offers;
+    public List<LoanOfferDto> Offers (@RequestBody LoanStatementRequestDto request) {
+        return PreScoring(request);
+    }
+    @PostMapping("/calc")
+    public CreditDto Calc (@RequestBody ScoringDataDto scoringDataDto) {
+
+        return null;
     }
 
-    @PostMapping("/calc")
-    @Tag(   name = "Валидация присланных данных + полный расчет параметров кредита",
-            description = "Происходит скоринг данных, высчитывание итоговой ставки(rate), полной стоимости кредита(psk), размер ежемесячного платежа(monthlyPayment), график ежемесячных платежей (List<PaymentScheduleElementDto>)")
-    public CreditDto Calc(@RequestBody @Validated ScoringDataDto request) {
-        logger.info("Получен запрос на кредит: сумма = {}, срок = {}, фамилия = {}, имя = {}, статус занятости = {}, необходимость страховки = {}.",
-                request.getAmount(),
-                request.getTerm(),
-                request.getLastName(),
-                request.getFirstName(),
-                request.getEmployment().getEmploymentStatus(),
-                request.getIsInsuranceEnabled());
-        CreditDto creditDto = calcService.generateCredit(request);
-        logger.info("Обработана заявка на кредит: сумма = {}, срок = {}, ставка = {}, ежемесячный платёж = {}, ПСК = {}",
-                creditDto.getAmount(),
-                creditDto.getTerm(),
-                creditDto.getRate(),
-                creditDto.getMonthlyPayment(),
-                creditDto.getPsk());
-        return creditDto;
+    private List<LoanOfferDto> PreScoring (LoanStatementRequestDto request) {
+        if (    CheckNames(request.getFirstName(), request.getLastName(), request.getMiddleName())
+                && request.getAmount().compareTo(new BigDecimal(20000)) >= 0
+                && request.getTerm() >= 6
+                && Period.between(request.getBirthdate().plusDays(1), LocalDate.now()).getYears() >= 18
+                && Pattern.matches("^[a-z0-9A-Z_!#$%&'*+/=?`{|}~^.-]+@[a-z0-9A-Z.-]+$", request.getEmail())
+                && request.getPassportNumber().length() == 4
+                && request.getPassportSeries().length() == 6 ) {
+            return GenerateOffers(request);
+        } else
+            return new ArrayList<LoanOfferDto>();
+    }
+    private boolean CheckNames(String firstName, String lastName, String middleName) {
+        List<String> names = new ArrayList<>(Arrays.asList(firstName, lastName, middleName));
+        
+        for (byte i = 0; i < 3; i++) {
+            if (Pattern.matches("^[a-zA-Z]{2,30}$", names.get(i)))
+                continue;
+            else {
+                if (i == 2 && names.get(i).isEmpty())
+                    continue;
+                else
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private List<LoanOfferDto> GenerateOffers(LoanStatementRequestDto request) {
+        List<LoanOfferDto> offers = new ArrayList<>();
+        //boolean isInsurance = true, isSalary = true;
+        int counter;
+
+        for (int insurance = 0; insurance < 2; insurance++){
+            for (int salary = 0; salary < 2; salary++) {
+                double insuranceAmount = 0L, rate = 0L;
+                boolean isInsurance = false, isSalary = false;
+                if (insurance == 1) {
+                    isInsurance = true;
+                    insuranceAmount = request.getAmount().doubleValue() * 0.05;
+                    rate -= 3;
+                }
+                if (salary == 1) {
+                    isSalary = true;
+                    rate -= 1;
+                }
+                BigDecimal totalAmount = request.getAmount().add(new BigDecimal(insuranceAmount));
+                /*offers.add( new LoanOfferDto(UUID.randomUUID(), request.getAmount(),
+                        totalAmount, request.getTerm(), ,
+                        rate, isInsurance, isSalary));*/
+            }
+        }
+        Collections.sort(offers);
+        return offers;
     }
 }
