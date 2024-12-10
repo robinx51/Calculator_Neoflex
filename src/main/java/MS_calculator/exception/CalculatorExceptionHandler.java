@@ -1,4 +1,4 @@
-package MS_calculator;
+package MS_calculator.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

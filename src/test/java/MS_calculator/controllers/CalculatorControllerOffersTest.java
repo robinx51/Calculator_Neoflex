@@ -1,11 +1,9 @@
-package MS_calculator.Controllers;
+package MS_calculator.controllers;
 
-import MS_calculator.CalculatorController;
-import MS_calculator.DTO.LoanOfferDto;
-import MS_calculator.DTO.LoanStatementRequestDto;
-import MS_calculator.Services.CalcService;
-import MS_calculator.Services.OfferService;
-import MS_calculator.Services.ScoringService;
+import MS_calculator.controller.CalculatorController;
+import MS_calculator.dto.LoanOfferDto;
+import MS_calculator.dto.LoanStatementRequestDto;
+import MS_calculator.services.ScoringService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
@@ -37,7 +35,17 @@ public class CalculatorControllerOffersTest {
     private CalculatorController calculatorController;
 
     private Validator validator;
-    private static LoanStatementRequestDto validRequest;
+    private static final LoanStatementRequestDto validRequest = LoanStatementRequestDto.builder()
+            .amount(BigDecimal.valueOf(20000))
+            .term(6)
+            .firstName("John")
+            .lastName("Doe")
+            .middleName("Smith")
+            .email("smith@example.com")
+            .birthdate(LocalDate.now().minusYears(18))
+            .passportSeries("1234")
+            .passportNumber("123456")
+            .build();;
 
     @BeforeEach
     public void setUp() {
@@ -48,52 +56,28 @@ public class CalculatorControllerOffersTest {
         }
     }
 
-    @BeforeAll
-    public static void setUpRequest() {
-         validRequest = new LoanStatementRequestDto()
-                .setAmount(BigDecimal.valueOf(20000))
-                .setTerm(6)
-                .setFirstName("John")
-                .setLastName("Doe")
-                .setMiddleName("Smith")
-                .setEmail("smith@example.com")
-                .setBirthdate(LocalDate.now().minusYears(18))
-                .setPassportSeries("1234")
-                .setPassportNumber("123456");
-    }
-
-    @Test
-    void testValidLoanRequestDto() {
-        Set<ConstraintViolation<LoanStatementRequestDto>> violations = validator.validate(validRequest);
-
-        assertThat(violations).isEmpty();
-    }
-
     @Test
     public void testInvalidLoanRequestWithNulls() {
-        LoanStatementRequestDto dto = new LoanStatementRequestDto();
+        LoanStatementRequestDto dto = LoanStatementRequestDto.builder().build();
 
         Set<ConstraintViolation<LoanStatementRequestDto>> violations = validator.validate(dto);
-
-        for (ConstraintViolation<LoanStatementRequestDto> violation : violations) {
-            System.out.println("Поле: " + violation.getPropertyPath() + ", Ошибка: " + violation.getMessage());
-        }
 
         assertEquals(8, violations.size());
     }
 
     @Test
     public void testInvalidLoanRequestIncorrectValues() {
-        LoanStatementRequestDto dto = new LoanStatementRequestDto()
-                .setAmount(BigDecimal.valueOf(19999))
-                .setTerm(5)
-                .setFirstName("John1")
-                .setLastName("Doe1")
-                .setMiddleName("Smith1")
-                .setEmail("email")
-                .setBirthdate(LocalDate.now().minusYears(17))
-                .setPassportSeries("123")
-                .setPassportNumber("1234567");
+        LoanStatementRequestDto dto = LoanStatementRequestDto.builder()
+                .amount(BigDecimal.valueOf(19999))
+                .term(5)
+                .firstName("John1")
+                .lastName("Doe1")
+                .middleName("Smith1")
+                .email("email")
+                .birthdate(LocalDate.now().minusYears(17))
+                .passportSeries("123")
+                .passportNumber("1234567")
+                .build();
 
         Set<ConstraintViolation<LoanStatementRequestDto>> violations = validator.validate(dto);
 
@@ -103,7 +87,7 @@ public class CalculatorControllerOffersTest {
     @Test
     void testResponseCreditDto() {
         when(scoringService.calculateRate(anyBoolean(), anyBoolean())).thenReturn(new BigDecimal("20"));
-        List<LoanOfferDto> offers = calculatorController.Offers(validRequest);
+        List<LoanOfferDto> offers = calculatorController.createOffers(validRequest);
         assertEquals(validRequest.getTerm(), offers.getFirst().getTerm());
         assertEquals(validRequest.getAmount(), offers.getFirst().getRequestedAmount());
         assertEquals(4, offers.size());

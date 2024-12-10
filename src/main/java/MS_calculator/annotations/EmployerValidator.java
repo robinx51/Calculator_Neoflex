@@ -1,6 +1,6 @@
-package MS_calculator.Annotations;
+package MS_calculator.annotations;
 
-import MS_calculator.DTO.EmploymentDto;
+import MS_calculator.dto.EmploymentDto;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

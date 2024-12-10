@@ -1,6 +1,6 @@
-package MS_calculator.Annotations;
+package MS_calculator.annotations;
 
-import MS_calculator.DTO.ScoringDataDto;
+import MS_calculator.dto.ScoringDataDto;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
