@@ -1,8 +1,9 @@
 package MS_calculator.services;
 
-import MS_calculator.dto.LoanOfferDto;
-import MS_calculator.dto.LoanStatementRequestDto;
-import org.junit.jupiter.api.BeforeEach;
+import Neoflex_bank.MS_calculator.dto.LoanOfferDto;
+import Neoflex_bank.MS_calculator.dto.LoanStatementRequestDto;
+import Neoflex_bank.MS_calculator.services.OfferService;
+import Neoflex_bank.MS_calculator.services.ScoringService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

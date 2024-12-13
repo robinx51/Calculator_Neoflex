@@ -1,18 +1,17 @@
 package MS_calculator.controllers;
 
-import MS_calculator.controller.CalculatorController;
-import MS_calculator.dto.CreditDto;
-import MS_calculator.dto.EmploymentDto;
-import MS_calculator.dto.ScoringDataDto;
-import MS_calculator.services.CalcService;
-import MS_calculator.services.OfferService;
+import Neoflex_bank.MS_calculator.controller.CalculatorController;
+import Neoflex_bank.MS_calculator.dto.CreditDto;
+import Neoflex_bank.MS_calculator.dto.EmploymentDto;
+import Neoflex_bank.MS_calculator.dto.ScoringDataDto;
+import Neoflex_bank.MS_calculator.services.CalcService;
+import Neoflex_bank.MS_calculator.services.OfferService;
 
-import MS_calculator.services.ScoringService;
+import Neoflex_bank.MS_calculator.services.ScoringService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

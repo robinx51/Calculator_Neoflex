@@ -1,8 +1,9 @@
 package MS_calculator.services;
 
-import MS_calculator.dto.EmploymentDto;
-import MS_calculator.dto.PaymentScheduleElementDto;
-import MS_calculator.dto.ScoringDataDto;
+import Neoflex_bank.MS_calculator.dto.EmploymentDto;
+import Neoflex_bank.MS_calculator.dto.PaymentScheduleElementDto;
+import Neoflex_bank.MS_calculator.dto.ScoringDataDto;
+import Neoflex_bank.MS_calculator.services.ScoringService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
