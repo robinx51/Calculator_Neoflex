@@ -19,7 +19,7 @@ public class ScoringService {
     private static final Logger logger = LoggerFactory.getLogger(ScoringService.class);
 
     @Value("${calculator.baseRate}")
-    private static int baseRate;
+    private int baseRate;
 
     private static final double ratioInsurance = 1.05;
 
@@ -110,6 +110,6 @@ public class ScoringService {
     }
 
     public void setBaseRate(int baseRate) {
-        ScoringService.baseRate = baseRate;
+        this.baseRate = baseRate;
     }
 }
