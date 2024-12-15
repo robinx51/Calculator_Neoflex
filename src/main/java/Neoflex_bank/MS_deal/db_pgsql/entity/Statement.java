@@ -18,7 +18,7 @@ import java.util.UUID;
 //@EntityListeners(AuditingEntityListener.class)
 public class Statement implements Serializable {
     public enum eApplicationStatus {
-        PREAPPROVAL, APPROVED, CC_DENIED, CC_APPROVED, PREPARE_DOCUMENTS,
+        STATEMENT_CREATED, PREAPPROVAL, APPROVED, CC_DENIED, CC_APPROVED, PREPARE_DOCUMENTS,
         DOCUMENT_CREATED, CLIENT_DENIED, DOCUMENT_SIGNED, CREDIT_ISSUED
     }
 
@@ -34,6 +34,7 @@ public class Statement implements Serializable {
     private UUID credit_id;
 
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     private eApplicationStatus status;
 
     @Column(name = "creation_date")

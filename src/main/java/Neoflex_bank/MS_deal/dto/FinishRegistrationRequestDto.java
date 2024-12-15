@@ -31,7 +31,7 @@ public class FinishRegistrationRequestDto {
 
     @NotNull
     @Schema(name = "passportIssueBranch", example = "УМВД по Пензенской области")
-    private String passportIssueBrach;
+    private String passportIssueBranch;
 
     @NotNull @Valid
     @Schema(name = "employment", example = "EmploymentDto")

@@ -52,6 +52,6 @@ public class DealController {
                     В заявке обновляется статус, история статусов.
                     Заявка сохраняется.""")
     public void completeRegistration(@PathVariable String statementId, @RequestBody @Validated FinishRegistrationRequestDto request) {
-
+        dealService.finishRegistration(statementId, request);
     }
 }
