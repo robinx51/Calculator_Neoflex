@@ -9,6 +9,7 @@ import org.hibernate.type.SqlTypes;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -50,5 +51,5 @@ public class Statement implements Serializable {
 
     @Column(name = "status_history")
     @JdbcTypeCode(SqlTypes.JSON)
-    private StatementStatusHistoryDto status_history;
+    private List<StatementStatusHistoryDto> status_history;
 }

@@ -36,4 +36,18 @@ public class StatementServiceDB {
         }
         return statement;*/
     }
+
+    public void updateStatement(Statement statement) {
+        logger.info("Обновление statement с id: {}", statement.getStatement_id());
+        if (statementRepository.existsById(statement.getStatement_id())) {
+            statementRepository.save(statement);
+            logger.info("Statement обновлён успешно");
+        } else {
+            logger.error("Statement с id: {} не найден", statement.getStatement_id());
+        }
+    }
+
+    public Statement getStatementById(UUID statement_id){
+        return statementRepository.findById(statement_id).orElse(null);
+    }
 }

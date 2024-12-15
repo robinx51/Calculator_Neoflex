@@ -2,6 +2,7 @@ package Neoflex_bank.MS_deal.db_pgsql.entity;
 
 import Neoflex_bank.MS_calculator.dto.EmploymentDto;
 import Neoflex_bank.MS_calculator.dto.ScoringDataDto;
+import Neoflex_bank.MS_deal.dto.PassportDto;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -14,7 +15,6 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "client")
-//@EntityListeners(AuditingEntityListener.class)
 public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,7 +46,8 @@ public class Client implements Serializable {
     private Integer dependent_amount;
 
     @Column(name = "passport")
-    private String passport;
+    @JdbcTypeCode(SqlTypes.JSON)
+    private PassportDto passportDto;
 
     @Column(name = "employment")
     @JdbcTypeCode(SqlTypes.JSON)

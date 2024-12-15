@@ -3,7 +3,7 @@ package Neoflex_bank.MS_deal.controller;
 import Neoflex_bank.MS_calculator.dto.LoanOfferDto;
 import Neoflex_bank.MS_calculator.dto.LoanStatementRequestDto;
 import Neoflex_bank.MS_deal.dto.FinishRegistrationRequestDto;
-import Neoflex_bank.MS_deal.service.StatementService;
+import Neoflex_bank.MS_deal.service.DealService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -14,10 +14,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/deal")
 public class DealController {
-    private final StatementService statementService;
+    private final DealService dealService;
     @Autowired
-    public DealController(StatementService statementService) {
-        this.statementService = statementService;
+    public DealController(DealService dealService) {
+        this.dealService = dealService;
     }
 
     @PostMapping("/statement")
@@ -28,7 +28,7 @@ public class DealController {
                     Отправляется POST запрос на /calculator/offers МС Калькулятор через RestClient
                     Каждому элементу из списка List<LoanOfferDto> присваивается id созданной заявки (Statement)""")
     public List<LoanOfferDto> initialRegistration(@RequestBody @Validated LoanStatementRequestDto request) {
-        return statementService.processClient(request);
+        return dealService.processClient(request);
     }
 
     @PostMapping("/offer/select")
@@ -39,7 +39,7 @@ public class DealController {
                     принятое предложение LoanOfferDto устанавливается в поле appliedOffer.
                     Заявка сохраняется.""")
     public void selectOffer(@RequestBody @Validated LoanOfferDto request) {
-
+        dealService.selectOffer(request);
     }
 
     @PostMapping("/calculate/{statementId}")

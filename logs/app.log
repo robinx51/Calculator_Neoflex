@@ -19943,3 +19943,106 @@ Caused by: org.hibernate.UnknownEntityTypeException: Unable to locate persister:
 2024-12-15T17:14:28.236+03:00  INFO 50888 --- [neoflex_bank] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-15T17:14:28.238+03:00  INFO 50888 --- [neoflex_bank] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
 2024-12-15T17:14:28.242+03:00  INFO 50888 --- [neoflex_bank] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-12-15T18:11:09.700+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] Neoflex_bank.Application                 : Starting Application using Java 21.0.2 with PID 29632 (D:\Work\Neoflex\calculator\target\classes started by Vivobook in D:\Work\Neoflex\calculator)
+2024-12-15T18:11:09.705+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] Neoflex_bank.Application                 : No active profile set, falling back to 1 default profile: "default"
+2024-12-15T18:11:09.799+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-15T18:11:09.799+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-15T18:11:10.724+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-15T18:11:10.797+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 2 JPA repository interfaces.
+2024-12-15T18:11:12.095+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-15T18:11:12.118+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-15T18:11:12.118+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-15T18:11:12.202+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-15T18:11:12.203+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2403 ms
+2024-12-15T18:11:12.260+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-15T18:11:12.557+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@52c1003a
+2024-12-15T18:11:12.559+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-15T18:11:12.578+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/neoflex_bank'
+2024-12-15T18:11:12.781+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-15T18:11:12.879+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-15T18:11:12.940+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-15T18:11:13.472+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-15T18:11:13.581+03:00  WARN 29632 --- [neoflex_bank] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-15T18:11:15.253+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-15T18:11:15.388+03:00  WARN 29632 --- [neoflex_bank] [restartedMain] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists statement alter column status set data type smallint" via JDBC [ОШИБКА: столбец "status" нельзя автоматически привести к типу smallint
+  Подсказка: Возможно, необходимо указать "USING status::smallint".]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists statement alter column status set data type smallint" via JDBC [ОШИБКА: столбец "status" нельзя автоматически привести к типу smallint
+  Подсказка: Возможно, необходимо указать "USING status::smallint".]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:583) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:523) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:341) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:240) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:119) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.14.jar:6.1.14]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.14.jar:6.1.14]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.14.jar:6.1.14]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.14.jar:6.1.14]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at Neoflex_bank.Application.main(Application.java:14) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: столбец "status" нельзя автоматически привести к типу smallint
+  Подсказка: Возможно, необходимо указать "USING status::smallint".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2725) ~[postgresql-42.7.2.jar:42.7.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2412) ~[postgresql-42.7.2.jar:42.7.2]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:371) ~[postgresql-42.7.2.jar:42.7.2]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:502) ~[postgresql-42.7.2.jar:42.7.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:419) ~[postgresql-42.7.2.jar:42.7.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:341) ~[postgresql-42.7.2.jar:42.7.2]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:326) ~[postgresql-42.7.2.jar:42.7.2]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:302) ~[postgresql-42.7.2.jar:42.7.2]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:297) ~[postgresql-42.7.2.jar:42.7.2]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	... 40 common frames omitted
+
+2024-12-15T18:11:15.402+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-15T18:11:16.054+03:00  WARN 29632 --- [neoflex_bank] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-15T18:11:16.726+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-15T18:11:16.786+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-15T18:11:16.801+03:00  INFO 29632 --- [neoflex_bank] [restartedMain] Neoflex_bank.Application                 : Started Application in 7.808 seconds (process running for 8.695)
+2024-12-15T18:12:41.420+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-15T18:12:41.420+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-15T18:12:41.422+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-12-15T18:12:41.676+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-1] N.M.db_pgsql.service.ClientServiceDB     : Добавление client в БД
+2024-12-15T18:12:41.758+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-1] N.M.db_pgsql.service.StatementServiceDB  : Добавление statement в БД
+2024-12-15T18:12:42.133+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-6] N.MS_calculator.services.OfferService    : Обработка запроса на расчёт кредита: сумма = 100000, срок = 6, фамилия = Smith, имя = John
+2024-12-15T18:12:42.136+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-6] N.MS_calculator.services.OfferService    : Обработан запрос на расчёт кредита: срок = 6, запрошенная сумма = 100000, ставка = 16, общая сумма = 105000.00, ежемесячный платёж = 18325.68
+2024-12-15T18:12:42.137+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-6] N.MS_calculator.services.OfferService    : Обработан запрос на расчёт кредита: срок = 6, запрошенная сумма = 100000, ставка = 17, общая сумма = 105000.00, ежемесячный платёж = 18377.88
+2024-12-15T18:12:42.137+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-6] N.MS_calculator.services.OfferService    : Обработан запрос на расчёт кредита: срок = 6, запрошенная сумма = 100000, ставка = 19, общая сумма = 100000, ежемесячный платёж = 17602.37
+2024-12-15T18:12:42.137+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-6] N.MS_calculator.services.OfferService    : Обработан запрос на расчёт кредита: срок = 6, запрошенная сумма = 100000, ставка = 20, общая сумма = 100000, ежемесячный платёж = 17652.28
+2024-12-15T18:14:06.455+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-8] N.M.db_pgsql.service.StatementServiceDB  : Обновление statement с id: cf540334-4ff3-43d3-9d77-93ce854076b4
+2024-12-15T18:14:07.086+03:00  INFO 29632 --- [neoflex_bank] [http-nio-8080-exec-8] N.M.db_pgsql.service.StatementServiceDB  : Statement обновлён успешно
+2024-12-15T18:18:08.198+03:00  INFO 29632 --- [neoflex_bank] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-15T18:18:08.205+03:00  INFO 29632 --- [neoflex_bank] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-15T18:18:08.209+03:00  INFO 29632 --- [neoflex_bank] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
