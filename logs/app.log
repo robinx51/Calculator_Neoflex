@@ -1658,3 +1658,89 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: столбец "pass
 2024-12-17T14:54:22.037+03:00  INFO 2700 --- [neoflex_bank] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-12-17T14:54:22.043+03:00  INFO 2700 --- [neoflex_bank] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-12-17T14:54:22.047+03:00  INFO 2700 --- [neoflex_bank] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-17T18:03:41.148+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] deal.MS_deal                             : Starting MS_deal using Java 21.0.2 with PID 6020 (D:\Work\Neoflex\Neoflex_bank\MS_deal\target\classes started by Vivobook in D:\Work\Neoflex\Neoflex_bank)
+2024-12-17T18:03:41.150+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] deal.MS_deal                             : No active profile set, falling back to 1 default profile: "default"
+2024-12-17T18:03:41.190+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-17T18:03:41.190+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-17T18:03:41.583+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-17T18:03:41.616+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 3 JPA repository interfaces.
+2024-12-17T18:03:41.923+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bff127fa-fd98-31c7-8fbf-bc25f6134dff
+2024-12-17T18:03:42.272+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-12-17T18:03:42.282+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-17T18:03:42.282+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-17T18:03:42.325+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-17T18:03:42.325+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1134 ms
+2024-12-17T18:03:42.350+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-17T18:03:42.471+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2d322a2a
+2024-12-17T18:03:42.472+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-17T18:03:42.481+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/neoflex_bank'
+2024-12-17T18:03:42.581+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-17T18:03:42.624+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-17T18:03:42.647+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-17T18:03:42.847+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-17T18:03:42.888+03:00  WARN 6020 --- [neoflex_bank] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-17T18:03:43.532+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-17T18:03:43.579+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-17T18:03:43.874+03:00  WARN 6020 --- [neoflex_bank] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-17T18:03:43.900+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-17T18:03:45.230+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2024-12-17T18:03:45.278+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2024-12-17T18:03:46.287+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2024-12-17T18:03:46.294+03:00  INFO 6020 --- [neoflex_bank] [restartedMain] deal.MS_deal                             : Started MS_deal in 6.473 seconds (process running for 7.034)
+2024-12-17T18:04:11.946+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] calculator.MS_calculator                 : Starting MS_calculator using Java 21.0.2 with PID 9236 (D:\Work\Neoflex\Neoflex_bank\MS_calculator\target\classes started by Vivobook in D:\Work\Neoflex\Neoflex_bank)
+2024-12-17T18:04:11.947+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] calculator.MS_calculator                 : No active profile set, falling back to 1 default profile: "default"
+2024-12-17T18:04:11.981+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-17T18:04:11.981+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-17T18:04:12.668+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-12-17T18:04:12.678+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-17T18:04:12.678+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-17T18:04:12.717+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-17T18:04:12.717+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 736 ms
+2024-12-17T18:04:13.064+03:00  WARN 9236 --- [neoflex_bank] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-12-17T18:04:13.087+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-12-17T18:04:13.094+03:00  INFO 9236 --- [neoflex_bank] [restartedMain] calculator.MS_calculator                 : Started MS_calculator in 1.43 seconds (process running for 1.971)
+2024-12-17T18:04:25.786+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-17T18:04:25.787+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-17T18:04:25.788+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-17T18:04:25.922+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] deal.service.DealService                 : Получена заявка на расчёт возможных условий кредита
+2024-12-17T18:04:25.922+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] deal.db_pgsql.service.ClientServiceDB    : Добавление client в БД
+2024-12-17T18:04:25.978+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] d.db_pgsql.service.StatementServiceDB    : Добавление statement в БД
+2024-12-17T18:04:25.981+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] d.db_pgsql.service.StatementServiceDB    : Обновление statement с id: 19f85c73-dfc2-4b43-b583-a668df7e913f
+2024-12-17T18:04:26.263+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] d.db_pgsql.service.StatementServiceDB    : Statement обновлён успешно
+2024-12-17T18:04:26.264+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-2] deal.service.DealService                 : Заявка на расчёт обработана
+2024-12-17T18:04:26.323+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-17T18:04:26.324+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-17T18:04:26.325+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-17T18:04:26.446+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-1] calculator.services.OfferService         : Обработка запроса на расчёт кредита: сумма = 200000, срок = 12, фамилия = Parker, имя = Peter
+2024-12-17T18:04:26.450+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-1] calculator.services.OfferService         : Обработан запрос на расчёт кредита: срок = 12, запрошенная сумма = 200000, ставка = 16, общая сумма = 210000.00, ежемесячный платёж = 19053.48
+2024-12-17T18:04:26.450+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-1] calculator.services.OfferService         : Обработан запрос на расчёт кредита: срок = 12, запрошенная сумма = 200000, ставка = 17, общая сумма = 210000.00, ежемесячный платёж = 19153.00
+2024-12-17T18:04:26.450+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-1] calculator.services.OfferService         : Обработан запрос на расчёт кредита: срок = 12, запрошенная сумма = 200000, ставка = 19, общая сумма = 200000, ежемесячный платёж = 18431.32
+2024-12-17T18:04:26.450+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-1] calculator.services.OfferService         : Обработан запрос на расчёт кредита: срок = 12, запрошенная сумма = 200000, ставка = 20, общая сумма = 200000, ежемесячный платёж = 18526.90
+2024-12-17T18:04:35.841+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-3] deal.service.DealService                 : Получен запрос на выбор кредитного предложения
+2024-12-17T18:04:35.841+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-3] deal.db_pgsql.service.CreditServiceDB    : Добавление credit в БД
+2024-12-17T18:04:35.861+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-3] d.db_pgsql.service.StatementServiceDB    : Обновление statement с id: 19f85c73-dfc2-4b43-b583-a668df7e913f
+2024-12-17T18:04:35.869+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-3] d.db_pgsql.service.StatementServiceDB    : Statement обновлён успешно
+2024-12-17T18:04:35.869+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-3] deal.service.DealService                 : Запрос на выбор предложения обработан
+2024-12-17T18:04:47.781+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-4] deal.service.DealService                 : Получен запрос на завершение регистрации и полный подсчёт кредита
+2024-12-17T18:04:47.786+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-4] deal.db_pgsql.service.ClientServiceDB    : Обновление client с id: baa97267-6401-4828-97db-f3998278618e
+2024-12-17T18:04:47.795+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-4] deal.db_pgsql.service.ClientServiceDB    : Client обновлён успешно
+2024-12-17T18:04:47.851+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-2] calculator.services.CalcService          : Получен запрос на кредит: сумма = 200000, срок = 12, фамилия = Parker, имя = Peter, статус занятости = EMPLOYED, необходимость страховки = true.
+2024-12-17T18:04:47.854+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-2] calculator.services.CalcService          : Обработана заявка на кредит: сумма = 210000.00, срок = 12, ставка = 21, ежемесячный платёж = 19553.89, ПСК = 234646.68
+2024-12-17T18:04:47.869+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-4] deal.db_pgsql.service.CreditServiceDB    : Обновление credit с id: 86d2f5ea-508f-46da-abae-30df30ba7873
+2024-12-17T18:04:47.881+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-4] deal.db_pgsql.service.CreditServiceDB    : Credit обновлён успешно
+2024-12-17T18:04:47.881+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-4] d.db_pgsql.service.StatementServiceDB    : Обновление statement с id: 19f85c73-dfc2-4b43-b583-a668df7e913f
+2024-12-17T18:04:47.885+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-4] d.db_pgsql.service.StatementServiceDB    : Statement обновлён успешно
+2024-12-17T18:04:47.885+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-4] deal.service.DealService                 : Запрос на завершение регистрации и полный подсчёт кредита обработан
+2024-12-17T18:05:06.949+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-5] deal.service.DealService                 : Получен запрос на завершение регистрации и полный подсчёт кредита
+2024-12-17T18:05:06.954+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-5] deal.db_pgsql.service.ClientServiceDB    : Обновление client с id: baa97267-6401-4828-97db-f3998278618e
+2024-12-17T18:05:06.956+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-5] deal.db_pgsql.service.ClientServiceDB    : Client обновлён успешно
+2024-12-17T18:05:06.974+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-3] calculator.services.CalcService          : Получен запрос на кредит: сумма = 200000, срок = 12, фамилия = Parker, имя = Peter, статус занятости = EMPLOYED, необходимость страховки = true.
+2024-12-17T18:05:06.975+03:00  INFO 9236 --- [neoflex_bank] [http-nio-8080-exec-3] calculator.services.CalcService          : Обработана заявка на кредит: сумма = 210000.00, срок = 12, ставка = 21, ежемесячный платёж = 19553.89, ПСК = 234646.68
+2024-12-17T18:05:06.978+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-5] deal.db_pgsql.service.CreditServiceDB    : Обновление credit с id: 86d2f5ea-508f-46da-abae-30df30ba7873
+2024-12-17T18:05:06.980+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-5] deal.db_pgsql.service.CreditServiceDB    : Credit обновлён успешно
+2024-12-17T18:05:06.980+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-5] d.db_pgsql.service.StatementServiceDB    : Обновление statement с id: 19f85c73-dfc2-4b43-b583-a668df7e913f
+2024-12-17T18:05:06.984+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-5] d.db_pgsql.service.StatementServiceDB    : Statement обновлён успешно
+2024-12-17T18:05:06.984+03:00  INFO 6020 --- [neoflex_bank] [http-nio-8081-exec-5] deal.service.DealService                 : Запрос на завершение регистрации и полный подсчёт кредита обработан
+2024-12-17T18:05:50.634+03:00  INFO 6020 --- [neoflex_bank] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-17T18:05:50.636+03:00  INFO 6020 --- [neoflex_bank] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-17T18:05:50.639+03:00  INFO 6020 --- [neoflex_bank] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

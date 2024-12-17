@@ -11,10 +11,7 @@ import calculator.dto.*;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClient;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -59,21 +56,12 @@ public class DealService {
         clientService.updateClient(client);
 
         ScoringDataDto scoringDataDto = setScoringDataDto(statement, client);
-        CreditDto creditDto = getCreditDto(scoringDataDto);
+        CreditDto creditDto = calculatorFeignClient.getCreditDto(scoringDataDto);
         Credit credit = creditServiceDB.getCreditById(statement.getCredit_id());
         setCreditByCreditDto(credit, creditDto);
         creditServiceDB.updateCredit(credit);
         addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.DOCUMENT_CREATED);
         logger.info("Запрос на завершение регистрации и полный подсчёт кредита обработан");
-    }
-
-    private CreditDto getCreditDto(ScoringDataDto request) {
-        return RestClient.create().post()
-                .uri("http://localhost:8080/calculator/calc")
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(request)
-                .retrieve()
-                .body(new ParameterizedTypeReference<>() {});
     }
 
     private List<LoanOfferDto> setStatementIds(List<LoanOfferDto> offers, UUID statement_id) {

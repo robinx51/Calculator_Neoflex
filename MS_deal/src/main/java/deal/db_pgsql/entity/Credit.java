@@ -4,7 +4,10 @@ import calculator.dto.PaymentScheduleElementDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -12,8 +15,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-@Data
 @Entity
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "credit")
 public class Credit {
     public enum eCreditStatus {
