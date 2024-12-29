@@ -1,4 +1,4 @@
-package MS_calculator.Annotations;
+package MS_calculator.annotations;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

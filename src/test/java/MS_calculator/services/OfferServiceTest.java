@@ -1,7 +1,7 @@
-package MS_calculator.Services;
+package MS_calculator.services;
 
-import MS_calculator.DTO.LoanOfferDto;
-import MS_calculator.DTO.LoanStatementRequestDto;
+import MS_calculator.dto.LoanOfferDto;
+import MS_calculator.dto.LoanStatementRequestDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,15 +24,14 @@ class OfferServiceTest {
     @InjectMocks
     private OfferService offerService;
 
-    @BeforeEach
-    void setUp() {
-        when(scoringService.calculateRate(anyBoolean(), anyBoolean())).thenReturn(new BigDecimal("20"));
-    }
-
     @Test
     void generateOffers() {
-        LoanStatementRequestDto request = new LoanStatementRequestDto();
+        when(scoringService.calculateRate(anyBoolean(), anyBoolean())).thenReturn(new BigDecimal("20"));
+
         BigDecimal amount = new BigDecimal("100000");
+        LoanStatementRequestDto request = LoanStatementRequestDto.builder()
+                .amount(amount)
+                .build();
         request.setAmount(amount);
 
         List<LoanOfferDto> loanOffers = offerService.generateOffers(request);

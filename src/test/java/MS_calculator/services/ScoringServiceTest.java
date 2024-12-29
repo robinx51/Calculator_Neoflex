@@ -1,8 +1,8 @@
-package MS_calculator.Services;
+package MS_calculator.services;
 
-import MS_calculator.DTO.EmploymentDto;
-import MS_calculator.DTO.PaymentScheduleElementDto;
-import MS_calculator.DTO.ScoringDataDto;
+import MS_calculator.dto.EmploymentDto;
+import MS_calculator.dto.PaymentScheduleElementDto;
+import MS_calculator.dto.ScoringDataDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -56,23 +56,27 @@ class ScoringServiceTest {
 
     @Test
     void calculateFinalRate() {
-        EmploymentDto employmentDto1 = new EmploymentDto()
-                .setEmploymentStatus(EmploymentDto.EmploymentStatus.BUSINESS_OWNER) // +1
-                .setPosition(EmploymentDto.Position.TOP_MANAGER);                   // -3
-        ScoringDataDto request1 = new ScoringDataDto()
-                .setEmployment(employmentDto1)
-                .setMaritalStatus(ScoringDataDto.MaritalStatus.MARRIED)             // -3
-                .setGender(ScoringDataDto.Gender.MALE)
-                .setBirthdate(LocalDate.now().minusYears(30));        // -3
+        EmploymentDto employmentDto1 = EmploymentDto.builder()
+                .employmentStatus(EmploymentDto.EmploymentStatus.BUSINESS_OWNER) // +1
+                .position(EmploymentDto.Position.TOP_MANAGER)                    // -3
+                .build();
+        ScoringDataDto request1 = ScoringDataDto.builder()
+                .employment(employmentDto1)
+                .maritalStatus(ScoringDataDto.MaritalStatus.MARRIED)             // -3
+                .gender(ScoringDataDto.Gender.MALE)
+                .birthdate(LocalDate.now().minusYears(30))         // -3
+                .build();
 
-        EmploymentDto employmentDto2 = new EmploymentDto()
-                .setEmploymentStatus(EmploymentDto.EmploymentStatus.SELF_EMPLOYED) // +2
-                .setPosition(EmploymentDto.Position.MIDDLE_MANAGER);               // -2
-        ScoringDataDto request2 = new ScoringDataDto()
-                .setEmployment(employmentDto2)
-                .setMaritalStatus(ScoringDataDto.MaritalStatus.DIVORCED)           // +1
-                .setGender(ScoringDataDto.Gender.FEMALE)
-                .setBirthdate(LocalDate.now().minusYears(32));        // -3
+        EmploymentDto employmentDto2 = EmploymentDto.builder()
+                .employmentStatus(EmploymentDto.EmploymentStatus.SELF_EMPLOYED) // +2
+                .position(EmploymentDto.Position.MIDDLE_MANAGER)                // -2
+                .build();
+        ScoringDataDto request2 = ScoringDataDto.builder()
+                .employment(employmentDto2)
+                .maritalStatus(ScoringDataDto.MaritalStatus.DIVORCED)           // +1
+                .gender(ScoringDataDto.Gender.FEMALE)
+                .birthdate(LocalDate.now().minusYears(32))        // -3
+                .build();
 
         assertEquals(12, scoringService.calculateFinalRate(request1).intValue());
         assertEquals(18, scoringService.calculateFinalRate(request2).intValue());
