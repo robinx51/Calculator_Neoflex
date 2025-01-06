@@ -34,7 +34,8 @@ public class DealService {
     public List<LoanOfferDto> processClient(LoanStatementRequestDto request) {
         logger.info("Получена заявка на расчёт возможных условий кредита");
         Client client = clientService.createClient(request);
-        Statement statement = statementServiceDB.createStatement(client.getClientId());
+        Statement statement = statementServiceDB.createStatement(client);
+        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.STATEMENT_CREATED);
         logger.info("Заявка на расчёт обработана");
         return setStatementIds(calculatorFeignClient.getOffers(request), statement.getStatementId());
     }
@@ -44,7 +45,7 @@ public class DealService {
         Credit credit = creditServiceDB.createCredit(request.getIsInsuranceEnabled(), request.getIsSalaryClient());
         Statement statement = statementServiceDB.getStatementById(request.getStatementId());
         statement.setAppliedOffer(request);
-        statement.setCreditId(credit.getCreditId());
+        statement.setCredit(credit);
         addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.PREPARE_DOCUMENTS);
         logger.info("Запрос на выбор предложения обработан");
     }
@@ -52,18 +53,22 @@ public class DealService {
     public void finishRegistration(String statementId, FinishRegistrationRequestDto request) {
         logger.info("Получен запрос на завершение регистрации и полный подсчёт кредита");
         Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
-        Client client = clientService.getClientById(statement.getClientId());
+        Client client = clientService.getClientById(statement.getClient().getClientId());
 
         setClientByFinishRegistrationRequestDto(client, request);
         clientService.updateClient(client);
 
         ScoringDataDto scoringDataDto = setScoringDataDto(statement, client);
         CreditDto creditDto = calculatorFeignClient.getCreditDto(scoringDataDto);
-        Credit credit = creditServiceDB.getCreditById(statement.getCreditId());
+        Credit credit = statement.getCredit();
         setCreditByCreditDto(credit, creditDto);
         creditServiceDB.updateCredit(credit);
         addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.DOCUMENT_CREATED);
         logger.info("Запрос на завершение регистрации и полный подсчёт кредита обработан");
+    }
+
+    public List<Statement> getStatements() {
+        return statementServiceDB.statementRepository.findAll();
     }
 
     private List<LoanOfferDto> setStatementIds(List<LoanOfferDto> offers, UUID statement_id) {
@@ -95,7 +100,7 @@ public class DealService {
     }
 
     private ScoringDataDto setScoringDataDto(Statement statement, Client client) {
-        Credit credit = creditServiceDB.getCreditById(statement.getCreditId());
+        Credit credit = statement.getCredit();
         return ScoringDataDto.builder()
                 .amount(statement.getAppliedOffer().getRequestedAmount())
                 .term(statement.getAppliedOffer().getTerm())

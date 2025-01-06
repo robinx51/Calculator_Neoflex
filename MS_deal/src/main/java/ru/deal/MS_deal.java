@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan(basePackages = "deal.db_pgsql.entity")
+@EntityScan(basePackages = "ru.deal.db_pgsql.entity")
 @EnableJpaRepositories("ru.deal.db_pgsql.repository")
 @EnableFeignClients
 public class MS_deal {

@@ -2,6 +2,7 @@ package ru.deal.controller;
 
 import ru.calculator.dto.LoanOfferDto;
 import ru.calculator.dto.LoanStatementRequestDto;
+import ru.deal.db_pgsql.entity.Statement;
 import ru.deal.dto.FinishRegistrationRequestDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,10 @@ public class DealController {
                     Заявка сохраняется.""")
     public void completeRegistration(@PathVariable String statementId, @RequestBody @Validated FinishRegistrationRequestDto request) {
         dealService.finishRegistration(statementId, request);
+    }
+
+    @GetMapping("/statements")
+    public List<Statement> getStatements() {
+        return dealService.getStatements();
     }
 }

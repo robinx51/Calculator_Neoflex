@@ -110,8 +110,8 @@ public class DealServiceTest {
         FinishRegistrationRequestDto request = FinishRegistrationRequestDto.builder().build();
         BigDecimal amount = BigDecimal.valueOf(100000);
         statement = Statement.builder()
-                .clientId(client.getClientId())
-                .creditId(credit.getCreditId())
+                .client(client)
+                .credit(credit)
                 .appliedOffer(LoanOfferDto.builder()
                         .requestedAmount(amount).term(6)
                         .build())
@@ -123,8 +123,8 @@ public class DealServiceTest {
                 .build();
 
         when(statementServiceDB.getStatementById(statementId)).thenReturn(statement);
-        when(clientServiceDb.getClientById(statement.getClientId())).thenReturn(client);
-        when(creditServiceDB.getCreditById(statement.getCreditId())).thenReturn(credit);
+        when(clientServiceDb.getClientById(statement.getClient().getClientId())).thenReturn(client);
+        when(creditServiceDB.getCreditById(statement.getCredit().getCreditId())).thenReturn(credit);
         when(calculatorFeignClient.getCreditDto(any())).thenReturn(creditDto);
 
         // Act

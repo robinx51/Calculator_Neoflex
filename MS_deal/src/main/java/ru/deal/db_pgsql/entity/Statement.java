@@ -32,13 +32,13 @@ public class Statement implements Serializable {
     @Column(name = "statement_id", columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID statementId;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "client_id", nullable = false)
-    private UUID clientId;
+    private Client client;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "credit_id", nullable = false)
-    private UUID creditId;
+    private Credit credit;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
