@@ -67,10 +67,6 @@ public class DealService {
         logger.info("Запрос на завершение регистрации и полный подсчёт кредита обработан");
     }
 
-    public List<Statement> getStatements() {
-        return statementServiceDB.statementRepository.findAll();
-    }
-
     private List<LoanOfferDto> setStatementIds(List<LoanOfferDto> offers, UUID statement_id) {
         for(LoanOfferDto offer : offers) {
             offer.setStatementId(statement_id);

@@ -55,9 +55,4 @@ public class DealController {
     public void completeRegistration(@PathVariable String statementId, @RequestBody @Validated FinishRegistrationRequestDto request) {
         dealService.finishRegistration(statementId, request);
     }
-
-    @GetMapping("/statements")
-    public List<Statement> getStatements() {
-        return dealService.getStatements();
-    }
 }
