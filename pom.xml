@@ -16,9 +16,15 @@
 	<modules>
 		<module>MS_calculator</module>
 		<module>MS_deal</module>
-	</modules>
+        <module>Statement</module>
+    </modules>
 
 	<dependencies>
+		<!-- Validation -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 		<!-- Log4j2 Core -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

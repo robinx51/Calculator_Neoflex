@@ -8,8 +8,22 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>MS_calculator</artifactId>
-    <name>Microservice: calculator</name>
+    <artifactId>MS_statement</artifactId>
+    <name>Microservice: statement</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>ru.Neoflex_bank</groupId>
+            <artifactId>MS_calculator</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>4.1.4</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
