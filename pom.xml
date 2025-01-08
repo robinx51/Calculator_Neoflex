@@ -16,7 +16,7 @@
 	<modules>
 		<module>MS_calculator</module>
 		<module>MS_deal</module>
-        <module>Statement</module>
+        <module>MS_Statement</module>
     </modules>
 
 	<dependencies>
