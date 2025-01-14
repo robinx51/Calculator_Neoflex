@@ -6,8 +6,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class MS_statement {
+public class StatementApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MS_statement.class, args);
+        SpringApplication.run(StatementApplication.class, args);
     }
 }

@@ -5,8 +5,5 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <include file="changeset-import-uuid_generator.xml" relativeToChangelogFile="true"/>
-    <include file="changeset-client-table.xml" relativeToChangelogFile="true"/>
-    <include file="changeset-credit-table.xml" relativeToChangelogFile="true"/>
-    <include file="changeset-statement-table.xml" relativeToChangelogFile="true"/>
+    <include file="changeset-init-database.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

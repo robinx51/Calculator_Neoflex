@@ -48,7 +48,7 @@ public class DealServiceTest {
 
     private final Client client = Client.builder().
             clientId(UUID.randomUUID())
-            .birth_date(Date.valueOf(LocalDate.now()))
+            .birthDate(Date.valueOf(LocalDate.now()))
             .passportDto(PassportDto.builder().build())
             .build();
     private Statement statement = Statement.builder()

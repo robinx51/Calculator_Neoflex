@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MS_calculator {
+public class CalculatorAppliacation {
 	public static void main(String[] args) {
-		SpringApplication.run(MS_calculator.class, args);
+		SpringApplication.run(CalculatorAppliacation.class, args);
 	}
 }

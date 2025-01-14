@@ -25,7 +25,7 @@ public class ClientServiceDB {
                 .lastName(request.getLastName())
                 .firstName(request.getFirstName())
                 .middleName(request.getMiddleName())
-                .birth_date(Date.valueOf(request.getBirthdate()))
+                .birthDate(Date.valueOf(request.getBirthdate()))
                 .email(request.getEmail())
                 .passportDto(
                         PassportDto.builder()
@@ -49,7 +49,7 @@ public class ClientServiceDB {
         }
     }
 
-    public Client getClientById(UUID client_id){
-        return clientRepository.findById(client_id).orElse(null);
+    public Client getClientById(UUID clientId){
+        return clientRepository.findById(clientId).orElse(null);
     }
 }

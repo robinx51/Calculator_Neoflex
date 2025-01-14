@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>ru.Neoflex_bank</groupId>
-            <artifactId>MS_calculator</artifactId>
+            <artifactId>MS_Calculator</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
@@ -25,7 +25,7 @@
         </dependency>
         <dependency>
             <groupId>ru.Neoflex_bank</groupId>
-            <artifactId>MS_deal</artifactId>
+            <artifactId>MS_Deal</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>

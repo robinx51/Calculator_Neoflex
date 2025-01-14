@@ -15,17 +15,17 @@ public class CreditServiceDB {
     private CreditRepository creditRepository;
     private static final Logger logger = LoggerFactory.getLogger(CreditServiceDB.class);
 
-    public Credit createCredit(boolean insurance_enabled, boolean salary_client) {
+    public Credit createCredit(boolean insuranceEnabled, boolean salaryClient) {
         logger.info("Добавление credit в БД");
         Credit credit = new Credit();
-        credit.setInsuranceEnabled(insurance_enabled);
-        credit.setSalaryClient(salary_client);
+        credit.setInsuranceEnabled(insuranceEnabled);
+        credit.setSalaryClient(salaryClient);
         credit.setCreditStatus(Credit.eCreditStatus.PREPARED);
         return creditRepository.save(credit);
     }
 
-    public Credit getCreditById(UUID credit_id){
-        return creditRepository.findById(credit_id).orElse(null);
+    public Credit getCreditById(UUID creditId){
+        return creditRepository.findById(creditId).orElse(null);
     }
 
     public void updateCredit(Credit credit) {

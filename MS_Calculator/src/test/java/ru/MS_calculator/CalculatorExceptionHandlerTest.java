@@ -1,6 +1,6 @@
 package ru.MS_calculator;
 
-import ru.calculator.MS_calculator;
+import ru.calculator.CalculatorAppliacation;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
-@SpringBootTest(classes = MS_calculator.class)
+@SpringBootTest(classes = CalculatorAppliacation.class)
 @AutoConfigureMockMvc
 public class CalculatorExceptionHandlerTest {
     @Autowired

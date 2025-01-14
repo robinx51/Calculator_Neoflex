@@ -10,9 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = "ru.deal.db_pgsql.entity")
 @EnableJpaRepositories("ru.deal.db_pgsql.repository")
 @EnableFeignClients
-public class MS_deal {
+public class DealApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(MS_deal.class, args);
+		SpringApplication.run(DealApplication.class, args);
 	}
 
 }

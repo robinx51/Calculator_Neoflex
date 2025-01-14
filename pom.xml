@@ -14,9 +14,10 @@
 	</parent>
 
 	<modules>
-		<module>MS_calculator</module>
-		<module>MS_deal</module>
+		<module>MS_Calculator</module>
+		<module>MS_Deal</module>
         <module>MS_Statement</module>
+        <module>MS_Dossier</module>
     </modules>
 
 	<dependencies>

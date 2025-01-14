@@ -28,16 +28,13 @@ public class Credit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "credit_id", columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID creditId;
 
     @Min(value = 20000, message = "Сумма кредита - действительно число, большее или равное 20000")
-    @Schema(name = "amount", example = "20000", minimum = "20000")
     @Column(name = "amount")
     private BigDecimal amount;
 
     @Min(value = 6, message = "Срок кредита - целое число, большее или равное 6")
-    @Schema(name = "term", example = "6", minimum = "6")
     @Column(name = "term")
     private Integer term;
 
@@ -53,20 +50,16 @@ public class Credit {
     @Column(name = "psk")
     private BigDecimal psk;
 
-    @Schema(name = "payment_schedule", example = "List<PaymentScheduleElementDto>")
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "payment_schedule")
     private List<PaymentScheduleElementDto> paymentSchedule;
 
-    @Schema(name = "insurance_enabled", example = "true")
     @Column(name = "insurance_enabled")
     private Boolean insuranceEnabled;
 
-    @Schema(name = "salary_client", example = "true")
     @Column(name = "salary_client")
     private Boolean salaryClient;
 
-    @Schema(name = "credit_status", example = "CALCULATED")
     @Column(name = "credit_status")
     @Enumerated(EnumType.STRING)
     private eCreditStatus creditStatus;

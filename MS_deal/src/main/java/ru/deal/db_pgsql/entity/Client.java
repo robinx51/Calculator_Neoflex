@@ -35,7 +35,7 @@ public class Client implements Serializable {
     private String middleName;
 
     @Column(name = "birth_date")
-    private Date birth_date;
+    private Date birthDate;
 
     @Column(name = "email")
     private String email;

@@ -104,7 +104,7 @@ public class DealService {
                 .lastName(client.getLastName())
                 .middleName(client.getMiddleName())
                 .gender(client.getGender())
-                .birthdate(client.getBirth_date().toLocalDate())
+                .birthdate(client.getBirthDate().toLocalDate())
                 .passportSeries(client.getPassportDto().getPassportSeries())
                 .passportNumber(client.getPassportDto().getPassportNumber())
                 .passportIssueDate(client.getPassportDto().getPassportIssueDate())
