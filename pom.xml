@@ -17,7 +17,6 @@
 		<module>MS_Calculator</module>
 		<module>MS_Deal</module>
         <module>MS_Statement</module>
-        <module>MS_Dossier</module>
     </modules>
 
 	<dependencies>
