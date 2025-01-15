@@ -140,4 +140,13 @@ public class DealService {
         client.setEmployment(request.getEmployment());
         client.setAccountNumber(request.getAccountNumber());
     }
+
+    public void sendDocuments(LoanOfferDto request, String statementId) {
+    }
+
+    public void signRequestDocuments(LoanOfferDto request, String statementId) {
+    }
+
+    public void signDocuments(LoanOfferDto request, String statementId) {
+    }
 }

@@ -54,4 +54,22 @@ public class DealController {
     public void completeRegistration(@PathVariable String statementId, @RequestBody @Validated FinishRegistrationRequestDto request) {
         dealService.finishRegistration(statementId, request);
     }
+
+    @PostMapping("/deal/document/{statementId}/send")
+    @Tag(name = "Запрос на отправку документов")
+    public void sendDocuments(@PathVariable String statementId, @RequestBody @Validated LoanOfferDto request) {
+        dealService.sendDocuments(request, statementId);
+    }
+
+    @PostMapping("/deal/document/{statementId}/sign")
+    @Tag(name = "Запрос на подписание документов")
+    public void signRequestDocuments(@PathVariable String statementId, @RequestBody @Validated LoanOfferDto request) {
+        dealService.signRequestDocuments(request, statementId);
+    }
+
+    @PostMapping("/deal/document/{statementId}/code")
+    @Tag(name = "Подписание документов")
+    public void signDocuments(@PathVariable String statementId, @RequestBody @Validated LoanOfferDto request) {
+        dealService.signDocuments(request, statementId);
+    }
 }
