@@ -16,19 +16,19 @@
             <groupId>ru.Neoflex_bank</groupId>
             <artifactId>MS_Calculator</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>4.1.4</version>
         </dependency>
         <dependency>
             <groupId>ru.Neoflex_bank</groupId>
             <artifactId>MS_Deal</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>4.1.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>
