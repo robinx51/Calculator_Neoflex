@@ -18,6 +18,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import ru.deal.service.EmailService;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -27,8 +28,7 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -42,6 +42,8 @@ public class DealServiceTest {
     private CreditServiceDB creditServiceDB;
     @Mock
     private CalculatorFeignClient calculatorFeignClient;
+    @Mock
+    private EmailService emailService;
 
     @InjectMocks
     private DealService dealService;
@@ -53,6 +55,7 @@ public class DealServiceTest {
             .build();
     private Statement statement = Statement.builder()
             .statementId(UUID.randomUUID())
+            .client(client)
             .status(Statement.eApplicationStatus.STATEMENT_CREATED)
             .build();
     private final Credit credit = Credit.builder()
@@ -92,8 +95,9 @@ public class DealServiceTest {
                 .isSalaryClient(true)
                 .statementId(statement.getStatementId())
                 .build();
+        when(clientServiceDb.getClientById(any())).thenReturn(client);
         when(creditServiceDB.createCredit(anyBoolean(), anyBoolean())).thenReturn(credit);
-        when(statementServiceDB.getStatementById(request.getStatementId())).thenReturn(statement);
+        when(statementServiceDB.getStatementById(any())).thenReturn(statement);
 
         // Act
         dealService.selectOffer(request);
@@ -124,7 +128,6 @@ public class DealServiceTest {
 
         when(statementServiceDB.getStatementById(statementId)).thenReturn(statement);
         when(clientServiceDb.getClientById(statement.getClient().getClientId())).thenReturn(client);
-        when(creditServiceDB.getCreditById(statement.getCredit().getCreditId())).thenReturn(credit);
         when(calculatorFeignClient.getCreditDto(any())).thenReturn(creditDto);
 
         // Act

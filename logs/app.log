@@ -68033,3 +68033,126 @@ Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstr
 Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
 2025-01-20T01:03:59.365+03:00  INFO 25036 --- [ms_statement] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2025-01-20T01:03:59.366+03:00  INFO 25036 --- [ms_statement] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-01-20T11:30:15.226+03:00  INFO 9124 --- [ms_deal] [restartedMain] ru.deal.DealApplication                  : Starting DealApplication using Java 21.0.2 with PID 9124 (D:\Проекты\NeoFlex\Calculator_Neoflex\MS_Deal\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2025-01-20T11:30:15.239+03:00  INFO 9124 --- [ms_deal] [restartedMain] ru.deal.DealApplication                  : No active profile set, falling back to 1 default profile: "default"
+2025-01-20T11:30:15.294+03:00  INFO 9124 --- [ms_deal] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-20T11:30:15.294+03:00  INFO 9124 --- [ms_deal] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-20T11:30:15.940+03:00  INFO 9124 --- [ms_deal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-20T11:30:15.989+03:00  INFO 9124 --- [ms_deal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 3 JPA repository interfaces.
+2025-01-20T11:30:16.503+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=db403abf-d532-3591-8787-b69fb9b098a2
+2025-01-20T11:30:17.014+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-01-20T11:30:17.028+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-20T11:30:17.028+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-20T11:30:17.092+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-20T11:30:17.092+03:00  INFO 9124 --- [ms_deal] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1797 ms
+2025-01-20T11:30:17.119+03:00  INFO 9124 --- [ms_deal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-20T11:30:17.370+03:00  INFO 9124 --- [ms_deal] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@604efbfa
+2025-01-20T11:30:17.371+03:00  INFO 9124 --- [ms_deal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-20T11:30:17.381+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/neoflex_calculator'
+2025-01-20T11:30:17.830+03:00  INFO 9124 --- [ms_deal] [restartedMain] liquibase.database                       : Set default schema name to public
+2025-01-20T11:30:18.721+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-20T11:30:18.820+03:00  INFO 9124 --- [ms_deal] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-20T11:30:18.878+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-20T11:30:19.336+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-20T11:30:19.408+03:00  WARN 9124 --- [ms_deal] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-20T11:30:19.827+03:00  INFO 9116 --- [ms_calculator] [restartedMain] ru.calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 9116 (D:\Проекты\NeoFlex\Calculator_Neoflex\MS_Calculator\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2025-01-20T11:30:19.829+03:00  INFO 9116 --- [ms_calculator] [restartedMain] ru.calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-01-20T11:30:19.873+03:00  INFO 9116 --- [ms_calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-20T11:30:19.874+03:00  INFO 9116 --- [ms_calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-20T11:30:20.687+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-20T11:30:20.790+03:00  INFO 9124 --- [ms_deal] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:30:21.011+03:00  INFO 9116 --- [ms_calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-20T11:30:21.028+03:00  INFO 9116 --- [ms_calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-20T11:30:21.029+03:00  INFO 9116 --- [ms_calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-20T11:30:21.097+03:00  INFO 9116 --- [ms_calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-20T11:30:21.098+03:00  INFO 9116 --- [ms_calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1224 ms
+2025-01-20T11:30:21.332+03:00  WARN 9124 --- [ms_deal] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-20T11:30:21.390+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-20T11:30:21.799+03:00  WARN 9116 --- [ms_calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-01-20T11:30:21.837+03:00  INFO 9116 --- [ms_calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-20T11:30:21.846+03:00  INFO 9116 --- [ms_calculator] [restartedMain] ru.calculator.CalculatorApplication      : Started CalculatorApplication in 2.432 seconds (process running for 3.064)
+2025-01-20T11:30:23.167+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-20T11:30:23.238+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-01-20T11:30:24.159+03:00  INFO 11512 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : Starting StatementApplication using Java 21.0.2 with PID 11512 (D:\Проекты\NeoFlex\Calculator_Neoflex\MS_Statement\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2025-01-20T11:30:24.161+03:00  INFO 11512 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-01-20T11:30:24.209+03:00  INFO 11512 --- [ms_statement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-20T11:30:24.209+03:00  INFO 11512 --- [ms_statement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-20T11:30:24.250+03:00  INFO 9124 --- [ms_deal] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-20T11:30:24.257+03:00  INFO 9124 --- [ms_deal] [restartedMain] ru.deal.DealApplication                  : Started DealApplication in 10.568 seconds (process running for 11.332)
+2025-01-20T11:30:24.272+03:00  INFO 9124 --- [ms_deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:30:24.275+03:00  INFO 9124 --- [ms_deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-20T11:30:24.278+03:00  INFO 9124 --- [ms_deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-20T11:30:25.356+03:00  INFO 11512 --- [ms_statement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-20T11:30:25.386+03:00  INFO 11512 --- [ms_statement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
+2025-01-20T11:30:25.838+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7b4002b0-08c9-33c6-b077-4dfbb922d096
+2025-01-20T11:30:26.565+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-01-20T11:30:26.584+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-20T11:30:26.584+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-20T11:30:26.661+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-20T11:30:26.662+03:00  INFO 11512 --- [ms_statement] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2452 ms
+2025-01-20T11:30:26.696+03:00  INFO 11512 --- [ms_statement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-20T11:30:26.945+03:00  INFO 11512 --- [ms_statement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:0b0c61b3-dcde-4176-a6b1-ea8bd2db3ac4 user=SA
+2025-01-20T11:30:26.947+03:00  INFO 11512 --- [ms_statement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-20T11:30:26.959+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:0b0c61b3-dcde-4176-a6b1-ea8bd2db3ac4'
+2025-01-20T11:30:27.120+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-20T11:30:27.210+03:00  INFO 11512 --- [ms_statement] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-20T11:30:27.260+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-20T11:30:27.690+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-20T11:30:28.009+03:00  INFO 12604 --- [ms_deal] [restartedMain] ru.deal.DealApplication                  : Starting DealApplication using Java 21.0.2 with PID 12604 (D:\Проекты\NeoFlex\Calculator_Neoflex\MS_Deal\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2025-01-20T11:30:28.011+03:00  INFO 12604 --- [ms_deal] [restartedMain] ru.deal.DealApplication                  : No active profile set, falling back to 1 default profile: "default"
+2025-01-20T11:30:28.068+03:00  INFO 12604 --- [ms_deal] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-20T11:30:28.068+03:00  INFO 12604 --- [ms_deal] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-20T11:30:28.195+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-20T11:30:28.204+03:00  INFO 11512 --- [ms_statement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:30:28.429+03:00  WARN 11512 --- [ms_statement] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-20T11:30:28.480+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-20T11:30:28.723+03:00  INFO 12604 --- [ms_deal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-20T11:30:28.769+03:00  INFO 12604 --- [ms_deal] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 3 JPA repository interfaces.
+2025-01-20T11:30:29.288+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=db403abf-d532-3591-8787-b69fb9b098a2
+2025-01-20T11:30:29.750+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-01-20T11:30:29.764+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-20T11:30:29.764+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-20T11:30:29.828+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-20T11:30:29.828+03:00  INFO 12604 --- [ms_deal] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1759 ms
+2025-01-20T11:30:29.855+03:00  INFO 12604 --- [ms_deal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-20T11:30:30.036+03:00  INFO 12604 --- [ms_deal] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@242aff1b
+2025-01-20T11:30:30.038+03:00  INFO 12604 --- [ms_deal] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-20T11:30:30.047+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/neoflex_calculator'
+2025-01-20T11:30:30.128+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-20T11:30:30.195+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-01-20T11:30:30.365+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.database                       : Set default schema name to public
+2025-01-20T11:30:30.767+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
+2025-01-20T11:30:30.807+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.ui                             : Database is up to date, no changesets to execute
+2025-01-20T11:30:30.809+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
+2025-01-20T11:30:30.816+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.util                           : UPDATE SUMMARY
+2025-01-20T11:30:30.816+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.util                           : Run:                          0
+2025-01-20T11:30:30.816+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.util                           : Previously run:               4
+2025-01-20T11:30:30.816+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.util                           : Filtered out:                 0
+2025-01-20T11:30:30.816+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.util                           : -------------------------------
+2025-01-20T11:30:30.816+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.util                           : Total change sets:            4
+2025-01-20T11:30:30.817+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.util                           : Update summary generated
+2025-01-20T11:30:30.841+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.lockservice                    : Successfully released change log lock
+2025-01-20T11:30:30.843+03:00  INFO 12604 --- [ms_deal] [restartedMain] liquibase.command                        : Command execution complete
+2025-01-20T11:30:30.914+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-20T11:30:30.981+03:00  INFO 12604 --- [ms_deal] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-20T11:30:31.026+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-20T11:30:31.208+03:00  INFO 11512 --- [ms_statement] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-20T11:30:31.214+03:00  INFO 11512 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : Started StatementApplication in 8.564 seconds (process running for 9.397)
+2025-01-20T11:30:31.350+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-20T11:30:31.408+03:00  WARN 12604 --- [ms_deal] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-01-20T11:30:32.489+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-20T11:30:32.532+03:00  INFO 12604 --- [ms_deal] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:30:32.923+03:00  WARN 12604 --- [ms_deal] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-20T11:30:32.958+03:00  WARN 12604 --- [ms_deal] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-01-20T11:30:34.497+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-20T11:30:34.564+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-01-20T11:30:35.570+03:00  INFO 12604 --- [ms_deal] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-20T11:30:35.576+03:00  INFO 12604 --- [ms_deal] [restartedMain] ru.deal.DealApplication                  : Started DealApplication in 9.073 seconds (process running for 9.946)
+2025-01-20T11:30:37.749+03:00  INFO 12604 --- [ms_deal] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:30:37.752+03:00  INFO 12604 --- [ms_deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-20T11:30:37.754+03:00  INFO 12604 --- [ms_deal] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-20T11:30:37.780+03:00  INFO 11512 --- [ms_statement] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-20T11:30:37.787+03:00  WARN 11512 --- [ms_statement] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: База данных уже закрыта (чтобы отключить автоматическое закрытие базы данных при останове JVM, добавьте ";DB_CLOSE_ON_EXIT=FALSE" в URL)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2025-01-20T11:30:37.788+03:00  INFO 11512 --- [ms_statement] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-20T11:30:37.789+03:00  INFO 11512 --- [ms_statement] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
