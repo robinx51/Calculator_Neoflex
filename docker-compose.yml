@@ -12,28 +12,13 @@ services:
     depends_on:
       - zookeeper
     ports:
-      - "29092:29092"
+      - "9092:9092"
     hostname: kafka
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 2
-
-  kafka2:
-    image: confluentinc/cp-kafka:latest
-    depends_on:
-      - zookeeper
-    ports:
-      - "29093:29092"
-    hostname: kafka2
-    environment:
-      KAFKA_BROKER_ID: 2
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:29093
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092, PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT, PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 2
 
@@ -45,51 +30,8 @@ services:
     restart: always
     environment:
       - KAFKA_CLUSTERS_0_NAME=local
-      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092,kafka2:29093
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092
       - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
     links:
       - kafka
       - zookeeper
-
-  ms-calculator:
-    build:
-      context: .
-      dockerfile: MS_Calculator/Dockerfile
-    ports:
-      - "8080:8080"
-    links:
-      - kafka-ui
-
-  ms-deal:
-    build:
-      context: .
-      dockerfile: MS_Deal/Dockerfile
-    ports:
-      - "8081:8081"
-    links:
-      - kafka-ui
-
-  ms-statement:
-    build:
-      context: .
-      dockerfile: MS_Statement/Dockerfile
-    ports:
-      - "8082:8082"
-    links:
-      - kafka-ui
-
-  ms-dossier:
-    build:
-      context: .
-      dockerfile: MS_Dossier/Dockerfile
-    ports:
-      - "8083:8083"
-    links:
-      - kafka-ui
-
-  postgres:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123
