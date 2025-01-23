@@ -17,12 +17,14 @@
 		<java.version>17</java.version>
 	</properties>
     <dependencies>
+		<!-- MS_Deal -->
         <dependency>
             <groupId>ru.Neoflex_bank</groupId>
             <artifactId>MS_Deal</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+		<!-- Spring mail -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
