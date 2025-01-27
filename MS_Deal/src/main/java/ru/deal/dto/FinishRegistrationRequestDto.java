@@ -1,10 +1,9 @@
 package ru.deal.dto;
 
-import ru.calculator.annotations.DateBeforeToday;
+import ru.calculator.annotations.interfaces.DateBeforeToday;
 import ru.calculator.dto.EmploymentDto;
 import ru.calculator.dto.ScoringDataDto;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
@@ -33,7 +32,7 @@ public class FinishRegistrationRequestDto {
     @Schema(name = "passportIssueBranch", example = "УМВД по Пензенской области")
     private String passportIssueBranch;
 
-    @NotNull @Valid
+    @NotNull
     @Schema(name = "employment", example = "EmploymentDto")
     private EmploymentDto employment;
 

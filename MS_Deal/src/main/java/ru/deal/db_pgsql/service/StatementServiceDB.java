@@ -31,6 +31,7 @@ public class StatementServiceDB {
             logger.info("Statement обновлён успешно");
         } else {
             logger.error("Statement с id: {} не найден", statement.getStatementId());
+            throw new EntityNotFoundException("Statement с id: " + statement.getStatementId() + " не найден");
         }
     }
 

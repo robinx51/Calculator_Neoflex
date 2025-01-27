@@ -23,8 +23,16 @@ import java.util.UUID;
 @Table(name = "statement")
 public class Statement implements Serializable {
     public enum eApplicationStatus {
-        STATEMENT_CREATED, PREAPPROVAL, APPROVED, CC_DENIED, CC_APPROVED, PREPARE_DOCUMENTS,
-        DOCUMENT_CREATED, CLIENT_DENIED, DOCUMENT_SIGNED, CREDIT_ISSUED
+        STATEMENT_CREATED,
+        PREAPPROVAL,
+        APPROVED,
+        CC_DENIED,
+        CC_APPROVED,
+        PREPARE_DOCUMENTS,
+        DOCUMENT_CREATED,
+        CLIENT_DENIED,
+        DOCUMENT_SIGNED,
+        CREDIT_ISSUED
     }
 
     @Id
@@ -55,7 +63,7 @@ public class Statement implements Serializable {
     private Timestamp signDate;
 
     @Column(name = "ses_code")
-    private String sesCode;
+    private Integer sesCode;
 
     @Column(name = "status_history")
     @JdbcTypeCode(SqlTypes.JSON)

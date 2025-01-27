@@ -84,7 +84,7 @@
 
             <column name="sign_date" type="timestamp without time zone"/>
 
-            <column name="ses_code" type="character varying(255)"/>
+            <column name="ses_code" type="integer"/>
 
             <column name="status_history" type="jsonb"/>
         </createTable>

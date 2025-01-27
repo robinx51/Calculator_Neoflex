@@ -1,0 +1,803 @@
+2025-01-28T02:16:26.026+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] ru.dossier.DossierApplication            : Starting DossierApplication using Java 21.0.2 with PID 25864 (D:\Проекты\NeoFlex\Calculator_Neoflex\MS_Dossier\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2025-01-28T02:16:26.030+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] ru.dossier.DossierApplication            : The following 1 profile is active: "profile"
+2025-01-28T02:16:26.094+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Admin\.m2\repository\io\github\cdimascio\java-dotenv\5.2.2\java-dotenv-5.2.2.jar referenced one or more files that do not exist: file:/C:/Users/Admin/.m2/repository/io/github/cdimascio/java-dotenv/5.2.2/kotlin-stdlib-1.4.0.jar,file:/C:/Users/Admin/.m2/repository/io/github/cdimascio/java-dotenv/5.2.2/kotlin-stdlib-common-1.4.0.jar,file:/C:/Users/Admin/.m2/repository/io/github/cdimascio/java-dotenv/5.2.2/annotations-13.0.jar
+2025-01-28T02:16:26.094+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-28T02:16:26.094+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-28T02:16:27.247+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-28T02:16:27.278+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JPA repository interfaces.
+2025-01-28T02:16:27.561+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=12b9a3b0-a608-358c-a364-a1dee031caa8
+2025-01-28T02:16:28.303+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2025-01-28T02:16:28.326+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-28T02:16:28.326+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-28T02:16:28.426+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-28T02:16:28.427+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2332 ms
+2025-01-28T02:16:28.461+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-28T02:16:28.773+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:5c3a84a5-9546-4ca9-83e2-5b54c414dc7b user=SA
+2025-01-28T02:16:28.775+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-28T02:16:28.794+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:5c3a84a5-9546-4ca9-83e2-5b54c414dc7b'
+2025-01-28T02:16:29.009+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-28T02:16:29.103+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-28T02:16:29.151+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-28T02:16:29.625+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-28T02:16:30.231+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-28T02:16:30.239+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-28T02:16:30.540+03:00  WARN 25864 --- [MS_Dossier] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-28T02:16:31.549+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-28T02:16:32.586+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-28T02:16:32.736+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2025-01-28T02:16:33.750+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-28T02:16:33.813+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-MS_Dossier-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = MS_Dossier
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+2025-01-28T02:16:33.884+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-01-28T02:16:34.110+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-01-28T02:16:34.110+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-01-28T02:16:34.110+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1738019794108
+2025-01-28T02:16:34.115+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Subscribed to topic(s): send-ses
+2025-01-28T02:16:34.121+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-MS_Dossier-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = MS_Dossier
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+2025-01-28T02:16:34.122+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-01-28T02:16:34.137+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-01-28T02:16:34.138+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-01-28T02:16:34.138+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1738019794137
+2025-01-28T02:16:34.139+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Subscribed to topic(s): finish-registration
+2025-01-28T02:16:34.142+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-MS_Dossier-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = MS_Dossier
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+2025-01-28T02:16:34.142+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-01-28T02:16:34.154+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-01-28T02:16:34.154+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-01-28T02:16:34.154+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1738019794154
+2025-01-28T02:16:34.154+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Subscribed to topic(s): send-documents
+2025-01-28T02:16:34.155+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-MS_Dossier-4
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = MS_Dossier
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+2025-01-28T02:16:34.156+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-01-28T02:16:34.166+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-01-28T02:16:34.166+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-01-28T02:16:34.166+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1738019794166
+2025-01-28T02:16:34.168+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Subscribed to topic(s): statement-denied
+2025-01-28T02:16:34.170+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-MS_Dossier-5
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = MS_Dossier
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+2025-01-28T02:16:34.171+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-01-28T02:16:34.178+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-01-28T02:16:34.178+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-01-28T02:16:34.178+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1738019794178
+2025-01-28T02:16:34.179+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Subscribed to topic(s): credit-issued
+2025-01-28T02:16:34.182+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-MS_Dossier-6
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = MS_Dossier
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+2025-01-28T02:16:34.182+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-01-28T02:16:34.191+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.7.1
+2025-01-28T02:16:34.192+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: e2494e6ffb89f828
+2025-01-28T02:16:34.192+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1738019794191
+2025-01-28T02:16:34.192+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Subscribed to topic(s): create-documents
+2025-01-28T02:16:34.205+03:00  INFO 25864 --- [MS_Dossier] [restartedMain] ru.dossier.DossierApplication            : Started DossierApplication in 9.747 seconds (process running for 10.956)
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Cluster ID: jmhMD_wZQNOR7wW8MvhPGQ
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Cluster ID: jmhMD_wZQNOR7wW8MvhPGQ
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Cluster ID: jmhMD_wZQNOR7wW8MvhPGQ
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Cluster ID: jmhMD_wZQNOR7wW8MvhPGQ
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Cluster ID: jmhMD_wZQNOR7wW8MvhPGQ
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Cluster ID: jmhMD_wZQNOR7wW8MvhPGQ
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-01-28T02:16:34.623+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-01-28T02:16:34.624+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-01-28T02:16:34.624+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null)
+2025-01-28T02:16:34.627+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.627+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.627+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.627+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.627+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.627+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.654+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Request joining group due to: need to re-join with the given member-id: consumer-MS_Dossier-6-fd5208e1-1611-4020-b910-b86d2f4538d4
+2025-01-28T02:16:34.654+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Request joining group due to: need to re-join with the given member-id: consumer-MS_Dossier-3-459faab6-a2b2-46f4-979e-155e5b5d00dc
+2025-01-28T02:16:34.654+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Request joining group due to: need to re-join with the given member-id: consumer-MS_Dossier-5-6aed4695-cae3-43b1-a4d7-c8c426992783
+2025-01-28T02:16:34.654+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Request joining group due to: need to re-join with the given member-id: consumer-MS_Dossier-1-b4353d8d-2381-4db1-ae93-960372b9753a
+2025-01-28T02:16:34.654+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Request joining group due to: need to re-join with the given member-id: consumer-MS_Dossier-4-840c7cd3-9bca-4b18-b8ff-7f05e775ffab
+2025-01-28T02:16:34.655+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.655+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.655+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.654+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Request joining group due to: need to re-join with the given member-id: consumer-MS_Dossier-2-8e75bdeb-5d9e-4f45-b56e-eee1a6e91cb7
+2025-01-28T02:16:34.655+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.656+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:34.655+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] (Re-)joining group
+2025-01-28T02:16:37.660+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Successfully joined group with generation Generation{generationId=153, memberId='consumer-MS_Dossier-4-840c7cd3-9bca-4b18-b8ff-7f05e775ffab', protocol='range'}
+2025-01-28T02:16:37.660+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Successfully joined group with generation Generation{generationId=153, memberId='consumer-MS_Dossier-3-459faab6-a2b2-46f4-979e-155e5b5d00dc', protocol='range'}
+2025-01-28T02:16:37.660+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Successfully joined group with generation Generation{generationId=153, memberId='consumer-MS_Dossier-2-8e75bdeb-5d9e-4f45-b56e-eee1a6e91cb7', protocol='range'}
+2025-01-28T02:16:37.660+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Successfully joined group with generation Generation{generationId=153, memberId='consumer-MS_Dossier-6-fd5208e1-1611-4020-b910-b86d2f4538d4', protocol='range'}
+2025-01-28T02:16:37.660+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Successfully joined group with generation Generation{generationId=153, memberId='consumer-MS_Dossier-1-b4353d8d-2381-4db1-ae93-960372b9753a', protocol='range'}
+2025-01-28T02:16:37.660+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Successfully joined group with generation Generation{generationId=153, memberId='consumer-MS_Dossier-5-6aed4695-cae3-43b1-a4d7-c8c426992783', protocol='range'}
+2025-01-28T02:16:37.673+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Finished assignment for group at generation 153: {consumer-MS_Dossier-5-6aed4695-cae3-43b1-a4d7-c8c426992783=Assignment(partitions=[credit-issued-0]), consumer-MS_Dossier-1-b4353d8d-2381-4db1-ae93-960372b9753a=Assignment(partitions=[send-ses-0]), consumer-MS_Dossier-6-fd5208e1-1611-4020-b910-b86d2f4538d4=Assignment(partitions=[create-documents-0]), consumer-MS_Dossier-2-8e75bdeb-5d9e-4f45-b56e-eee1a6e91cb7=Assignment(partitions=[finish-registration-0]), consumer-MS_Dossier-4-840c7cd3-9bca-4b18-b8ff-7f05e775ffab=Assignment(partitions=[statement-denied-0]), consumer-MS_Dossier-3-459faab6-a2b2-46f4-979e-155e5b5d00dc=Assignment(partitions=[send-documents-0])}
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Successfully synced group in generation Generation{generationId=153, memberId='consumer-MS_Dossier-3-459faab6-a2b2-46f4-979e-155e5b5d00dc', protocol='range'}
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Successfully synced group in generation Generation{generationId=153, memberId='consumer-MS_Dossier-1-b4353d8d-2381-4db1-ae93-960372b9753a', protocol='range'}
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Successfully synced group in generation Generation{generationId=153, memberId='consumer-MS_Dossier-2-8e75bdeb-5d9e-4f45-b56e-eee1a6e91cb7', protocol='range'}
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Successfully synced group in generation Generation{generationId=153, memberId='consumer-MS_Dossier-5-6aed4695-cae3-43b1-a4d7-c8c426992783', protocol='range'}
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Successfully synced group in generation Generation{generationId=153, memberId='consumer-MS_Dossier-6-fd5208e1-1611-4020-b910-b86d2f4538d4', protocol='range'}
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Successfully synced group in generation Generation{generationId=153, memberId='consumer-MS_Dossier-4-840c7cd3-9bca-4b18-b8ff-7f05e775ffab', protocol='range'}
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Notifying assignor about the new Assignment(partitions=[finish-registration-0])
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Notifying assignor about the new Assignment(partitions=[send-documents-0])
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Notifying assignor about the new Assignment(partitions=[create-documents-0])
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Notifying assignor about the new Assignment(partitions=[send-ses-0])
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Notifying assignor about the new Assignment(partitions=[credit-issued-0])
+2025-01-28T02:16:37.679+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Notifying assignor about the new Assignment(partitions=[statement-denied-0])
+2025-01-28T02:16:37.683+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Adding newly assigned partitions: finish-registration-0
+2025-01-28T02:16:37.683+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Adding newly assigned partitions: send-ses-0
+2025-01-28T02:16:37.683+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Adding newly assigned partitions: credit-issued-0
+2025-01-28T02:16:37.683+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Adding newly assigned partitions: create-documents-0
+2025-01-28T02:16:37.683+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Adding newly assigned partitions: statement-denied-0
+2025-01-28T02:16:37.683+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Adding newly assigned partitions: send-documents-0
+2025-01-28T02:16:37.698+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition send-ses-0 to the committed offset FetchPosition{offset=3, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-28T02:16:37.698+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition send-documents-0 to the committed offset FetchPosition{offset=22, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-28T02:16:37.698+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition create-documents-0 to the committed offset FetchPosition{offset=2, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-28T02:16:37.698+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition credit-issued-0 to the committed offset FetchPosition{offset=1, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-28T02:16:37.698+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition statement-denied-0 to the committed offset FetchPosition{offset=7, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-28T02:16:37.698+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition finish-registration-0 to the committed offset FetchPosition{offset=6, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}}
+2025-01-28T02:16:37.700+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions assigned: [create-documents-0]
+2025-01-28T02:16:37.700+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions assigned: [credit-issued-0]
+2025-01-28T02:16:37.700+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions assigned: [statement-denied-0]
+2025-01-28T02:16:37.700+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions assigned: [send-ses-0]
+2025-01-28T02:16:37.700+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions assigned: [finish-registration-0]
+2025-01-28T02:16:37.700+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions assigned: [send-documents-0]
+2025-01-28T02:20:34.436+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Revoke previously assigned partitions send-ses-0
+2025-01-28T02:20:34.437+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Revoke previously assigned partitions credit-issued-0
+2025-01-28T02:20:34.437+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Revoke previously assigned partitions statement-denied-0
+2025-01-28T02:20:34.436+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Revoke previously assigned partitions finish-registration-0
+2025-01-28T02:20:34.438+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions revoked: [send-ses-0]
+2025-01-28T02:20:34.438+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions revoked: [finish-registration-0]
+2025-01-28T02:20:34.438+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions revoked: [credit-issued-0]
+2025-01-28T02:20:34.438+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions revoked: [statement-denied-0]
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Member consumer-MS_Dossier-4-840c7cd3-9bca-4b18-b8ff-7f05e775ffab sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Member consumer-MS_Dossier-5-6aed4695-cae3-43b1-a4d7-c8c426992783 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Unsubscribed all topics or patterns and assigned partitions
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Unsubscribed all topics or patterns and assigned partitions
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Member consumer-MS_Dossier-1-b4353d8d-2381-4db1-ae93-960372b9753a sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Member consumer-MS_Dossier-2-8e75bdeb-5d9e-4f45-b56e-eee1a6e91cb7 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.439+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Unsubscribed all topics or patterns and assigned partitions
+2025-01-28T02:20:34.440+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.440+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Unsubscribed all topics or patterns and assigned partitions
+2025-01-28T02:20:34.440+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Revoke previously assigned partitions send-documents-0
+2025-01-28T02:20:34.440+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Revoke previously assigned partitions create-documents-0
+2025-01-28T02:20:34.440+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions revoked: [send-documents-0]
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: partitions revoked: [create-documents-0]
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Member consumer-MS_Dossier-3-459faab6-a2b2-46f4-979e-155e5b5d00dc sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Member consumer-MS_Dossier-6-fd5208e1-1611-4020-b910-b86d2f4538d4 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Unsubscribed all topics or patterns and assigned partitions
+2025-01-28T02:20:34.441+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Unsubscribed all topics or patterns and assigned partitions
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-3, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-1, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-2, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-6, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-5, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.443+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-MS_Dossier-4, groupId=MS_Dossier] Request joining group due to: consumer pro-actively leaving the group
+2025-01-28T02:20:34.661+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-01-28T02:20:34.661+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-28T02:20:34.661+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-01-28T02:20:34.661+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-28T02:20:34.661+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-01-28T02:20:34.661+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-01-28T02:20:34.662+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-01-28T02:20:34.663+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-01-28T02:20:34.663+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-01-28T02:20:34.663+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-01-28T02:20:34.671+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-MS_Dossier-4 unregistered
+2025-01-28T02:20:34.672+03:00  INFO 25864 --- [MS_Dossier] [statement-denied-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: Consumer stopped
+2025-01-28T02:20:34.674+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-MS_Dossier-6 unregistered
+2025-01-28T02:20:34.674+03:00  INFO 25864 --- [MS_Dossier] [create-documents-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: Consumer stopped
+2025-01-28T02:20:34.674+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-MS_Dossier-2 unregistered
+2025-01-28T02:20:34.674+03:00  INFO 25864 --- [MS_Dossier] [finish-registration-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: Consumer stopped
+2025-01-28T02:20:34.674+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-MS_Dossier-3 unregistered
+2025-01-28T02:20:34.674+03:00  INFO 25864 --- [MS_Dossier] [send-documents-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: Consumer stopped
+2025-01-28T02:20:34.675+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-MS_Dossier-1 unregistered
+2025-01-28T02:20:34.675+03:00  INFO 25864 --- [MS_Dossier] [send-ses-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: Consumer stopped
+2025-01-28T02:20:34.675+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-MS_Dossier-5 unregistered
+2025-01-28T02:20:34.676+03:00  INFO 25864 --- [MS_Dossier] [credit-issued-listener-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : MS_Dossier: Consumer stopped
+2025-01-28T02:20:34.726+03:00  INFO 25864 --- [MS_Dossier] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-28T02:20:34.734+03:00  WARN 25864 --- [MS_Dossier] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: База данных уже закрыта (чтобы отключить автоматическое закрытие базы данных при останове JVM, добавьте ";DB_CLOSE_ON_EXIT=FALSE" в URL)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2025-01-28T02:20:34.734+03:00  INFO 25864 --- [MS_Dossier] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-28T02:20:34.736+03:00  INFO 25864 --- [MS_Dossier] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

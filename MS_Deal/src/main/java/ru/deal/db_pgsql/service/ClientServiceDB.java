@@ -1,5 +1,6 @@
 package ru.deal.db_pgsql.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import ru.deal.db_pgsql.entity.Client;
 import ru.deal.db_pgsql.repository.ClientRepository;
 import ru.calculator.dto.LoanStatementRequestDto;
@@ -46,10 +47,12 @@ public class ClientServiceDB {
             logger.info("Client обновлён успешно");
         } else {
             logger.error("Client с id: {} не найден", client.getClientId());
+            throw new EntityNotFoundException("Client с id: " + client.getClientId() + " не найден");
         }
     }
 
     public Client getClientById(UUID clientId){
-        return clientRepository.findById(clientId).orElse(null);
+        return clientRepository.findById(clientId)
+                .orElseThrow(() -> new EntityNotFoundException("Client с id: " + clientId + " не найден"));
     }
 }

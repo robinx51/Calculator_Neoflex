@@ -1,6 +1,6 @@
 package ru.calculator.dto;
 
-import ru.calculator.annotations.Employer;
+import ru.calculator.annotations.interfaces.Employer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -25,7 +25,7 @@ public class EmploymentDto {
     private EmploymentStatus employmentStatus;
 
     @NotNull
-    @Pattern(regexp = "^\\d{10}$")
+    @Pattern(regexp = "^\\d{10}$", message = "ИНН - 10 цифр")
     @Schema(name = "employerINN", example = "0123456789")
     private String employerINN;
 

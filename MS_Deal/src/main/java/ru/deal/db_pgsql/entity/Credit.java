@@ -23,7 +23,9 @@ import java.util.UUID;
 @Table(name = "credit")
 public class Credit {
     public enum eCreditStatus {
-        CALCULATED, ISSUED, PREPARED
+        CALCULATED,
+        ISSUED,
+        PREPARED
     }
 
     @Id

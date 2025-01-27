@@ -18,7 +18,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.deal.service.EmailService;
+import ru.deal.service.KafkaService;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -43,7 +43,7 @@ public class DealServiceTest {
     @Mock
     private CalculatorFeignClient calculatorFeignClient;
     @Mock
-    private EmailService emailService;
+    private KafkaService kafkaService;
 
     @InjectMocks
     private DealService dealService;

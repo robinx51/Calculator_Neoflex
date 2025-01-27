@@ -1,8 +1,8 @@
 package ru.calculator.dto;
 
-import ru.calculator.annotations.Adult;
-import ru.calculator.annotations.LoanAmountMoreThanSalaries;
-import ru.calculator.annotations.DateBeforeToday;
+import ru.calculator.annotations.interfaces.Adult;
+import ru.calculator.annotations.interfaces.LoanAmountMoreThanSalaries;
+import ru.calculator.annotations.interfaces.DateBeforeToday;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
@@ -34,7 +34,7 @@ public class ScoringDataDto {
     @Schema(name = "term", example = "6", minimum = "6")
     private Integer term;
 
-    @NotNull(message = "Имя - от 2 до 30 латинских букв")
+    @NotNull
     @Pattern(regexp = "^[a-zA-Z]{2,30}$", message = "Имя - от 2 до 30 латинских букв")
     @Schema(name = "firstName", example = "John", pattern = "^[a-zA-Z]{2,30}$")
     private String firstName;
@@ -52,9 +52,9 @@ public class ScoringDataDto {
     @Schema(name = "gender", example = "Male", pattern = "^[a-zA-Z]{2,30}$")
     private Gender gender;
 
-    @DateBeforeToday
-    @Adult(over = 20)
-    @NotNull(message = "Дата рождения - число в формате гггг-мм-дд, не позднее 20 лет с текущего дня.")
+    @NotNull
+    @DateBeforeToday(message = "Дата рождения - число в формате гггг-мм-дд, не менее 20 лет с текущего дня.")
+    @Adult(over = 20, message = "Возраст менее 20 или более 65 лет")
     @Schema(name = "birthdate", example = "2000-01-01")
     private LocalDate birthdate;
 
@@ -69,7 +69,7 @@ public class ScoringDataDto {
     private String passportNumber;
 
     @NotNull
-    @DateBeforeToday
+    @DateBeforeToday(message = "Дата выдачи паспорта - до сегодняшнего дня")
     @Schema(name = "passportIssueDate", example = "2000-01-01")
     private LocalDate passportIssueDate;
 

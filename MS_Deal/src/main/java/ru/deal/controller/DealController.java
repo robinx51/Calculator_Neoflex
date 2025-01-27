@@ -1,5 +1,6 @@
 package ru.deal.controller;
 
+import jakarta.validation.ValidationException;
 import ru.calculator.dto.LoanOfferDto;
 import ru.calculator.dto.LoanStatementRequestDto;
 import ru.deal.dto.FinishRegistrationRequestDto;
@@ -7,6 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import ru.deal.exception.FeignValidationException;
 import ru.deal.service.DealService;
 
 import java.util.List;
@@ -48,25 +50,25 @@ public class DealController {
                     "Отправляется POST запрос на /calculator/calc МС Калькулятор с телом ScoringDataDto через RestClient." +
                     "На основе полученного из кредитного конвейера CreditDto создаётся сущность Credit и сохраняется в базу со статусом CALCULATED." +
                     "В заявке обновляется статус, история статусов. Заявка сохраняется.")
-    public void completeRegistration(@PathVariable String statementId, @RequestBody @Validated FinishRegistrationRequestDto request) {
+    public void completeRegistration(@PathVariable String statementId, @RequestBody FinishRegistrationRequestDto request) throws FeignValidationException {
         dealService.finishRegistration(statementId, request);
     }
 
     @PostMapping("/document/{statementId}/send")
     @Tag(name = "Запрос на отправку документов")
-    public void sendDocuments(@PathVariable String statementId, @RequestBody @Validated LoanOfferDto request) {
-        dealService.sendDocuments(request, statementId);
+    public void createDocuments(@PathVariable String statementId) {
+        dealService.sendDocuments(statementId);
     }
 
     @PostMapping("/document/{statementId}/sign")
     @Tag(name = "Запрос на подписание документов")
-    public void signRequestDocuments(@PathVariable String statementId, @RequestBody @Validated LoanOfferDto request) {
-        dealService.signRequestDocuments(request, statementId);
+    public void signRequestDocuments(@PathVariable String statementId) {
+        dealService.signRequestDocuments(statementId);
     }
 
     @PostMapping("/document/{statementId}/code")
     @Tag(name = "Подписание документов")
-    public void signDocuments(@PathVariable String statementId, @RequestBody @Validated LoanOfferDto request) {
-        dealService.signDocuments(request, statementId);
+    public void signDocuments(@PathVariable String statementId, @RequestParam Integer sesCode) throws ValidationException {
+        dealService.signDocuments(sesCode, statementId);
     }
 }

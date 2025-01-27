@@ -1,5 +1,6 @@
 package ru.deal.db_pgsql.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import ru.deal.db_pgsql.entity.Credit;
 import ru.deal.db_pgsql.repository.CreditRepository;
 import org.slf4j.Logger;
@@ -25,7 +26,8 @@ public class CreditServiceDB {
     }
 
     public Credit getCreditById(UUID creditId){
-        return creditRepository.findById(creditId).orElse(null);
+        return creditRepository.findById(creditId)
+                .orElseThrow(() -> new EntityNotFoundException("Credit с id: " + creditId + " не найден"));
     }
 
     public void updateCredit(Credit credit) {
@@ -35,6 +37,7 @@ public class CreditServiceDB {
             logger.info("Credit обновлён успешно");
         } else {
             logger.error("Credit с id: {} не найден", credit.getCreditId());
+            throw new EntityNotFoundException("Credit с id: " + credit.getCreditId() + " не найден");
         }
     }
 }
