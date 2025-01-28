@@ -21,7 +21,7 @@ public class GatewayController {
     private final GatewayService gatewayService;
 
     @PostMapping("/statement")
-    @Tag(   name = "Прескоринг + запрос на расчёт возможных условий кредита",
+    @Tag(   name = "1. Расчёт возможных условий кредита",
             description = """
                     1. По API приходит LoanStatementRequestDto
                     2. На основе LoanStatementRequestDto происходит прескоринг.
@@ -32,7 +32,7 @@ public class GatewayController {
     }
 
     @PostMapping("/statement/offer")
-    @Tag(   name = "Прескоринг + запрос на расчёт возможных условий кредита",
+    @Tag(   name = "2. Выбор одного из предложений",
             description =   "1. По API приходит LoanOfferDto\n" +
                     "2. Отправляется POST-запрос на /statement/offer в МС statement через RestClient")
     public void selectOffer(@RequestBody @Validated LoanOfferDto request) {
@@ -40,7 +40,7 @@ public class GatewayController {
     }
 
     @PostMapping("/calculate/{statementId}")
-    @Tag(   name = "Завершение регистрации + полный подсчёт кредита",
+    @Tag(   name = "3. Завершение регистрации + полный подсчёт кредита",
             description = """
                     Достаётся из БД заявка(Statement) по statementId.
                     ScoringDataDto насыщается информацией из FinishRegistrationRequestDto и Client, который хранится в Statement
@@ -52,31 +52,31 @@ public class GatewayController {
     }
 
     @PostMapping("/document/{statementId}/send")
-    @Tag(name = "Запрос на отправку документов")
+    @Tag(name = "4. Запрос на отправку документов")
     public void createDocuments(@PathVariable String statementId) {
         gatewayService.sendDocuments(statementId);
     }
 
     @PostMapping("/document/{statementId}/sign")
-    @Tag(name = "Запрос на подписание документов")
+    @Tag(name = "5. Запрос на подписание документов")
     public void signRequestDocuments(@PathVariable String statementId) {
         gatewayService.signRequestDocuments(statementId);
     }
 
     @PostMapping("/document/{statementId}/code")
-    @Tag(name = "Подписание документов")
+    @Tag(name = "6. Подписание документов")
     public void signDocuments(@PathVariable String statementId, @RequestParam Integer sesCode) throws ValidationException {
         gatewayService.signDocuments(statementId, sesCode);
     }
 
     @GetMapping("/admin/statement/{statementId}")
-    @Tag(name = "Получить заявку по id")
+    @Tag(name = "7. Получить заявку по id")
     public Statement getStatement(@PathVariable String statementId) {
         return gatewayService.getStatementById(statementId);
     }
 
     @GetMapping("/admin/statement")
-    @Tag(name = "Получить все заявки")
+    @Tag(name = "8. Получить все заявки")
     public List<Statement> getStatements() {
         return gatewayService.getStatements();
     }
