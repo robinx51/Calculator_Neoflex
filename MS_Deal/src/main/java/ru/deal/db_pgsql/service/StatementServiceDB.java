@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.UUID;
 
 
@@ -38,5 +40,9 @@ public class StatementServiceDB {
     public Statement getStatementById(UUID statementId) {
         return statementRepository.findById(statementId)
                 .orElseThrow(() -> new EntityNotFoundException("Statement с id: " + statementId + " не найден"));
+    }
+
+    public List<Statement> getStatements() {
+        return statementRepository.findAll();
     }
 }

@@ -1,5 +1,8 @@
 package ru.deal.db_pgsql.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ru.calculator.dto.LoanOfferDto;
+import ru.deal.dto.StatementStatusHistoryDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,8 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import ru.library.dto.LoanOfferDto;
-import ru.deal.dto.StatementStatusHistoryDto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "statement")
 public class Statement implements Serializable {
     public enum eApplicationStatus {

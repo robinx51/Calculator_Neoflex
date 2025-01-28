@@ -1,5 +1,9 @@
 package ru.deal.db_pgsql.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ru.calculator.dto.EmploymentDto;
+import ru.deal.dto.PassportDto;
+import ru.calculator.dto.ScoringDataDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,9 +11,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import ru.library.dto.PassportDto;
-import ru.library.dto.EmploymentDto;
-import ru.library.dto.ScoringDataDto;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "client")
 public class Client implements Serializable {
     @Id
