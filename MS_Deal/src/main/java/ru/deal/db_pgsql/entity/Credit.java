@@ -1,5 +1,6 @@
 package ru.deal.db_pgsql.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import ru.calculator.dto.PaymentScheduleElementDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "credit")
 public class Credit {
     public enum eCreditStatus {

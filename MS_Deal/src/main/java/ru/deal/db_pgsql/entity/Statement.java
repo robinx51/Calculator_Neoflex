@@ -1,5 +1,6 @@
 package ru.deal.db_pgsql.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import ru.calculator.dto.LoanOfferDto;
 import ru.deal.dto.StatementStatusHistoryDto;
 import jakarta.persistence.*;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "statement")
 public class Statement implements Serializable {
     public enum eApplicationStatus {

@@ -71,7 +71,6 @@ public class DealService {
         processCalculationRequest(statement, statementId, setScoringDataDto(statement, client));
     }
 
-
     public void sendDocuments(String statementId) {
         EmailMessageDto emailMessageDto = createEmailMessageDto(
                 statementId,
@@ -117,6 +116,14 @@ public class DealService {
         } else {
             throw new ValidationException("Неверный код подтверждения");
         }
+    }
+
+    public Statement getStatementById(String statementId) {
+        return statementServiceDB.getStatementById(UUID.fromString(statementId));
+    }
+
+    public List<Statement> getStatements() {
+        return statementServiceDB.getStatements();
     }
 
 
@@ -247,7 +254,6 @@ public class DealService {
                     message.toString());
             kafkaService.sendStatementDeniedEmail(emailMessageDto);
             logger.info("Заявка отклонена, id: {}", statementId);
-            throw ex;
         }
     }
 }

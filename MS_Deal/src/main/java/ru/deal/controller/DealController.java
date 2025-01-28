@@ -3,6 +3,7 @@ package ru.deal.controller;
 import jakarta.validation.ValidationException;
 import ru.calculator.dto.LoanOfferDto;
 import ru.calculator.dto.LoanStatementRequestDto;
+import ru.deal.db_pgsql.entity.Statement;
 import ru.deal.dto.FinishRegistrationRequestDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,7 @@ public class DealController {
                     "Отправляется POST запрос на /calculator/calc МС Калькулятор с телом ScoringDataDto через RestClient." +
                     "На основе полученного из кредитного конвейера CreditDto создаётся сущность Credit и сохраняется в базу со статусом CALCULATED." +
                     "В заявке обновляется статус, история статусов. Заявка сохраняется.")
-    public void completeRegistration(@PathVariable String statementId, @RequestBody FinishRegistrationRequestDto request) throws FeignValidationException {
+    public void finishRegistration(@PathVariable String statementId, @RequestBody FinishRegistrationRequestDto request) throws FeignValidationException {
         dealService.finishRegistration(statementId, request);
     }
 
@@ -70,5 +71,17 @@ public class DealController {
     @Tag(name = "Подписание документов")
     public void signDocuments(@PathVariable String statementId, @RequestParam Integer sesCode) throws ValidationException {
         dealService.signDocuments(sesCode, statementId);
+    }
+
+    @GetMapping("/admin/statement/{statementId}")
+    @Tag(name = "Получить заявку по id ")
+    public Statement getStatement(@PathVariable String statementId) {
+        return dealService.getStatementById(statementId);
+    }
+
+    @GetMapping("/admin/statement")
+    @Tag(name = "Получить все заявки")
+    public List<Statement> getStatements() {
+        return dealService.getStatements();
     }
 }

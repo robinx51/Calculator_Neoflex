@@ -1,5 +1,6 @@
 package ru.deal.db_pgsql.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import ru.calculator.dto.EmploymentDto;
 import ru.deal.dto.PassportDto;
 import ru.calculator.dto.ScoringDataDto;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "client")
 public class Client implements Serializable {
     @Id
