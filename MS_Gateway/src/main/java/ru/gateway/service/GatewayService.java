@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import ru.calculator.dto.LoanOfferDto;
-import ru.calculator.dto.LoanStatementRequestDto;
-import ru.deal.db_pgsql.entity.Statement;
-import ru.deal.dto.FinishRegistrationRequestDto;
-import ru.deal.exception.FeignValidationException;
+import ru.library.dto.LoanOfferDto;
+import ru.library.dto.LoanStatementRequestDto;
+import ru.gateway.dto.StatementEntityDto;
+import ru.library.dto.FinishRegistrationRequestDto;
+import ru.library.exception.FeignValidationException;
 import ru.gateway.FeignClient.*;
 
 import java.util.List;
@@ -51,12 +51,12 @@ public class GatewayService {
         dealFeignClient.signDocuments(statementId, sesCode);
     }
 
-    public Statement getStatementById(String statementId) {
+    public StatementEntityDto getStatementById(String statementId) {
         logger.info("Запрос к MS Deal: /deal/admin/statement/{statementId}");
         return dealFeignClient.getStatement(statementId);
     }
 
-    public List<Statement> getStatements() {
+    public List<StatementEntityDto> getStatements() {
         logger.info("Запрос к MS Deal: /deal/admin/statement");
         return dealFeignClient.getStatements();
     }

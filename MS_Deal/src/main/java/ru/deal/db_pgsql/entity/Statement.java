@@ -1,8 +1,8 @@
 package ru.deal.db_pgsql.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import ru.calculator.dto.LoanOfferDto;
-import ru.deal.dto.StatementStatusHistoryDto;
+import ru.library.dto.StatementStatusHistoryDto;
+import ru.library.dto.LoanOfferDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
+import ru.library.enums.ApplicationStatus;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -24,19 +25,6 @@ import java.util.UUID;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "statement")
 public class Statement implements Serializable {
-    public enum eApplicationStatus {
-        STATEMENT_CREATED,
-        PREAPPROVAL,
-        APPROVED,
-        CC_DENIED,
-        CC_APPROVED,
-        PREPARE_DOCUMENTS,
-        DOCUMENT_CREATED,
-        CLIENT_DENIED,
-        DOCUMENT_SIGNED,
-        CREDIT_ISSUED
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "statement_id", columnDefinition = "uuid", updatable = false, nullable = false)
@@ -52,7 +40,7 @@ public class Statement implements Serializable {
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    private eApplicationStatus status;
+    private ApplicationStatus status;
 
     @Column(name = "creation_date")
     private Timestamp creationDate;

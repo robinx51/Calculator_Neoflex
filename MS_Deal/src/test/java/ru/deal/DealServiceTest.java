@@ -19,6 +19,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.deal.service.KafkaService;
+import ru.library.enums.ApplicationStatus;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -56,7 +57,7 @@ public class DealServiceTest {
     private Statement statement = Statement.builder()
             .statementId(UUID.randomUUID())
             .client(client)
-            .status(Statement.eApplicationStatus.STATEMENT_CREATED)
+            .status(ApplicationStatus.STATEMENT_CREATED)
             .build();
     private final Credit credit = Credit.builder()
             .creditId(UUID.randomUUID())
@@ -102,7 +103,7 @@ public class DealServiceTest {
         dealService.selectOffer(request);
 
         // Assert
-        assertEquals(Statement.eApplicationStatus.PREPARE_DOCUMENTS, statement.getStatus());
+        assertEquals(ApplicationStatus.PREPARE_DOCUMENTS, statement.getStatus());
         verify(statementServiceDB).updateStatement(statement);
     }
 

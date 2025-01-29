@@ -5,11 +5,11 @@ import jakarta.validation.ValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.calculator.dto.LoanOfferDto;
-import ru.calculator.dto.LoanStatementRequestDto;
-import ru.deal.db_pgsql.entity.Statement;
-import ru.deal.dto.FinishRegistrationRequestDto;
-import ru.deal.exception.FeignValidationException;
+import ru.library.dto.LoanOfferDto;
+import ru.library.dto.LoanStatementRequestDto;
+import ru.gateway.dto.StatementEntityDto;
+import ru.library.dto.FinishRegistrationRequestDto;
+import ru.library.exception.FeignValidationException;
 import ru.gateway.service.GatewayService;
 
 import java.util.List;
@@ -71,13 +71,13 @@ public class GatewayController {
 
     @GetMapping("/admin/statement/{statementId}")
     @Tag(name = "7. Получить заявку по id")
-    public Statement getStatement(@PathVariable String statementId) {
+    public StatementEntityDto getStatement(@PathVariable String statementId) {
         return gatewayService.getStatementById(statementId);
     }
 
     @GetMapping("/admin/statement")
     @Tag(name = "8. Получить все заявки")
-    public List<Statement> getStatements() {
+    public List<StatementEntityDto> getStatements() {
         return gatewayService.getStatements();
     }
 }

@@ -1,11 +1,11 @@
-package ru.deal.dto;
+package ru.library.dto;
 
-import ru.deal.db_pgsql.entity.Statement;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import ru.library.enums.ApplicationStatus;
 
 import java.time.LocalDateTime;
 
@@ -17,8 +17,8 @@ public class StatementStatusHistoryDto {
         AUTOMATIC, MANUAL
     }
 
-    @Schema(name = "status", example = "?")
-    private Statement.eApplicationStatus status;
+    @Schema(name = "status", example = "STATEMENT_CREATED")
+    private ApplicationStatus status;
 
     @Schema(name = "time", example = "2000-01-01 12:00:00")
     private LocalDateTime time;

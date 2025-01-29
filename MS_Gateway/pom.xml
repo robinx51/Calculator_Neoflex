@@ -17,21 +17,6 @@
         <java.version>17</java.version>
     </properties>
 
-    <dependencies>
-        <!-- MS_Calculator -->
-        <dependency>
-            <groupId>ru.Neoflex_bank</groupId>
-            <artifactId>MS_Calculator</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <!-- MS_Deal -->
-        <dependency>
-            <groupId>ru.Neoflex_bank</groupId>
-            <artifactId>MS_Deal</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>

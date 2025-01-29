@@ -19,6 +19,7 @@
 		<module>MS_Deal</module>
         <module>MS_Statement</module>
         <module>MS_Dossier</module>
+		<module>MS_Gateway</module>
     </modules>
 
 

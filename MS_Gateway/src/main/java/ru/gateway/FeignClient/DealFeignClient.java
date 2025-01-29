@@ -2,10 +2,10 @@ package ru.gateway.FeignClient;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import ru.calculator.dto.CreditDto;
-import ru.deal.db_pgsql.entity.Statement;
-import ru.deal.dto.FinishRegistrationRequestDto;
-import ru.deal.exception.FeignValidationException;
+import ru.library.dto.CreditDto;
+import ru.gateway.dto.StatementEntityDto;
+import ru.library.dto.FinishRegistrationRequestDto;
+import ru.library.exception.FeignValidationException;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public interface DealFeignClient {
     void signDocuments(@PathVariable String statementId, @RequestParam Integer sesCode) throws FeignValidationException;
 
     @GetMapping("/deal/admin/statement/{statementId}")
-    Statement getStatement(@PathVariable String statementId);
+    StatementEntityDto getStatement(@PathVariable String statementId);
     @GetMapping("/deal/admin/statement")
-    List<Statement> getStatements();
+    List<StatementEntityDto> getStatements();
 }

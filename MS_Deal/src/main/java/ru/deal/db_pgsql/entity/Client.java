@@ -1,9 +1,9 @@
 package ru.deal.db_pgsql.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import ru.calculator.dto.EmploymentDto;
-import ru.deal.dto.PassportDto;
-import ru.calculator.dto.ScoringDataDto;
+import ru.library.dto.EmploymentDto;
+import ru.library.dto.ScoringDataDto;
+import ru.library.dto.PassportDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,10 +29,10 @@ public class Client implements Serializable {
     @Column(name = "client_id", columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID clientId;
 
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
     @Column(name = "first_name", nullable = false)
     private String firstName;
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
     @Column(name = "middle_name")
     private String middleName;
 
