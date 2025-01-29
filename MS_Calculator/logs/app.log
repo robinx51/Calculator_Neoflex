@@ -10,3 +10,15 @@
 2025-01-28T02:16:34.529+03:00  WARN 25204 --- [ms_calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
 2025-01-28T02:16:34.557+03:00  INFO 25204 --- [ms_calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2025-01-28T02:16:34.565+03:00  INFO 25204 --- [ms_calculator] [restartedMain] ru.calculator.CalculatorApplication      : Started CalculatorApplication in 2.807 seconds (process running for 3.58)
+2025-01-29T12:39:18.736+03:00  INFO 12056 --- [ms_calculator] [restartedMain] ru.calculator.CalculatorApplication      : Starting CalculatorApplication using Java 21.0.2 with PID 12056 (D:\Проекты\NeoFlex\Calculator_Neoflex\MS_Calculator\target\classes started by Admin in D:\Проекты\NeoFlex\Calculator_Neoflex)
+2025-01-29T12:39:18.738+03:00  INFO 12056 --- [ms_calculator] [restartedMain] ru.calculator.CalculatorApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-01-29T12:39:18.784+03:00  INFO 12056 --- [ms_calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-29T12:39:18.784+03:00  INFO 12056 --- [ms_calculator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-29T12:39:20.083+03:00  INFO 12056 --- [ms_calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-01-29T12:39:20.100+03:00  INFO 12056 --- [ms_calculator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-29T12:39:20.100+03:00  INFO 12056 --- [ms_calculator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-29T12:39:20.164+03:00  INFO 12056 --- [ms_calculator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-29T12:39:20.165+03:00  INFO 12056 --- [ms_calculator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1379 ms
+2025-01-29T12:39:20.780+03:00  INFO 12056 --- [ms_calculator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-29T12:39:20.814+03:00  INFO 12056 --- [ms_calculator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-01-29T12:39:20.821+03:00  INFO 12056 --- [ms_calculator] [restartedMain] ru.calculator.CalculatorApplication      : Started CalculatorApplication in 2.497 seconds (process running for 3.148)

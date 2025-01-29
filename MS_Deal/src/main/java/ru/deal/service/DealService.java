@@ -31,6 +31,14 @@ public class DealService {
     private final CreditServiceDB creditServiceDB;
     private final CalculatorFeignClient calculatorFeignClient;
     private final KafkaService kafkaService;
+
+    private static final String TOPIC_FINISH_REGISTRATION = "finish-registration";
+    private static final String TOPIC_CREATE_DOCUMENTS = "create-documents";
+    private static final String TOPIC_SEND_DOCUMENTS = "send-documents";
+    private static final String TOPIC_SEND_SES = "send-ses";
+    private static final String TOPIC_CREDIT_ISSUED = "credit-issued";
+    private static final String TOPIC_STATEMENT_DENIED = "statement-denied";
+
     private static final Logger logger = LoggerFactory.getLogger(DealService.class);
 
     public List<LoanOfferDto> processClient(LoanStatementRequestDto request) {
@@ -51,11 +59,11 @@ public class DealService {
         addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.PREPARE_DOCUMENTS);
 
         EmailMessageDto emailMessageDto = createEmailMessageDto(
-                statement.getStatementId().toString(),
+                statement,
                 EmailMessageDto.Theme.finishRegistration,
                 "Ваша заявка предварительно одобрена, завершите оформление");
 
-        kafkaService.sendFinishRegistrationEmail(emailMessageDto);
+        kafkaService.sendMessage(TOPIC_FINISH_REGISTRATION, emailMessageDto);
 
         logger.info("Запрос на выбор предложения обработан");
     }
@@ -68,16 +76,22 @@ public class DealService {
         setClientByFinishRegistrationRequestDto(client, request);
         clientService.updateClient(client);
 
-        processCalculationRequest(statement, statementId, setScoringDataDto(statement, client));
+        try {
+            processCalculationRequest(statement, statementId, setScoringDataDto(statement, client));
+        } catch (FeignValidationException ex) {
+            handleValidationError(statement, ex);
+        }
     }
 
 
     public void sendDocuments(String statementId) {
+        Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
+        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.PREAPPROVAL);
         EmailMessageDto emailMessageDto = createEmailMessageDto(
-                statementId,
+                statement,
                 EmailMessageDto.Theme.sendDocuments,
                 "Документы отправлены");
-        kafkaService.sendSendDocumentsEmail(emailMessageDto);
+        kafkaService.sendMessage(TOPIC_SEND_DOCUMENTS, emailMessageDto);
     }
 
     public void signRequestDocuments(String statementId) {
@@ -88,13 +102,14 @@ public class DealService {
                 "Id заявки: " + statementId + "\n" +
                 "Код подтверждения заявки: " + sesCode;
 
+        Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
+
         EmailMessageDto emailMessageDto = createEmailMessageDto(
-                statementId,
+                statement,
                 EmailMessageDto.Theme.sendSes,
                 messageText);
-        kafkaService.sendSendSesEmail(emailMessageDto);
+        kafkaService.sendMessage(TOPIC_SEND_SES, emailMessageDto);
 
-        Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
         statement.setSesCode(sesCode);
         statement.setSignDate(Timestamp.valueOf(LocalDateTime.now()));
         addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.DOCUMENT_SIGNED);
@@ -104,10 +119,10 @@ public class DealService {
         Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
         if (statement.getSesCode().equals(sesCode)) {
             EmailMessageDto emailMessageDto = createEmailMessageDto(
-                    statementId,
+                    statement,
                     EmailMessageDto.Theme.creditIssued,
                     "Документы Подписаны");
-            kafkaService.sendCreditIssuedEmail(emailMessageDto);
+            kafkaService.sendMessage(TOPIC_CREDIT_ISSUED, emailMessageDto);
 
             addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.CREDIT_ISSUED);
 
@@ -194,60 +209,51 @@ public class DealService {
         client.setAccountNumber(request.getAccountNumber());
     }
 
-    private String getEmailByStatementId(UUID statementId) {
-        return clientService.getClientById(statementServiceDB.getStatementById(statementId)
-                        .getClient()
-                        .getClientId())
-                .getEmail();
-    }
-
     private EmailMessageDto createEmailMessageDto(
-            String statementId,
+            Statement statement,
             EmailMessageDto.Theme theme,
             String messageText) {
 
-        UUID statementIdUUID = UUID.fromString(statementId);
-        String email = getEmailByStatementId(statementIdUUID);
+        String email = statement.getClient().getEmail();
 
         return EmailMessageDto.builder()
                 .theme(theme)
                 .address(email)
-                .statementId(statementIdUUID)
+                .statementId(statement.getStatementId())
                 .text(messageText)
                 .build();
     }
 
     private void processCalculationRequest(Statement statement, String statementId, ScoringDataDto scoringDataDto) throws FeignValidationException {
-        try {
-            CreditDto creditDto = calculatorFeignClient.getCreditDto(scoringDataDto);
-            Credit credit = statement.getCredit();
-            setCreditByCreditDto(credit, creditDto);
-            creditServiceDB.updateCredit(credit);
+        CreditDto creditDto = calculatorFeignClient.getCreditDto(scoringDataDto);
+        Credit credit = statement.getCredit();
+        setCreditByCreditDto(credit, creditDto);
+        creditServiceDB.updateCredit(credit);
 
-            addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.DOCUMENT_CREATED);
+        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.DOCUMENT_CREATED);
 
-            EmailMessageDto emailMessageDto = createEmailMessageDto(
-                    statementId,
-                    EmailMessageDto.Theme.createDocuments,
-                    "Регистрация завершена");
-            kafkaService.sendCreateDocumentsEmail(emailMessageDto);
+        EmailMessageDto emailMessageDto = createEmailMessageDto(
+                statement,
+                EmailMessageDto.Theme.createDocuments,
+                "Регистрация завершена");
+        kafkaService.sendMessage(TOPIC_CREATE_DOCUMENTS, emailMessageDto);
 
-            logger.info("Заявка одобрена, id: {}", statementId);
-        } catch (FeignValidationException ex) {
-            addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.CLIENT_DENIED);
+        logger.info("Заявка одобрена, id: {}", statementId);
+    }
 
-            StringBuilder message = new StringBuilder("Заявка отклонена, ниже - причины отказа.\n");
-            ex.getErrors().forEach((error) -> {
-                String errorMessage = error.getMessage();
-                message.append(errorMessage).append("\n");
-            });
-            EmailMessageDto emailMessageDto = createEmailMessageDto(
-                    statementId,
-                    EmailMessageDto.Theme.statementDenied,
-                    message.toString());
-            kafkaService.sendStatementDeniedEmail(emailMessageDto);
-            logger.info("Заявка отклонена, id: {}", statementId);
-            throw ex;
-        }
+    private void handleValidationError(Statement statement, FeignValidationException ex){
+        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.CLIENT_DENIED);
+
+        StringBuilder message = new StringBuilder("Заявка отклонена, ниже - причины отказа.\n");
+        ex.getErrors().forEach((error) -> {
+            String errorMessage = error.getMessage();
+            message.append(errorMessage).append("\n");
+        });
+        EmailMessageDto emailMessageDto = createEmailMessageDto(
+                statement,
+                EmailMessageDto.Theme.statementDenied,
+                message.toString());
+        kafkaService.sendMessage(TOPIC_STATEMENT_DENIED, emailMessageDto);
+        logger.info("Заявка отклонена, id: {}", statement.getStatementId());
     }
 }
