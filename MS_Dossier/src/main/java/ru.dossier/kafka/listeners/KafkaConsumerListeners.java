@@ -1,20 +1,19 @@
 package ru.dossier.kafka.listeners;
 
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
-import ru.deal.dto.EmailMessageDto;
+import ru.library.dto.EmailMessageDto;
 import ru.dossier.email.service.EmailService;
 
 @Component
+@AllArgsConstructor
 public class KafkaConsumerListeners {
     private static final Logger logger = LoggerFactory.getLogger(KafkaConsumerListeners.class);
-
-    @Autowired
-    private EmailService emailService = new EmailService();
+    private EmailService emailService;
 
     @KafkaListener(id = "finish-registration-listener", topics = "finish-registration",
             groupId = "${spring.kafka.consumer.group-id}")

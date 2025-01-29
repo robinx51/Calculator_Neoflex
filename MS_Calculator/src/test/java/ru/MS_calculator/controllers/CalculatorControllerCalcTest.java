@@ -1,9 +1,9 @@
 package ru.MS_calculator.controllers;
 
 import ru.calculator.controller.CalculatorController;
-import ru.calculator.dto.CreditDto;
-import ru.calculator.dto.EmploymentDto;
-import ru.calculator.dto.ScoringDataDto;
+import ru.library.dto.CreditDto;
+import ru.library.dto.EmploymentDto;
+import ru.library.dto.ScoringDataDto;
 import ru.calculator.services.CalcService;
 import ru.calculator.services.OfferService;
 

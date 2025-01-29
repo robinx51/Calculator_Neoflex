@@ -1,8 +1,8 @@
 package ru.deal;
 
-import ru.calculator.dto.CreditDto;
-import ru.calculator.dto.LoanOfferDto;
-import ru.calculator.dto.LoanStatementRequestDto;
+import ru.library.dto.CreditDto;
+import ru.library.dto.LoanOfferDto;
+import ru.library.dto.LoanStatementRequestDto;
 import ru.deal.FeignClient.CalculatorFeignClient;
 import ru.deal.db_pgsql.entity.Client;
 import ru.deal.db_pgsql.entity.Credit;
@@ -10,8 +10,8 @@ import ru.deal.db_pgsql.entity.Statement;
 import ru.deal.db_pgsql.service.ClientServiceDB;
 import ru.deal.db_pgsql.service.CreditServiceDB;
 import ru.deal.db_pgsql.service.StatementServiceDB;
-import ru.deal.dto.FinishRegistrationRequestDto;
-import ru.deal.dto.PassportDto;
+import ru.library.dto.FinishRegistrationRequestDto;
+import ru.library.dto.PassportDto;
 import ru.deal.service.DealService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -95,7 +95,6 @@ public class DealServiceTest {
                 .isSalaryClient(true)
                 .statementId(statement.getStatementId())
                 .build();
-        when(clientServiceDb.getClientById(any())).thenReturn(client);
         when(creditServiceDB.createCredit(anyBoolean(), anyBoolean())).thenReturn(credit);
         when(statementServiceDB.getStatementById(any())).thenReturn(statement);
 

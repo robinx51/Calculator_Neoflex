@@ -1,9 +1,9 @@
 package ru.calculator.controller;
 
-import ru.calculator.dto.CreditDto;
-import ru.calculator.dto.LoanOfferDto;
-import ru.calculator.dto.LoanStatementRequestDto;
-import ru.calculator.dto.ScoringDataDto;
+import ru.library.dto.CreditDto;
+import ru.library.dto.LoanOfferDto;
+import ru.library.dto.LoanStatementRequestDto;
+import ru.library.dto.ScoringDataDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;

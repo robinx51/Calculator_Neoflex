@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import jakarta.validation.ValidationException;
-import ru.calculator.dto.ValidationError;
-import ru.calculator.exception.BaseExceptionHandler;
+import ru.library.dto.ValidationError;
+import ru.library.exception.BaseExceptionHandler;
+import ru.library.exception.FeignValidationException;
 
 import java.util.List;
 import java.util.Map;

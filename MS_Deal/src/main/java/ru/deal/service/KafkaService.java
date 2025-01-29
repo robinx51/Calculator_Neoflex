@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import ru.deal.db_pgsql.entity.Statement;
-import ru.deal.dto.EmailMessageDto;
+import ru.library.dto.EmailMessageDto;
 
 @Service
 public class KafkaService {

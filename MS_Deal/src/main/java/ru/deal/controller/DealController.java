@@ -1,26 +1,23 @@
 package ru.deal.controller;
 
 import jakarta.validation.ValidationException;
-import ru.calculator.dto.LoanOfferDto;
-import ru.calculator.dto.LoanStatementRequestDto;
-import ru.deal.dto.FinishRegistrationRequestDto;
+import lombok.AllArgsConstructor;
+import ru.library.dto.LoanOfferDto;
+import ru.library.dto.LoanStatementRequestDto;
+import ru.library.dto.FinishRegistrationRequestDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.deal.exception.FeignValidationException;
+import ru.library.exception.FeignValidationException;
 import ru.deal.service.DealService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/deal")
+@AllArgsConstructor
 public class DealController {
     private final DealService dealService;
-    @Autowired
-    public DealController(DealService dealService) {
-        this.dealService = dealService;
-    }
 
     @PostMapping("/statement")
     @Tag(   name = "Расчёт возможных условий кредита",

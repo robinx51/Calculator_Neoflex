@@ -14,6 +14,7 @@
 	</parent>
 
 	<modules>
+		<module>CalculatorLibrary</module>
 		<module>MS_Calculator</module>
 		<module>MS_Deal</module>
         <module>MS_Statement</module>
@@ -22,6 +23,11 @@
 
 
 	<dependencies>
+		<dependency>
+			<groupId>ru.Neoflex_bank</groupId>
+			<artifactId>CalculatorLibrary</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 		<!-- Validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

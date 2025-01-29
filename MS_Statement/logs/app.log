@@ -31,3 +31,33 @@
 Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
 2025-01-28T02:20:34.471+03:00  INFO 28840 --- [ms_statement] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-01-28T02:20:34.472+03:00  INFO 28840 --- [ms_statement] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-29T21:13:29.714+03:00  INFO 23976 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : Starting StatementApplication using Java 17.0.8 with PID 23976 (D:\Проекты\NeoFlex\TestFolder\project\MS_Statement\target\classes started by Admin in D:\Проекты\NeoFlex\TestFolder\project)
+2025-01-29T21:13:29.716+03:00  INFO 23976 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-01-29T21:13:29.765+03:00  INFO 23976 --- [ms_statement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-29T21:13:29.765+03:00  INFO 23976 --- [ms_statement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-29T21:13:30.855+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1076d5c2-5513-3c69-8e7b-65fcd69c2a90
+2025-01-29T21:13:31.264+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-01-29T21:13:31.282+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-29T21:13:31.282+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-29T21:13:31.356+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-29T21:13:31.356+03:00  INFO 23976 --- [ms_statement] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1590 ms
+2025-01-29T21:13:31.693+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-29T21:13:33.473+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-29T21:13:33.546+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-01-29T21:13:34.648+03:00  INFO 23976 --- [ms_statement] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-29T21:13:34.679+03:00  INFO 23976 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : Started StatementApplication in 6.578 seconds (process running for 7.452)
+2025-01-29T21:15:32.914+03:00  INFO 34656 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : Starting StatementApplication using Java 17.0.8 with PID 34656 (D:\Проекты\NeoFlex\TestFolder\project\MS_Statement\target\classes started by Admin in D:\Проекты\NeoFlex\TestFolder\project)
+2025-01-29T21:15:32.916+03:00  INFO 34656 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : No active profile set, falling back to 1 default profile: "default"
+2025-01-29T21:15:32.960+03:00  INFO 34656 --- [ms_statement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-29T21:15:32.961+03:00  INFO 34656 --- [ms_statement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-29T21:15:33.971+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1076d5c2-5513-3c69-8e7b-65fcd69c2a90
+2025-01-29T21:15:34.390+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-01-29T21:15:34.409+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-29T21:15:34.409+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-01-29T21:15:34.492+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-29T21:15:34.493+03:00  INFO 34656 --- [ms_statement] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1532 ms
+2025-01-29T21:15:34.995+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-29T21:15:36.636+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-29T21:15:36.702+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-01-29T21:15:37.866+03:00  INFO 34656 --- [ms_statement] [restartedMain] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2025-01-29T21:15:37.874+03:00  INFO 34656 --- [ms_statement] [restartedMain] ru.statement.StatementApplication        : Started StatementApplication in 6.547 seconds (process running for 7.357)

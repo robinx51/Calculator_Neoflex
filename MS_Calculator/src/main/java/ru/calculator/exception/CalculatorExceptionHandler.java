@@ -8,8 +8,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import ru.calculator.dto.ValidationError;
-import ru.calculator.dto.ValidationErrorResponse;
+import ru.library.dto.ValidationError;
+import ru.library.dto.ValidationErrorResponse;
+import ru.library.exception.BaseExceptionHandler;
 
 import java.util.List;
 import java.util.stream.Collectors;

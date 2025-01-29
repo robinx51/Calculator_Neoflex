@@ -1,7 +1,7 @@
 package ru.calculator.services;
 
-import ru.calculator.dto.LoanOfferDto;
-import ru.calculator.dto.LoanStatementRequestDto;
+import ru.library.dto.LoanOfferDto;
+import ru.library.dto.LoanStatementRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;

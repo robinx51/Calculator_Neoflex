@@ -7,9 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import ru.calculator.dto.ValidationError;
-import ru.calculator.exception.BaseExceptionHandler;
-import ru.deal.exception.FeignValidationException;
+import ru.library.dto.ValidationError;
+import ru.library.exception.FeignValidationException;
+import ru.library.exception.BaseExceptionHandler;
 
 import java.util.List;
 import java.util.Map;

@@ -1,10 +1,10 @@
 package ru.deal.FeignClient;
 
-import ru.calculator.dto.*;
+import ru.library.dto.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import ru.deal.exception.FeignValidationException;
+import ru.library.exception.FeignValidationException;
 
 import java.util.List;
 

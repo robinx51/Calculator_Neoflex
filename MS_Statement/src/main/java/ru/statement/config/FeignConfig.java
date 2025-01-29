@@ -3,7 +3,7 @@ package ru.statement.config;
 import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.deal.config.FeignErrorDecoder;
+import ru.library.exception.FeignErrorDecoder;
 
 @Configuration
 public class FeignConfig {

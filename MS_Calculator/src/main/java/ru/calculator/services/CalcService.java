@@ -1,7 +1,7 @@
 package ru.calculator.services;
 
-import ru.calculator.dto.CreditDto;
-import ru.calculator.dto.ScoringDataDto;
+import ru.library.dto.CreditDto;
+import ru.library.dto.ScoringDataDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

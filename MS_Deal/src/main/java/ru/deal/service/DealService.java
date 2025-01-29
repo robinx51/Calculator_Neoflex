@@ -1,20 +1,19 @@
 package ru.deal.service;
 
 import jakarta.validation.ValidationException;
-import ru.calculator.dto.*;
 import ru.deal.FeignClient.CalculatorFeignClient;
-import ru.deal.db_pgsql.entity.*;
-import ru.deal.db_pgsql.service.*;
-import ru.deal.dto.EmailMessageDto;
-import ru.deal.dto.FinishRegistrationRequestDto;
-import ru.deal.dto.PassportDto;
+import ru.deal.db_pgsql.entity.Client;
+import ru.deal.db_pgsql.entity.Credit;
+import ru.deal.db_pgsql.entity.Statement;
 import ru.deal.dto.StatementStatusHistoryDto;
+import ru.library.dto.*;
+import ru.deal.db_pgsql.service.*;
 
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import ru.deal.exception.FeignValidationException;
+import ru.library.exception.FeignValidationException;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
