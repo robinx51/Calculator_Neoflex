@@ -58,7 +58,7 @@ public class DealService {
         statement.setCredit(credit);
         addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.PREPARE_DOCUMENTS);
 
-        EmailMessageDto emailMessageDto = createEmailMessageDto(
+        EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
                 EmailMessageDto.Theme.finishRegistration,
                 "Ваша заявка предварительно одобрена, завершите оформление");
@@ -87,7 +87,7 @@ public class DealService {
     public void sendDocuments(String statementId) {
         Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
         addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.PREAPPROVAL);
-        EmailMessageDto emailMessageDto = createEmailMessageDto(
+        EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
                 EmailMessageDto.Theme.sendDocuments,
                 "Документы отправлены");
@@ -104,7 +104,7 @@ public class DealService {
 
         Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
 
-        EmailMessageDto emailMessageDto = createEmailMessageDto(
+        EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
                 EmailMessageDto.Theme.sendSes,
                 messageText);
@@ -118,7 +118,7 @@ public class DealService {
     public void signDocuments(Integer sesCode, String statementId) throws ValidationException {
         Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
         if (statement.getSesCode().equals(sesCode)) {
-            EmailMessageDto emailMessageDto = createEmailMessageDto(
+            EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                     statement,
                     EmailMessageDto.Theme.creditIssued,
                     "Документы Подписаны");
@@ -209,20 +209,7 @@ public class DealService {
         client.setAccountNumber(request.getAccountNumber());
     }
 
-    private EmailMessageDto createEmailMessageDto(
-            Statement statement,
-            EmailMessageDto.Theme theme,
-            String messageText) {
 
-        String email = statement.getClient().getEmail();
-
-        return EmailMessageDto.builder()
-                .theme(theme)
-                .address(email)
-                .statementId(statement.getStatementId())
-                .text(messageText)
-                .build();
-    }
 
     private void processCalculationRequest(Statement statement, String statementId, ScoringDataDto scoringDataDto) throws FeignValidationException {
         CreditDto creditDto = calculatorFeignClient.getCreditDto(scoringDataDto);
@@ -232,7 +219,7 @@ public class DealService {
 
         addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.DOCUMENT_CREATED);
 
-        EmailMessageDto emailMessageDto = createEmailMessageDto(
+        EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
                 EmailMessageDto.Theme.createDocuments,
                 "Регистрация завершена");
@@ -249,7 +236,7 @@ public class DealService {
             String errorMessage = error.getMessage();
             message.append(errorMessage).append("\n");
         });
-        EmailMessageDto emailMessageDto = createEmailMessageDto(
+        EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
                 EmailMessageDto.Theme.statementDenied,
                 message.toString());
