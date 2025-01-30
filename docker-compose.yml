@@ -1,13 +1,17 @@
 services:
   zookeeper:
+    container_name: zookeeper
     image: confluentinc/cp-zookeeper:latest
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "22181:2181"
+    networks:
+      - neoflex-bank-network
 
   kafka:
+    container_name: kafka
     image: confluentinc/cp-kafka:latest
     depends_on:
       - zookeeper
@@ -21,10 +25,12 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT, PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - neoflex-bank-network
 
   kafka-ui:
-    image: provectuslabs/kafka-ui
     container_name: kafka-ui
+    image: provectuslabs/kafka-ui
     ports:
       - "8090:8080"
     restart: always
@@ -35,3 +41,120 @@ services:
     links:
       - kafka
       - zookeeper
+    networks:
+      - neoflex-bank-network
+
+  service-db:
+    container_name: db-neoflex-bank
+    image: postgres:14.7-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./infrastructure/db/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
+      - db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - neoflex-bank-network
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:7
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - neoflex-bank-network
+
+
+  calculator-image:
+    container_name: ms-calculator
+    build:
+      context: MS_Calculator
+      dockerfile: Dockerfile
+    image: calculator-image:latest
+    ports:
+      - "8180:8180"
+    networks:
+      - neoflex-bank-network
+    environment:
+      - SERVER_PORT=8180
+
+  deal-image:
+    container_name: ms-deal
+    build:
+      context: MS_Deal
+      dockerfile: Dockerfile
+    image: deal-image:latest
+    ports:
+      - "8181:8181"
+    depends_on:
+      - service-db
+    networks:
+      - neoflex-bank-network
+    environment:
+      - SERVER_PORT=8181
+      - CALCULATOR_URL=http://ms-calculator:8180
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://service-db/neoflex_bank
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:29092
+
+  statement-image:
+    container_name: ms-statement
+    build:
+      context: MS_Statement
+      dockerfile: Dockerfile
+    image: statement-image:latest
+    ports:
+      - "8182:8182"
+    networks:
+      - neoflex-bank-network
+    environment:
+      - SERVER_PORT=8182
+      - DEAL_URL=http://ms-deal:8181
+
+  dossier-image:
+    container_name: ms-dossier
+    build:
+      context: MS_Dossier
+      dockerfile: Dockerfile
+    image: dossier-image:latest
+    ports:
+      - "8183:8183"
+    depends_on:
+      - kafka
+    networks:
+      - neoflex-bank-network
+    environment:
+      - SERVER_PORT=8183
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:29092
+      - SPRING_KAFKA_CONSUMER_GROUP-ID=ms-dossier-consumer-docker-group
+
+  gateway-image:
+    container_name: ms-gateway
+    build:
+      context: MS_Gateway
+      dockerfile: Dockerfile
+    image: gateway-image:latest
+    ports:
+      - "8184:8184"
+    networks:
+      - neoflex-bank-network
+    environment:
+      - SERVER_PORT=8184
+      - DEAL_URL=http://ms-deal:8181
+      - STATEMENT_URL=http://ms-statement:8182
+
+networks:
+  neoflex-bank-network:
+    driver: bridge
+
+volumes:
+  db-data:
+  pgadmin-data:

@@ -1,0 +1,1 @@
+create database neoflex_bank;

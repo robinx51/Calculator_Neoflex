@@ -2,8 +2,8 @@ FROM openjdk:17-jdk-alpine
 
 WORKDIR /app
 
-# Копирование JAR-файла в контейнер
-COPY MS_Deal/target/*.jar app.jar
+COPY target/MS_Deal-1.0-SNAPSHOT-exec.jar app.jar
 
-# Команда для запуска JAR-файла
+EXPOSE 8181
+
 CMD ["java", "-jar", "app.jar"]
