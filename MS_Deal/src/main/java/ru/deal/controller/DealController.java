@@ -1,9 +1,10 @@
 package ru.deal.controller;
 
 import jakarta.validation.ValidationException;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import ru.library.dto.LoanOfferDto;
 import ru.library.dto.LoanStatementRequestDto;
+import ru.deal.db_pgsql.entity.Statement;
 import ru.library.dto.FinishRegistrationRequestDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.validation.annotation.Validated;
@@ -14,8 +15,8 @@ import ru.deal.service.DealService;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/deal")
-@AllArgsConstructor
 public class DealController {
     private final DealService dealService;
 
@@ -47,19 +48,19 @@ public class DealController {
                     "Отправляется POST запрос на /calculator/calc МС Калькулятор с телом ScoringDataDto через RestClient." +
                     "На основе полученного из кредитного конвейера CreditDto создаётся сущность Credit и сохраняется в базу со статусом CALCULATED." +
                     "В заявке обновляется статус, история статусов. Заявка сохраняется.")
-    public void completeRegistration(@PathVariable String statementId, @RequestBody FinishRegistrationRequestDto request) throws FeignValidationException {
+    public void finishRegistration(@PathVariable String statementId, @RequestBody FinishRegistrationRequestDto request) throws FeignValidationException {
         dealService.finishRegistration(statementId, request);
     }
 
     @PostMapping("/document/{statementId}/send")
     @Tag(name = "Запрос на отправку документов")
-    public void createDocuments(@PathVariable String statementId) {
+    public void createDocuments(@PathVariable String statementId) throws ValidationException {
         dealService.sendDocuments(statementId);
     }
 
     @PostMapping("/document/{statementId}/sign")
     @Tag(name = "Запрос на подписание документов")
-    public void signRequestDocuments(@PathVariable String statementId) {
+    public void signRequestDocuments(@PathVariable String statementId) throws ValidationException {
         dealService.signRequestDocuments(statementId);
     }
 
@@ -67,5 +68,17 @@ public class DealController {
     @Tag(name = "Подписание документов")
     public void signDocuments(@PathVariable String statementId, @RequestParam Integer sesCode) throws ValidationException {
         dealService.signDocuments(sesCode, statementId);
+    }
+
+    @GetMapping("/admin/statement/{statementId}")
+    @Tag(name = "Получить заявку по id ")
+    public Statement getStatement(@PathVariable String statementId) {
+        return dealService.getStatementById(statementId);
+    }
+
+    @GetMapping("/admin/statement")
+    @Tag(name = "Получить все заявки")
+    public List<Statement> getStatements() {
+        return dealService.getStatements();
     }
 }

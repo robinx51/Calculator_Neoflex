@@ -5,7 +5,6 @@ import ru.deal.FeignClient.CalculatorFeignClient;
 import ru.deal.db_pgsql.entity.Client;
 import ru.deal.db_pgsql.entity.Credit;
 import ru.deal.db_pgsql.entity.Statement;
-import ru.deal.dto.StatementStatusHistoryDto;
 import ru.library.dto.*;
 import ru.deal.db_pgsql.service.*;
 
@@ -13,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import ru.library.enums.ApplicationStatus;
+import ru.library.enums.CreditStatus;
 import ru.library.exception.FeignValidationException;
 
 import java.sql.Timestamp;
@@ -31,6 +32,8 @@ public class DealService {
     private final CalculatorFeignClient calculatorFeignClient;
     private final KafkaService kafkaService;
 
+    private static final Logger logger = LoggerFactory.getLogger(DealService.class);
+
     private static final String TOPIC_FINISH_REGISTRATION = "finish-registration";
     private static final String TOPIC_CREATE_DOCUMENTS = "create-documents";
     private static final String TOPIC_SEND_DOCUMENTS = "send-documents";
@@ -38,13 +41,11 @@ public class DealService {
     private static final String TOPIC_CREDIT_ISSUED = "credit-issued";
     private static final String TOPIC_STATEMENT_DENIED = "statement-denied";
 
-    private static final Logger logger = LoggerFactory.getLogger(DealService.class);
-
     public List<LoanOfferDto> processClient(LoanStatementRequestDto request) {
         logger.info("Получена заявка на расчёт возможных условий кредита");
         Client client = clientService.createClient(request);
         Statement statement = statementServiceDB.createStatement(client);
-        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.STATEMENT_CREATED);
+        addStatementStatusAndUpdate(statement, ApplicationStatus.STATEMENT_CREATED);
         logger.info("Заявка на расчёт обработана");
         return setStatementIds(calculatorFeignClient.getOffers(request), statement.getStatementId());
     }
@@ -55,7 +56,7 @@ public class DealService {
         Statement statement = statementServiceDB.getStatementById(request.getStatementId());
         statement.setAppliedOffer(request);
         statement.setCredit(credit);
-        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.PREPARE_DOCUMENTS);
+        addStatementStatusAndUpdate(statement, ApplicationStatus.PREPARE_DOCUMENTS);
 
         EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
@@ -83,9 +84,11 @@ public class DealService {
     }
 
 
-    public void sendDocuments(String statementId) {
+    public void sendDocuments(String statementId) throws ValidationException {
         Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
-        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.PREAPPROVAL);
+        if (statement.getStatus() != ApplicationStatus.DOCUMENT_CREATED)
+            throw new ValidationException("authNotComplete");
+        addStatementStatusAndUpdate(statement, ApplicationStatus.PREAPPROVAL);
         EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
                 EmailMessageDto.Theme.sendDocuments,
@@ -93,15 +96,17 @@ public class DealService {
         kafkaService.sendMessage(TOPIC_SEND_DOCUMENTS, emailMessageDto);
     }
 
-    public void signRequestDocuments(String statementId) {
+    public void signRequestDocuments(String statementId) throws ValidationException {
+        Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
+        if (statement.getStatus() != ApplicationStatus.PREAPPROVAL)
+            throw new ValidationException("authNotComplete");
+
         Random rnd = new Random();
         int sesCode = 100000 + rnd.nextInt(900000);
         String messageText =
                 "Документы по вашей заявке подписаны.\n" +
                 "Id заявки: " + statementId + "\n" +
                 "Код подтверждения заявки: " + sesCode;
-
-        Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
 
         EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
@@ -111,11 +116,13 @@ public class DealService {
 
         statement.setSesCode(sesCode);
         statement.setSignDate(Timestamp.valueOf(LocalDateTime.now()));
-        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.DOCUMENT_SIGNED);
+        addStatementStatusAndUpdate(statement, ApplicationStatus.DOCUMENT_SIGNED);
     }
 
     public void signDocuments(Integer sesCode, String statementId) throws ValidationException {
         Statement statement = statementServiceDB.getStatementById(UUID.fromString(statementId));
+        if (statement.getStatus() != ApplicationStatus.DOCUMENT_SIGNED)
+            throw new ValidationException("authNotComplete");
         if (statement.getSesCode().equals(sesCode)) {
             EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                     statement,
@@ -123,14 +130,22 @@ public class DealService {
                     "Документы Подписаны");
             kafkaService.sendMessage(TOPIC_CREDIT_ISSUED, emailMessageDto);
 
-            addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.CREDIT_ISSUED);
+            addStatementStatusAndUpdate(statement, ApplicationStatus.CREDIT_ISSUED);
 
             Credit credit = creditServiceDB.getCreditById(statement.getCredit().getCreditId());
-            credit.setCreditStatus(Credit.eCreditStatus.ISSUED);
+            credit.setCreditStatus(CreditStatus.ISSUED);
             creditServiceDB.updateCredit(credit);
         } else {
-            throw new ValidationException("Неверный код подтверждения");
+            throw new ValidationException("incorrectSesCode");
         }
+    }
+
+    public Statement getStatementById(String statementId) {
+        return statementServiceDB.getStatementById(UUID.fromString(statementId));
+    }
+
+    public List<Statement> getStatements() {
+        return statementServiceDB.getStatements();
     }
 
 
@@ -141,7 +156,7 @@ public class DealService {
         return offers;
     }
 
-    private void addStatementStatusAndUpdate(Statement statement, Statement.eApplicationStatus status) {
+    private void addStatementStatusAndUpdate(Statement statement, ApplicationStatus status) {
         List<StatementStatusHistoryDto> list;
         if (statement.getStatusHistory() == null) {
             list = new ArrayList<>();
@@ -192,7 +207,7 @@ public class DealService {
         credit.setRate(creditDto.getRate());
         credit.setPsk(creditDto.getPsk());
         credit.setPaymentSchedule(creditDto.getPaymentSchedule());
-        credit.setCreditStatus(Credit.eCreditStatus.CALCULATED);
+        credit.setCreditStatus(CreditStatus.CALCULATED);
     }
 
     private void setClientByFinishRegistrationRequestDto(Client client, FinishRegistrationRequestDto request) {
@@ -208,15 +223,13 @@ public class DealService {
         client.setAccountNumber(request.getAccountNumber());
     }
 
-
-
     private void processCalculationRequest(Statement statement, String statementId, ScoringDataDto scoringDataDto) throws FeignValidationException {
         CreditDto creditDto = calculatorFeignClient.getCreditDto(scoringDataDto);
         Credit credit = statement.getCredit();
         setCreditByCreditDto(credit, creditDto);
         creditServiceDB.updateCredit(credit);
 
-        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.DOCUMENT_CREATED);
+        addStatementStatusAndUpdate(statement, ApplicationStatus.DOCUMENT_CREATED);
 
         EmailMessageDto emailMessageDto = kafkaService.createEmailMessageDto(
                 statement,
@@ -228,7 +241,7 @@ public class DealService {
     }
 
     private void handleValidationError(Statement statement, FeignValidationException ex){
-        addStatementStatusAndUpdate(statement, Statement.eApplicationStatus.CLIENT_DENIED);
+        addStatementStatusAndUpdate(statement, ApplicationStatus.CLIENT_DENIED);
 
         StringBuilder message = new StringBuilder("Заявка отклонена, ниже - причины отказа.\n");
         ex.getErrors().forEach((error) -> {

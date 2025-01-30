@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.library.enums.CreditStatus;
 
 import java.util.UUID;
 
@@ -21,7 +22,7 @@ public class CreditServiceDB {
         Credit credit = new Credit();
         credit.setInsuranceEnabled(insuranceEnabled);
         credit.setSalaryClient(salaryClient);
-        credit.setCreditStatus(Credit.eCreditStatus.PREPARED);
+        credit.setCreditStatus(CreditStatus.PREPARED);
         return creditRepository.save(credit);
     }
 

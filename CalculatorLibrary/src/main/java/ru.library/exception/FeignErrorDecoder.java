@@ -3,6 +3,7 @@ package ru.library.exception;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.Response;
 import feign.codec.ErrorDecoder;
+import jakarta.validation.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.library.dto.ValidationError;
@@ -24,6 +25,10 @@ public class FeignErrorDecoder implements ErrorDecoder {
             try {
                 String responseBody = new String(response.body().asInputStream().readAllBytes());
                 logger.warn("Тело ошибки: {}", responseBody);
+                if (responseBody.equals("incorrectSesCode"))
+                    return new ValidationException("Неверный код подтверждения");
+                else if (responseBody.equals("authNotComplete"))
+                    return new ValidationException("Регистрация не завершена");
 
                 ValidationErrorResponse errorResponse = objectMapper.readValue(
                         responseBody,

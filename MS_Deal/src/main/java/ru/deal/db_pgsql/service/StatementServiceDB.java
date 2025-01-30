@@ -1,17 +1,21 @@
 package ru.deal.db_pgsql.service;
 
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.deal.db_pgsql.entity.Client;
 import ru.deal.db_pgsql.entity.Statement;
 import ru.deal.db_pgsql.repository.StatementRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.UUID;
 
 
 @Service
+@RequiredArgsConstructor
 public class StatementServiceDB {
     @Autowired
     public StatementRepository statementRepository;
@@ -38,5 +42,9 @@ public class StatementServiceDB {
     public Statement getStatementById(UUID statementId) {
         return statementRepository.findById(statementId)
                 .orElseThrow(() -> new EntityNotFoundException("Statement с id: " + statementId + " не найден"));
+    }
+
+    public List<Statement> getStatements() {
+        return statementRepository.findAll();
     }
 }

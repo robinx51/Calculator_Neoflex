@@ -18,6 +18,8 @@
 		<module>MS_Calculator</module>
 		<module>MS_Deal</module>
         <module>MS_Statement</module>
+        <module>MS_Dossier</module>
+		<module>MS_Gateway</module>
     </modules>
 
 
@@ -96,6 +98,13 @@
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+		<!--FeignClient-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>4.1.4</version>
 		</dependency>
 	</dependencies>
 
