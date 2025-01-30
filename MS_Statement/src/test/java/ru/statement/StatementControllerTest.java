@@ -10,8 +10,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import ru.calculator.dto.LoanOfferDto;
-import ru.calculator.dto.LoanStatementRequestDto;
+import ru.library.dto.LoanOfferDto;
+import ru.library.dto.LoanStatementRequestDto;
 import ru.statement.controller.StatementController;
 import ru.statement.service.StatementService;
 

@@ -8,3 +8,5 @@ target/
 *.iws
 *.iml
 *.ipr
+
+!/src/main/resources/application-profile.properties

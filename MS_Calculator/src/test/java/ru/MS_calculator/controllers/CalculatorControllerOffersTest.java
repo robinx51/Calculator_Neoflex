@@ -1,8 +1,8 @@
 package ru.MS_calculator.controllers;
 
 import ru.calculator.controller.CalculatorController;
-import ru.calculator.dto.LoanOfferDto;
-import ru.calculator.dto.LoanStatementRequestDto;
+import ru.library.dto.LoanOfferDto;
+import ru.library.dto.LoanStatementRequestDto;
 import ru.calculator.services.ScoringService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;

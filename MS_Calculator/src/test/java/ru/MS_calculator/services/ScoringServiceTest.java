@@ -1,8 +1,8 @@
 package ru.MS_calculator.services;
 
-import ru.calculator.dto.EmploymentDto;
-import ru.calculator.dto.PaymentScheduleElementDto;
-import ru.calculator.dto.ScoringDataDto;
+import ru.library.dto.EmploymentDto;
+import ru.library.dto.PaymentScheduleElementDto;
+import ru.library.dto.ScoringDataDto;
 import ru.calculator.services.ScoringService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

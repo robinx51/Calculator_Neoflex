@@ -1,0 +1,11 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="change-sesCode-type" author="robinx51">
+        <sql>
+            ALTER TABLE statement ALTER COLUMN ses_code TYPE integer USING ses_code::integer;
+        </sql>
+    </changeSet>
+</databaseChangeLog>

@@ -8,29 +8,30 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import ru.library.dto.ValidationError;
+import ru.library.dto.ValidationErrorResponse;
+import ru.library.exception.BaseExceptionHandler;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @ControllerAdvice
-public class CalculatorExceptionHandler {
+public class CalculatorExceptionHandler extends BaseExceptionHandler {
 
-    private static final Logger logger = LoggerFactory.getLogger(CalculatorExceptionHandler.class); // Инициализация логгера
+    private static final Logger logger = LoggerFactory.getLogger(CalculatorExceptionHandler.class);
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleValidationErrors(MethodArgumentNotValidException ex) {
-        Map<String, String> errors = new HashMap<>();
+    public ResponseEntity<ValidationErrorResponse> handleValidationErrors(MethodArgumentNotValidException ex) {
+        logger.warn(ex.getMessage());
+        List<ValidationError> errors = ex.getBindingResult().getAllErrors().stream()
+                .filter(error -> error instanceof FieldError)
+                .map(error -> {
+                    FieldError fieldError = (FieldError) error;
+                    return new ValidationError(fieldError.getField(), fieldError.getDefaultMessage());
+                })
+                .collect(Collectors.toList());
 
-        logger.warn("Обработка ошибки валидации: {}", ex.getMessage());
-
-        ex.getBindingResult().getAllErrors().forEach((error) -> {
-            String fieldName = ((FieldError) error).getField();
-            String errorMessage = error.getDefaultMessage();
-            errors.put(fieldName, errorMessage);
-
-            logger.info("Ошибка в поле '{}': {}", fieldName, errorMessage);
-        });
-
-        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        ValidationErrorResponse response = new ValidationErrorResponse(errors);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

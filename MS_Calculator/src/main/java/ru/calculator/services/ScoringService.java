@@ -1,7 +1,7 @@
 package ru.calculator.services;
 
-import ru.calculator.dto.PaymentScheduleElementDto;
-import ru.calculator.dto.ScoringDataDto;
+import ru.library.dto.PaymentScheduleElementDto;
+import ru.library.dto.ScoringDataDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
