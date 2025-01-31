@@ -81,4 +81,16 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>profile</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>profile</build.profile.id>
+                <profileActive>profile</profileActive>
+            </properties>
+        </profile>
+    </profiles>
 </project>
