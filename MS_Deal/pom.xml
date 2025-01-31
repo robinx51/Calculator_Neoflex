@@ -6,7 +6,6 @@
         <groupId>ru.Neoflex_bank</groupId>
         <artifactId>Neoflex_bank</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>MS_Deal</artifactId>
@@ -82,4 +81,16 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>profile</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>profile</build.profile.id>
+                <profileActive>profile</profileActive>
+            </properties>
+        </profile>
+    </profiles>
 </project>
