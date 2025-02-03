@@ -26,8 +26,13 @@ jobs:
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: jacoco-report
-          path: target/site/jacoco/
+          name: jacoco-reports
+          path: |
+            MS_Calculator/target/site/jacoco/
+            MS_Deal/target/site/jacoco/
+            MS_Dossier/target/site/jacoco/
+            MS_Gateway/target/site/jacoco/
+            MS_Statement/target/site/jacoco/
 
       - name: Run SonarCloud analysis
         env:
