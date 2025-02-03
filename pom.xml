@@ -22,6 +22,16 @@
 		<module>MS_Gateway</module>
     </modules>
 
+	<properties>
+		<sonar.coverage.jacoco.xmlReportPaths>
+			MS_Calculator/target/site/jacoco/jacoco.xml,
+			MS_Deal/target/site/jacoco/jacoco.xml,
+			MS_Dossier/target/site/jacoco/jacoco.xml,
+			MS_Gateway/target/site/jacoco/jacoco.xml,
+			MS_Statement/target/site/jacoco/jacoco.xml
+		</sonar.coverage.jacoco.xmlReportPaths>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>ru.Neoflex_bank</groupId>

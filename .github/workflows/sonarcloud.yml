@@ -23,16 +23,24 @@ jobs:
       - name: Maven Package
         run: mvn -B clean verify
 
-      - name: Upload coverage report
+      - name: Upload coverage reports
         uses: actions/upload-artifact@v4
         with:
-          name: jacoco-reports
-          path: |
-            MS_Calculator/target/site/jacoco/
-            MS_Deal/target/site/jacoco/
-            MS_Dossier/target/site/jacoco/
-            MS_Gateway/target/site/jacoco/
-            MS_Statement/target/site/jacoco/
+            name: jacoco-reports
+            path: |
+              MS_Calculator/target/site/jacoco/
+              MS_Deal/target/site/jacoco/
+              MS_Dossier/target/site/jacoco/
+              MS_Gateway/target/site/jacoco/
+              MS_Statement/target/site/jacoco/
+            if-no-files-found: warn
+
+      - name: Upload aggregated coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-aggregate-report
+          path: target/site/jacoco-aggregate/
+          if-no-files-found: warn
 
       - name: Run SonarCloud analysis
         env:
